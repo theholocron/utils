@@ -15,6 +15,12 @@ jobs:
   bundle-size:
     name: Audit the bundle size
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        package:
+          - packages/array
+          - packages/string
+          - packages/uri
     steps:
       - uses: actions/checkout@v4
         name: Checkout repository
@@ -30,8 +36,11 @@ jobs:
       - run: npm ci
         name: Install dependencies
 
+      - name: Change to package directory
+        run: cd ${{ matrix.package }}
+
       - uses: jackyef/bundlewatch-gh-action@0.3.0
         name: Analyze using BundleWatch
         with:
-          build-script: turbo run build
+          build-script: npm run build
           bundlewatch-github-token: ${{ secrets.BUNDLEWATCH_GITHUB_TOKEN }}
