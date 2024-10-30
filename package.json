@@ -1,0 +1,39 @@
+{
+  "name": "@theholocron/monorepo-template",
+  "version": "0.0.0",
+  "description": "<description>",
+  "homepage": "https://github.com/theholocron/monorepo-template#readme",
+  "bugs": "https://github.com/theholocron/monorepo-template/issues",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theholocron/monorepo-template.git"
+  },
+  "license": "GPL-3.0",
+  "author": "Newton Koumantzelis",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "lint": "turbo run lint",
+    "release": "changeset",
+    "test": "turbo run test"
+  },
+  "devDependencies": {
+    "@changesets/changelog-github": "^0.5.0",
+    "@changesets/cli": "^2.27.9",
+    "@theholocron/commitlint-config": "^3.4.4",
+    "@theholocron/lint-staged-config": "^3.4.4",
+    "alexjs": "^1.0.0",
+    "turbo": "^2.2.3"
+  },
+  "packageManager": "npm@9.5.0",
+  "engines": {
+    "node": ">=23",
+    "npm": ">=10"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "releases": "https://github.com/theholocron/monorepo-template/releases",
+  "wiki": "https://github.com/theholocron/monorepo-template/wiki"
+}
