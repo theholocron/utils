@@ -42,5 +42,5 @@ jobs:
       - uses: jackyef/bundlewatch-gh-action@0.3.0
         name: Analyze using BundleWatch
         with:
-          build-script: npm run build -- --filter=${{ matrix.package }}
+          build-script: npm run build
           bundlewatch-github-token: ${{ secrets.BUNDLEWATCH_GITHUB_TOKEN }}
