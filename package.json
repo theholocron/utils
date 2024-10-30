@@ -1,12 +1,12 @@
 {
-  "name": "@theholocron/monorepo-template",
+  "name": "@theholocron/utils",
   "version": "0.0.0",
-  "description": "<description>",
-  "homepage": "https://github.com/theholocron/monorepo-template#readme",
-  "bugs": "https://github.com/theholocron/monorepo-template/issues",
+  "description": "Small utilities used within the Galaxy.",
+  "homepage": "https://github.com/theholocron/utils#readme",
+  "bugs": "https://github.com/theholocron/utils/issues",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/theholocron/monorepo-template.git"
+    "url": "git+https://github.com/theholocron/utils.git"
   },
   "license": "GPL-3.0",
   "author": "Newton Koumantzelis",
@@ -34,6 +34,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "releases": "https://github.com/theholocron/monorepo-template/releases",
-  "wiki": "https://github.com/theholocron/monorepo-template/wiki"
+  "releases": "https://github.com/theholocron/utils/releases",
+  "wiki": "https://github.com/theholocron/utils/wiki"
 }
