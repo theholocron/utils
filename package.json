@@ -10,6 +10,7 @@
   },
   "license": "GPL-3.0",
   "author": "Newton Koumantzelis",
+  "type": "module",
   "workspaces": [
     "packages/*"
   ],
@@ -30,7 +31,7 @@
   },
   "packageManager": "npm@9.5.0",
   "engines": {
-    "node": ">=23",
+    "node": ">=20",
     "npm": ">=10"
   },
   "publishConfig": {
