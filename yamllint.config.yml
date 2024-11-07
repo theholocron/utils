@@ -11,7 +11,7 @@ rules:
 
   document-start:
     ignore: |
-      .github/*.yml
+      .github/**/*.yml
 
   indentation:
     spaces: consistent
