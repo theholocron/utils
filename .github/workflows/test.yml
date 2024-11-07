@@ -45,5 +45,5 @@ jobs:
         name: Upload test results to Codecov
         if: ${{ !cancelled() }}
         with:
-          flags: ${{ matrix.package }}
+          working-directory: ${{ matrix.package }}
           token: ${{ secrets.CODECOV_TOKEN }}
