@@ -1,24 +1,19 @@
-name: Audit
+name: Test
 
-# @TODO: add in more things like:
-# - [ ] performance checks (using yellowpages, googles tools, etc)
-# - [ ] dead css checks
-# - [ ] coverage drops
-
-on: # yamllint disable-line rule:truthy
-  pull_request:
-    types:
-      - synchronize
-      - opened
+on:
+  push
 
 jobs:
-  bundle-size:
-    name: Audit the bundle size
+  coverage:
+    name: Run tests and collect coverage
     runs-on: ubuntu-latest
     strategy:
       matrix:
         package:
           - packages/array
+          - packages/location
+          - packages/misc
+          - packages/storage
           - packages/string
           - packages/uri
     steps:
@@ -36,9 +31,11 @@ jobs:
       - run: npm ci
         name: Install dependencies
 
-      - uses: jackyef/bundlewatch-gh-action@0.3.0
-        name: Analyze using BundleWatch
+      - run: npm run test -- --coverage
+        name: Run tests with coverage
+
+      - uses: codecov/codecov-action@v4
+        name: Upload results to Codecov
         working-directory: ${{ matrix.package }}
         with:
-          build-script: npm run build
-          bundlewatch-github-token: ${{ secrets.BUNDLEWATCH_GITHUB_TOKEN }}
+          token: ${{ secrets.CODECOV_TOKEN }}
