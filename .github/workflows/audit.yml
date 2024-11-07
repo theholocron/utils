@@ -19,6 +19,9 @@ jobs:
       matrix:
         package:
           - packages/array
+          - packages/location
+          - packages/misc
+          - packages/storage
           - packages/string
           - packages/uri
     steps:
@@ -36,9 +39,11 @@ jobs:
       - run: npm ci
         name: Install dependencies
 
+      - name: Change to package directory
+        run: cd ${{ matrix.package }}
+
       - uses: jackyef/bundlewatch-gh-action@0.3.0
         name: Analyze using BundleWatch
-        working-directory: ${{ matrix.package }}
         with:
           build-script: npm run build
           bundlewatch-github-token: ${{ secrets.BUNDLEWATCH_GITHUB_TOKEN }}

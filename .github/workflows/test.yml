@@ -31,11 +31,14 @@ jobs:
       - run: npm ci
         name: Install dependencies
 
-      - run: npm run test -- --coverage
+      - run: npm test
         name: Run tests with coverage
+        working-directory: ${{ matrix.package }}
 
       - uses: codecov/codecov-action@v4
         name: Upload results to Codecov
-        working-directory: ${{ matrix.package }}
         with:
+          files: ./${{ matrix.package }}/coverage/coverage-final.json
+          flags: ${{ matrix.package }}
           token: ${{ secrets.CODECOV_TOKEN }}
+
