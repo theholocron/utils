@@ -30,7 +30,7 @@ jobs:
       - run: npm ci
         name: Install dependencies
 
-      - run: npm test -- -- --coverage --reporter=junit
+      - run: npm test -- --coverage --reporter=junit
         name: Run tests with coverage
         working-directory: ${{ matrix.package }}
 
