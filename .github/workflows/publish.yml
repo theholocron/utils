@@ -27,6 +27,8 @@ jobs:
 
       - run: npm ci
         name: Install dependencies
+        env:
+          HUSKY: 0
 
       - run: npm run build
         name: Compile library
