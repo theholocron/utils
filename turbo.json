@@ -4,6 +4,7 @@
     "build": {},
     "lint": {},
     "release": {},
-    "test": {}
+    "test": {},
+    "types": {}
   }
 }

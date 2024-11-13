@@ -30,7 +30,7 @@ jobs:
         env:
           HUSKY: 0
 
-      - run: npm run build
+      - run: npm run build && npm run types
         name: Compile library
 
       - uses: changesets/action@v1
