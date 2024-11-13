@@ -30,12 +30,8 @@ jobs:
         env:
           HUSKY: 0
 
-      - run: npm install typescript
-        name: Install TypeScript
-        env:
-          HUSKY: 0
 
-      - run: npm run build && npm run types
+      - run: npm install typescript && npm run build && npx tsc
         name: Compile library
 
       - uses: changesets/action@v1
