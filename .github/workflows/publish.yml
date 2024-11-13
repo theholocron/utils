@@ -30,6 +30,11 @@ jobs:
         env:
           HUSKY: 0
 
+      - run: npm install typescript
+        name: Install TypeScript
+        env:
+          HUSKY: 0
+
       - run: npm run build && npm run types
         name: Compile library
 
