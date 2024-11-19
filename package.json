@@ -31,7 +31,7 @@
     "@theholocron/commitlint-config": "^3.5.1",
     "@theholocron/lint-staged-config": "^3.5.1",
     "@types/web": "^0.0.180",
-    "@vitest/coverage-v8": "^2.1.4",
+    "@vitest/coverage-v8": "^2.1.5",
     "alexjs": "^1.0.0",
     "turbo": "^2.2.3",
     "vitest": "^2.1.4"
