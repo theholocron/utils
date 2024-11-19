@@ -1,8 +1,8 @@
 {
-  "name": "@theholocron/utils-array",
-  "version": "0.2.2",
-  "description": "Convert or manipulate arrays.",
-  "homepage": "https://github.com/theholocron/utils/tree/main/packages/utils-array#readme",
+  "name": "@theholocron/utils-date-time",
+  "version": "0.0.0",
+  "description": "Handle dates and time.",
+  "homepage": "https://github.com/theholocron/utils/tree/main/packages/utils-date-time#readme",
   "bugs": "https://github.com/theholocron/utils/issues",
   "repository": {
     "type": "git",
@@ -13,13 +13,13 @@
   "type": "module",
   "exports": {
     ".": {
-      "import": "./dist/utils-array.es.js",
-      "require": "./dist/utils-array.cjs.js",
+      "import": "./dist/utils-date-time.es.js",
+      "require": "./dist/utils-date-time.cjs.js",
       "types": "./dist/index.d.ts"
     }
   },
-  "main": "dist/utils-array.cjs.js",
-  "module": "dist/utils-array.es.js",
+  "main": "dist/utils-date-time.cjs.js",
+  "module": "dist/utils-date-time.es.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist/*"
