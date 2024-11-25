@@ -30,7 +30,7 @@
     "@changesets/cli": "^2.27.9",
     "@theholocron/commitlint-config": "^3.5.1",
     "@theholocron/lint-staged-config": "^3.5.1",
-    "@types/web": "^0.0.180",
+    "@types/web": "^0.0.183",
     "@vitest/coverage-v8": "^2.1.5",
     "alexjs": "^1.0.0",
     "turbo": "^2.3.0",
