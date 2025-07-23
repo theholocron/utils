@@ -15,7 +15,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - uses: actions/setup-node@v4
-        name: Setup Node.js @v20
+        name: Setup Node.js
         with:
           cache: npm
           node-version: 22.x
