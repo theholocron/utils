@@ -11,6 +11,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         name: Checkout repository
+        with:
+          token: ${{ secrets.GH_TOKEN }}
 
       - uses: actions/setup-node@v4
         name: Setup Node.js @v20
