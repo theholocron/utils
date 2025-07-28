@@ -29,7 +29,7 @@
     "@changesets/changelog-github": "^0.5.1",
     "@changesets/cli": "^2.29.5",
     "@theholocron/commitlint-config": "^3.5.1",
-    "@theholocron/lint-staged-config": "^3.5.1",
+    "@theholocron/lint-staged-config": "^4.1.0",
     "@types/web": "^0.0.216",
     "@vitest/coverage-v8": "^2.1.8",
     "alexjs": "^1.0.0",
