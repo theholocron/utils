@@ -21,18 +21,21 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
+      - uses: pnpm/action-setup@v4
+        name: Setup pnpm
+
       - uses: actions/setup-node@v4
         name: Setup Node.js
         with:
-          cache: npm
+          cache: pnpm
           node-version: 22.x
 
-      - run: npm ci
+      - run: pnpm install --frozen-lockfile
         name: Install dependencies
         env:
           HUSKY: 0
 
-      - run: npm rebuild typescript && npm run build && npm run types
+      - run: pnpm build && pnpm types
         name: Compile library
 
       - uses: changesets/action@v1
