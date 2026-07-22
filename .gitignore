@@ -87,3 +87,4 @@ super-linter-output
 coverage
 reports
 dist
+test-report.junit.xml
