@@ -1,19 +1,21 @@
 # AUTO-GENERATED — do not edit directly.
 # Source:  theholocron/holocron · packages/cli/src/commands/setup-workflows.ts
-# Synced:  2026-07-22T20:30:51.678Z
+# Synced:  2026-07-22T20:30:51.679Z
 # Tool:    holocron setup
 # Changes: run `holocron setup` to regenerate.
-name: Greetings
+name: Bookkeeping
 
 on: # yamllint disable-line rule:truthy
   pull_request:
-  issues:
+    types:
+      - opened
+      - edited
 
 permissions:
-  issues: write
+  contents: read
   pull-requests: write
 
 jobs:
-  greetings:
-    uses: theholocron/.github/.github/workflows/greetings.yml@main
+  bookkeeping:
+    uses: theholocron/.github/.github/workflows/bookkeeping.yml@main
     secrets: inherit

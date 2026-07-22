@@ -4,8 +4,13 @@ packages:
   - "!packages/env-parser"
   - "!packages/environment"
 
-# Shared configs — release in lockstep; bump all entries together.
 catalogs:
+  # Holocron CLI and plugins — pinned in lockstep; bump together when running setup.
+  holocron:
+    '@theholocron/cli': ^2.2.1
+    '@theholocron/holocron-config': ^7.5.0
+    '@theholocron/holocron-plugin-github': ^2.2.1
+  # Shared configs — release in lockstep; bump all entries together.
   configs:
     '@theholocron/commitlint-config': ^4.1.0
     '@theholocron/eslint-config': ^4.1.0

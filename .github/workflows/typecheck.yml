@@ -1,19 +1,24 @@
 # AUTO-GENERATED — do not edit directly.
 # Source:  theholocron/holocron · packages/cli/src/commands/setup-workflows.ts
-# Synced:  2026-07-22T20:30:51.678Z
+# Synced:  2026-07-22T20:30:51.676Z
 # Tool:    holocron setup
 # Changes: run `holocron setup` to regenerate.
-name: Greetings
+name: Typecheck
 
 on: # yamllint disable-line rule:truthy
+  push:
+    branches: [main, alpha]
   pull_request:
-  issues:
+
+concurrency:
+  group: typecheck-${{ github.ref }}
+  cancel-in-progress: true
 
 permissions:
-  issues: write
-  pull-requests: write
+  contents: read
 
 jobs:
-  greetings:
-    uses: theholocron/.github/.github/workflows/greetings.yml@main
+  typecheck:
+    name: Typecheck
+    uses: theholocron/.github/.github/workflows/typecheck.yml@main
     secrets: inherit

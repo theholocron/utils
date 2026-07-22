@@ -1,53 +1,24 @@
+# AUTO-GENERATED — do not edit directly.
+# Source:  theholocron/holocron · packages/cli/src/commands/setup-workflows.ts
+# Synced:  2026-07-22T20:30:51.676Z
+# Tool:    holocron setup
+# Changes: run `holocron setup` to regenerate.
 name: Test
 
-on:
-  push
+on: # yamllint disable-line rule:truthy
+  push:
+    branches: [main, alpha]
+  pull_request:
+
+concurrency:
+  group: test-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
 
 jobs:
-  coverage:
-    name: Run tests and collect coverage
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        package:
-          - packages/array
-          - packages/misc
-          - packages/storage
-          - packages/string
-          - packages/uri
-    steps:
-      - uses: actions/checkout@v4
-        name: Checkout repository
-        with:
-          fetch-depth: 0
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-      - uses: pnpm/action-setup@v4
-        name: Setup pnpm
-
-      - uses: actions/setup-node@v4
-        name: Setup Node.js
-        with:
-          cache: pnpm
-          node-version: 22.x
-
-      - run: pnpm install --frozen-lockfile
-        name: Install dependencies
-
-      - run: pnpm test -- --coverage --reporter=junit
-        name: Run tests with coverage
-        working-directory: ${{ matrix.package }}
-
-      - uses: codecov/codecov-action@v4
-        name: Upload results to Codecov
-        with:
-          files: ./${{ matrix.package }}/coverage/coverage-final.json
-          flags: ${{ matrix.package }}
-          token: ${{ secrets.CODECOV_TOKEN }}
-
-      - uses: codecov/test-results-action@v1
-        name: Upload test results to Codecov
-        if: ${{ !cancelled() }}
-        with:
-          working-directory: ${{ matrix.package }}
-          token: ${{ secrets.CODECOV_TOKEN }}
+  test:
+    name: Test
+    uses: theholocron/.github/.github/workflows/test.yml@main
+    secrets: inherit
