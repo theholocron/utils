@@ -1,7 +1,7 @@
 {
   "name": "@theholocron/utils",
   "version": "0.0.0",
-  "description": "Small utilities used within the Galaxy.",
+  "description": "Small utilities.",
   "homepage": "https://github.com/theholocron/utils#readme",
   "bugs": "https://github.com/theholocron/utils/issues",
   "repository": {
