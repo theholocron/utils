@@ -87,5 +87,3 @@ super-linter-output
 coverage
 reports
 dist
-packages/env-parser/
-packages/environment/

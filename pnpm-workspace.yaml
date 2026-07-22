@@ -1,8 +1,5 @@
 packages:
   - "packages/*"
-  # These source packages have been merged into packages/env; kept for reference only.
-  - "!packages/env-parser"
-  - "!packages/environment"
 
 catalogs:
   # Holocron CLI and plugins — pinned in lockstep; bump together when running setup.
