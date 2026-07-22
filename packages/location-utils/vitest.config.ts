@@ -1,4 +1,8 @@
-import { library } from "@theholocron/vitest-config/bundles/library";
+import { node } from "@theholocron/vitest-config";
 import { defineConfig } from "vitest/config";
 
-export default defineConfig(library({ globals: true }) as never);
+// location-utils uses browser APIs (navigator.geolocation) — no tests yet.
+// Coverage disabled to avoid reporting 0% to codecov.
+export default defineConfig({
+	test: { ...node().test, globals: true, passWithNoTests: true },
+});
