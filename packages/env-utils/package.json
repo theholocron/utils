@@ -30,6 +30,7 @@
     "typecheck": "npx tsc --noEmit"
   },
   "devDependencies": {
+    "@types/node": "^22.0.0",
     "dotenv": "^16.5.0"
   },
   "peerDependencies": {
