@@ -1,0 +1,52 @@
+{
+  "name": "@magnite/env-parser",
+  "version": "0.1.0",
+  "description": "Parse process.env into a structured config object. No more process.env in your app code.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.rp-core.com/Magnite/applied-llm-lab.git"
+  },
+  "license": "UNLICENSED",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/env-parser.es.js",
+      "require": "./dist/env-parser.cjs.js"
+    }
+  },
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "build": "vite build",
+    "format": "prettier --write '**/*.{js,jsx,ts,tsx}'",
+    "lint": "eslint '**/*.{js,ts,tsx}'",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@magnite/environment": "workspace:*"
+  },
+  "devDependencies": {
+    "@magnite/eslint-config": "workspace:*",
+    "@magnite/vite-config": "workspace:*",
+    "@tsconfig/node-lts": "catalog:",
+    "@types/node": "catalog:",
+    "dotenv": "catalog:",
+    "tsup": "catalog:",
+    "typescript": "catalog:"
+  },
+  "peerDependencies": {
+    "dotenv": "catalog:"
+  },
+  "packageManager": "pnpm@10.26.1",
+  "engines": {
+    "node": ">=22",
+    "npm": ">=10"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

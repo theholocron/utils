@@ -13,6 +13,7 @@
   "type": "module",
   "scripts": {
     "build": "turbo run build",
+    "deprecate-old-packages": "npm deprecate @theholocron/utils-array@'*' 'Renamed to @theholocron/array-utils' && npm deprecate @theholocron/utils-date-time@'*' 'Renamed to @theholocron/date-time-utils' && npm deprecate @theholocron/utils-location@'*' 'Renamed to @theholocron/location-utils' && npm deprecate @theholocron/utils-misc@'*' 'Renamed to @theholocron/misc-utils' && npm deprecate @theholocron/utils-storage@'*' 'Renamed to @theholocron/storage-utils' && npm deprecate @theholocron/utils-string@'*' 'Renamed to @theholocron/string-utils' && npm deprecate @theholocron/utils-uri@'*' 'Renamed to @theholocron/uri-utils'",
     "lint": "turbo run lint",
     "prepare": "husky",
     "test": "turbo run test",

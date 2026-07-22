@@ -127,27 +127,27 @@ importers:
         specifier: ^3.2.4
         version: 3.2.7(@types/debug@4.1.13)(@types/node@26.1.1)(jiti@2.6.1)(tsx@4.22.4)(yaml@2.9.0)
 
-  packages/array: {}
+  packages/array-utils: {}
 
-  packages/date-time: {}
+  packages/date-time-utils: {}
 
-  packages/env:
+  packages/env-utils:
     devDependencies:
       dotenv:
         specifier: ^16.5.0
         version: 16.6.1
 
-  packages/location: {}
+  packages/location-utils: {}
 
-  packages/misc: {}
+  packages/misc-utils: {}
 
-  packages/storage:
+  packages/storage-utils:
     devDependencies:
       vitest-localstorage-mock:
         specifier: ^0.1.2
         version: 0.1.2(vitest@3.2.7(@types/debug@4.1.13)(@types/node@26.1.1)(jiti@2.6.1)(tsx@4.22.4)(yaml@2.9.0))
 
-  packages/string:
+  packages/string-utils:
     dependencies:
       change-case:
         specifier: ^5.4.4
@@ -156,7 +156,7 @@ importers:
         specifier: ^4.3.1
         version: 4.3.2
 
-  packages/uri: {}
+  packages/uri-utils: {}
 
 packages:
 
