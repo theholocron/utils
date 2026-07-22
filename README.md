@@ -1,7 +1,10 @@
 # Utilities
 
-Small utilities used within the Galaxy.
+<!-- holocron:description -->
 
+Small utilities.
+
+<!-- /holocron:description -->
 
 ## Installation
 

@@ -5,6 +5,6 @@
     "lint": {},
     "release": {},
     "test": {},
-    "types": {}
+    "typecheck": {}
   }
 }

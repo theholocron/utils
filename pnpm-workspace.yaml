@@ -1,0 +1,18 @@
+packages:
+  - "packages/*"
+  # Excluded until Phase 2: these will be merged into packages/env
+  - "!packages/env-parser"
+  - "!packages/environment"
+
+catalogs:
+  # Holocron CLI and plugins — pinned in lockstep; bump together when running setup.
+  holocron:
+    '@theholocron/cli': ^2.2.1
+    '@theholocron/holocron-config': ^7.5.0
+    '@theholocron/holocron-plugin-github': ^2.2.1
+  # Shared configs — release in lockstep; bump all entries together.
+  configs:
+    '@theholocron/commitlint-config': ^4.1.0
+    '@theholocron/eslint-config': ^4.1.0
+    '@theholocron/lint-staged-config': ^4.1.0
+    '@theholocron/prettier-config': ^4.1.0
