@@ -29,6 +29,7 @@
   },
   "devDependencies": {
     "@theholocron/tsdown-config": "catalog:configs",
+    "@theholocron/vitest-config": "catalog:configs",
     "vitest-localstorage-mock": "^0.1.2"
   },
   "packageManager": "pnpm@10.34.4",

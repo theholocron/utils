@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites name="vitest tests" tests="22" failures="0" errors="0" time="0.007155417">
+    <testsuite name="src/casing.test.ts" timestamp="2026-07-22T22:10:27.211Z" hostname="Mac.socal.rr.com" tests="11" failures="0" errors="0" skipped="0" time="0.00363975">
+        <testcase classname="src/casing.test.ts" name="String casing &gt; convert a string to camel case" time="0.001486875">
+        </testcase>
+        <testcase classname="src/casing.test.ts" name="String casing &gt; convert a string to constant case" time="0.000105459">
+        </testcase>
+        <testcase classname="src/casing.test.ts" name="String casing &gt; convert a string to dot case" time="0.000077667">
+        </testcase>
+        <testcase classname="src/casing.test.ts" name="String casing &gt; convert a string to kebab case" time="0.000062208">
+        </testcase>
+        <testcase classname="src/casing.test.ts" name="String casing &gt; convert a string to lower case" time="0.0000475">
+        </testcase>
+        <testcase classname="src/casing.test.ts" name="String casing &gt; convert a string to pascal case" time="0.000062166">
+        </testcase>
+        <testcase classname="src/casing.test.ts" name="String casing &gt; convert a string to path case" time="0.000046542">
+        </testcase>
+        <testcase classname="src/casing.test.ts" name="String casing &gt; convert a string to sentence case" time="0.000234625">
+        </testcase>
+        <testcase classname="src/casing.test.ts" name="String casing &gt; convert a string to snake case" time="0.000081167">
+        </testcase>
+        <testcase classname="src/casing.test.ts" name="String casing &gt; convert a string to title case" time="0.000611459">
+        </testcase>
+        <testcase classname="src/casing.test.ts" name="String casing &gt; convert a string to upper case" time="0.000053041">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/casting.test.ts" timestamp="2026-07-22T22:10:27.275Z" hostname="Mac.socal.rr.com" tests="4" failures="0" errors="0" skipped="0" time="0.001748709">
+        <testcase classname="src/casting.test.ts" name="String casting &gt; wrap a string into an array" time="0.000860625">
+        </testcase>
+        <testcase classname="src/casting.test.ts" name="String casting &gt; return the same array if input is already an array" time="0.000074458">
+        </testcase>
+        <testcase classname="src/casting.test.ts" name="String casting &gt; &apos;true&apos; string casts to a true boolean" time="0.000098875">
+        </testcase>
+        <testcase classname="src/casting.test.ts" name="String casting &gt; &apos;&apos; string casts to a false boolean" time="0.000038916">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/numbering.test.ts" timestamp="2026-07-22T22:10:27.304Z" hostname="Mac.socal.rr.com" tests="7" failures="0" errors="0" skipped="0" time="0.001766958">
+        <testcase classname="src/numbering.test.ts" name="toPlural &gt; returns singular form when count is 1" time="0.000690041">
+        </testcase>
+        <testcase classname="src/numbering.test.ts" name="toPlural &gt; adds &apos;es&apos; for words ending in &apos;s&apos;, &apos;x&apos;, &apos;z&apos;, &apos;sh&apos;, or &apos;ch&apos;" time="0.00020625">
+        </testcase>
+        <testcase classname="src/numbering.test.ts" name="toPlural &gt; changes &apos;y&apos; to &apos;ies&apos; for words ending in consonant + y" time="0.000076709">
+        </testcase>
+        <testcase classname="src/numbering.test.ts" name="toPlural &gt; adds &apos;s&apos; for regular pluralization" time="0.000052791">
+        </testcase>
+        <testcase classname="src/numbering.test.ts" name="toPlural &gt; uses the provided plural form if available" time="0.000071958">
+        </testcase>
+        <testcase classname="src/numbering.test.ts" name="toPlural &gt; handles edge cases for vowels and y" time="0.0000525">
+        </testcase>
+        <testcase classname="src/numbering.test.ts" name="toPlural &gt; handles empty or invalid inputs gracefully" time="0.000046625">
+        </testcase>
+    </testsuite>
+</testsuites>

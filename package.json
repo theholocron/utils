@@ -31,6 +31,7 @@
     "@theholocron/lint-staged-config": "catalog:configs",
     "@theholocron/prettier-config": "catalog:configs",
     "@theholocron/tsdown-config": "catalog:configs",
+    "@theholocron/vitest-config": "catalog:configs",
     "@tsconfig/node-lts": "^22.0.1",
     "@types/web": "^0.0.259",
     "@typescript-eslint/eslint-plugin": "^8.38.0",

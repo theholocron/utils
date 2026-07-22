@@ -28,7 +28,8 @@
     "typecheck": "npx tsc --noEmit"
   },
   "devDependencies": {
-    "@theholocron/tsdown-config": "catalog:configs"
+    "@theholocron/tsdown-config": "catalog:configs",
+    "@theholocron/vitest-config": "catalog:configs"
   },
   "packageManager": "pnpm@10.34.4",
   "engines": {

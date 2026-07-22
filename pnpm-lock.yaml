@@ -21,6 +21,9 @@ catalogs:
     '@theholocron/tsdown-config':
       specifier: ^7.5.0
       version: 7.5.0
+    '@theholocron/vitest-config':
+      specifier: ^7.5.0
+      version: 7.5.0
   holocron:
     '@theholocron/cli':
       specifier: ^2.2.1
@@ -72,6 +75,9 @@ importers:
       '@theholocron/tsdown-config':
         specifier: catalog:configs
         version: 7.5.0(tsdown@0.22.13(tsx@4.22.4)(typescript@5.9.3))
+      '@theholocron/vitest-config':
+        specifier: catalog:configs
+        version: 7.5.0(@testing-library/user-event@14.6.1(@testing-library/dom@10.4.1))(@vitest/coverage-v8@3.2.7(vitest@3.2.7(@types/debug@4.1.13)(@types/node@26.1.1)(jiti@2.6.1)(tsx@4.22.4)(yaml@2.9.0)))(vitest@3.2.7(@types/debug@4.1.13)(@types/node@26.1.1)(jiti@2.6.1)(tsx@4.22.4)(yaml@2.9.0))
       '@tsconfig/node-lts':
         specifier: ^22.0.1
         version: 22.0.4
@@ -135,18 +141,27 @@ importers:
       '@theholocron/tsdown-config':
         specifier: catalog:configs
         version: 7.5.0(tsdown@0.22.13(tsx@4.22.4)(typescript@5.9.3))
+      '@theholocron/vitest-config':
+        specifier: catalog:configs
+        version: 7.5.0(@testing-library/user-event@14.6.1(@testing-library/dom@10.4.1))(@vitest/coverage-v8@3.2.7(vitest@3.2.7(@types/debug@4.1.13)(@types/node@26.1.1)(jiti@2.6.1)(tsx@4.22.4)(yaml@2.9.0)))(vitest@3.2.7(@types/debug@4.1.13)(@types/node@26.1.1)(jiti@2.6.1)(tsx@4.22.4)(yaml@2.9.0))
 
   packages/date-time-utils:
     devDependencies:
       '@theholocron/tsdown-config':
         specifier: catalog:configs
         version: 7.5.0(tsdown@0.22.13(tsx@4.22.4)(typescript@5.9.3))
+      '@theholocron/vitest-config':
+        specifier: catalog:configs
+        version: 7.5.0(@testing-library/user-event@14.6.1(@testing-library/dom@10.4.1))(@vitest/coverage-v8@3.2.7(vitest@3.2.7(@types/debug@4.1.13)(@types/node@26.1.1)(jiti@2.6.1)(tsx@4.22.4)(yaml@2.9.0)))(vitest@3.2.7(@types/debug@4.1.13)(@types/node@26.1.1)(jiti@2.6.1)(tsx@4.22.4)(yaml@2.9.0))
 
   packages/env-utils:
     devDependencies:
       '@theholocron/tsdown-config':
         specifier: catalog:configs
         version: 7.5.0(tsdown@0.22.13(tsx@4.22.4)(typescript@5.9.3))
+      '@theholocron/vitest-config':
+        specifier: catalog:configs
+        version: 7.5.0(@testing-library/user-event@14.6.1(@testing-library/dom@10.4.1))(@vitest/coverage-v8@3.2.7(vitest@3.2.7(@types/debug@4.1.13)(@types/node@26.1.1)(jiti@2.6.1)(tsx@4.22.4)(yaml@2.9.0)))(vitest@3.2.7(@types/debug@4.1.13)(@types/node@22.20.1)(jiti@2.6.1)(tsx@4.22.4)(yaml@2.9.0))
       '@types/node':
         specifier: ^22.0.0
         version: 22.20.1
@@ -159,18 +174,27 @@ importers:
       '@theholocron/tsdown-config':
         specifier: catalog:configs
         version: 7.5.0(tsdown@0.22.13(tsx@4.22.4)(typescript@5.9.3))
+      '@theholocron/vitest-config':
+        specifier: catalog:configs
+        version: 7.5.0(@testing-library/user-event@14.6.1(@testing-library/dom@10.4.1))(@vitest/coverage-v8@3.2.7(vitest@3.2.7(@types/debug@4.1.13)(@types/node@26.1.1)(jiti@2.6.1)(tsx@4.22.4)(yaml@2.9.0)))(vitest@3.2.7(@types/debug@4.1.13)(@types/node@26.1.1)(jiti@2.6.1)(tsx@4.22.4)(yaml@2.9.0))
 
   packages/misc-utils:
     devDependencies:
       '@theholocron/tsdown-config':
         specifier: catalog:configs
         version: 7.5.0(tsdown@0.22.13(tsx@4.22.4)(typescript@5.9.3))
+      '@theholocron/vitest-config':
+        specifier: catalog:configs
+        version: 7.5.0(@testing-library/user-event@14.6.1(@testing-library/dom@10.4.1))(@vitest/coverage-v8@3.2.7(vitest@3.2.7(@types/debug@4.1.13)(@types/node@26.1.1)(jiti@2.6.1)(tsx@4.22.4)(yaml@2.9.0)))(vitest@3.2.7(@types/debug@4.1.13)(@types/node@26.1.1)(jiti@2.6.1)(tsx@4.22.4)(yaml@2.9.0))
 
   packages/storage-utils:
     devDependencies:
       '@theholocron/tsdown-config':
         specifier: catalog:configs
         version: 7.5.0(tsdown@0.22.13(tsx@4.22.4)(typescript@5.9.3))
+      '@theholocron/vitest-config':
+        specifier: catalog:configs
+        version: 7.5.0(@testing-library/user-event@14.6.1(@testing-library/dom@10.4.1))(@vitest/coverage-v8@3.2.7(vitest@3.2.7(@types/debug@4.1.13)(@types/node@26.1.1)(jiti@2.6.1)(tsx@4.22.4)(yaml@2.9.0)))(vitest@3.2.7(@types/debug@4.1.13)(@types/node@26.1.1)(jiti@2.6.1)(tsx@4.22.4)(yaml@2.9.0))
       vitest-localstorage-mock:
         specifier: ^0.1.2
         version: 0.1.2(vitest@3.2.7(@types/debug@4.1.13)(@types/node@26.1.1)(jiti@2.6.1)(tsx@4.22.4)(yaml@2.9.0))
@@ -187,12 +211,18 @@ importers:
       '@theholocron/tsdown-config':
         specifier: catalog:configs
         version: 7.5.0(tsdown@0.22.13(tsx@4.22.4)(typescript@5.9.3))
+      '@theholocron/vitest-config':
+        specifier: catalog:configs
+        version: 7.5.0(@testing-library/user-event@14.6.1(@testing-library/dom@10.4.1))(@vitest/coverage-v8@3.2.7(vitest@3.2.7(@types/debug@4.1.13)(@types/node@26.1.1)(jiti@2.6.1)(tsx@4.22.4)(yaml@2.9.0)))(vitest@3.2.7(@types/debug@4.1.13)(@types/node@26.1.1)(jiti@2.6.1)(tsx@4.22.4)(yaml@2.9.0))
 
   packages/uri-utils:
     devDependencies:
       '@theholocron/tsdown-config':
         specifier: catalog:configs
         version: 7.5.0(tsdown@0.22.13(tsx@4.22.4)(typescript@5.9.3))
+      '@theholocron/vitest-config':
+        specifier: catalog:configs
+        version: 7.5.0(@testing-library/user-event@14.6.1(@testing-library/dom@10.4.1))(@vitest/coverage-v8@3.2.7(vitest@3.2.7(@types/debug@4.1.13)(@types/node@26.1.1)(jiti@2.6.1)(tsx@4.22.4)(yaml@2.9.0)))(vitest@3.2.7(@types/debug@4.1.13)(@types/node@26.1.1)(jiti@2.6.1)(tsx@4.22.4)(yaml@2.9.0))
 
 packages:
 
@@ -1178,6 +1208,34 @@ packages:
     engines: {node: '>=22.0.0'}
     peerDependencies:
       tsdown: ^0
+
+  '@theholocron/vitest-config@7.5.0':
+    resolution: {integrity: sha512-NpdcktWUt/bqa89TOJ7HJVdv7bLI3Q51DLwNU/NzfnDhnPSfA3FHNV6iA5DEzz5L4UgHsncqJR4I2IMHU1km8Q==}
+    engines: {node: '>=22.0.0'}
+    peerDependencies:
+      '@storybook/addon-vitest': ^9
+      '@testing-library/react': ^16
+      '@testing-library/user-event': ^14
+      '@vitest/browser': ^4
+      '@vitest/coverage-v8': ^4
+      jsdom: ^26
+      playwright: ^1
+      vitest: ^4
+    peerDependenciesMeta:
+      '@storybook/addon-vitest':
+        optional: true
+      '@testing-library/react':
+        optional: true
+      '@testing-library/user-event':
+        optional: true
+      '@vitest/browser':
+        optional: true
+      '@vitest/coverage-v8':
+        optional: true
+      jsdom:
+        optional: true
+      playwright:
+        optional: true
 
   '@tsconfig/node-lts@22.0.4':
     resolution: {integrity: sha512-5eAeCX6l/EYe6H2UAw5nBgjfAgdlsR+lSp8YNNGwz+ixoi7JfJ5bOQvsiEhxGm5bOZFVF+cJSIj4tanpCCRMIw==}
@@ -4631,6 +4689,20 @@ snapshots:
     dependencies:
       tsdown: 0.22.13(tsx@4.22.4)(typescript@5.9.3)
 
+  '@theholocron/vitest-config@7.5.0(@testing-library/user-event@14.6.1(@testing-library/dom@10.4.1))(@vitest/coverage-v8@3.2.7(vitest@3.2.7(@types/debug@4.1.13)(@types/node@26.1.1)(jiti@2.6.1)(tsx@4.22.4)(yaml@2.9.0)))(vitest@3.2.7(@types/debug@4.1.13)(@types/node@22.20.1)(jiti@2.6.1)(tsx@4.22.4)(yaml@2.9.0))':
+    dependencies:
+      vitest: 3.2.7(@types/debug@4.1.13)(@types/node@22.20.1)(jiti@2.6.1)(tsx@4.22.4)(yaml@2.9.0)
+    optionalDependencies:
+      '@testing-library/user-event': 14.6.1(@testing-library/dom@10.4.1)
+      '@vitest/coverage-v8': 3.2.7(vitest@3.2.7(@types/debug@4.1.13)(@types/node@26.1.1)(jiti@2.6.1)(tsx@4.22.4)(yaml@2.9.0))
+
+  '@theholocron/vitest-config@7.5.0(@testing-library/user-event@14.6.1(@testing-library/dom@10.4.1))(@vitest/coverage-v8@3.2.7(vitest@3.2.7(@types/debug@4.1.13)(@types/node@26.1.1)(jiti@2.6.1)(tsx@4.22.4)(yaml@2.9.0)))(vitest@3.2.7(@types/debug@4.1.13)(@types/node@26.1.1)(jiti@2.6.1)(tsx@4.22.4)(yaml@2.9.0))':
+    dependencies:
+      vitest: 3.2.7(@types/debug@4.1.13)(@types/node@26.1.1)(jiti@2.6.1)(tsx@4.22.4)(yaml@2.9.0)
+    optionalDependencies:
+      '@testing-library/user-event': 14.6.1(@testing-library/dom@10.4.1)
+      '@vitest/coverage-v8': 3.2.7(vitest@3.2.7(@types/debug@4.1.13)(@types/node@26.1.1)(jiti@2.6.1)(tsx@4.22.4)(yaml@2.9.0))
+
   '@tsconfig/node-lts@22.0.4': {}
 
   '@turbo/darwin-64@2.10.6':
@@ -7616,6 +7688,27 @@ snapshots:
       unist-util-stringify-position: 3.0.3
       vfile-message: 3.1.4
 
+  vite-node@3.2.4(@types/node@22.20.1)(jiti@2.6.1)(tsx@4.22.4)(yaml@2.9.0):
+    dependencies:
+      cac: 6.7.14
+      debug: 4.4.3
+      es-module-lexer: 1.7.0
+      pathe: 2.0.3
+      vite: 7.3.6(@types/node@22.20.1)(jiti@2.6.1)(tsx@4.22.4)(yaml@2.9.0)
+    transitivePeerDependencies:
+      - '@types/node'
+      - jiti
+      - less
+      - lightningcss
+      - sass
+      - sass-embedded
+      - stylus
+      - sugarss
+      - supports-color
+      - terser
+      - tsx
+      - yaml
+
   vite-node@3.2.4(@types/node@26.1.1)(jiti@2.6.1)(tsx@4.22.4)(yaml@2.9.0):
     dependencies:
       cac: 6.7.14
@@ -7637,6 +7730,21 @@ snapshots:
       - tsx
       - yaml
 
+  vite@7.3.6(@types/node@22.20.1)(jiti@2.6.1)(tsx@4.22.4)(yaml@2.9.0):
+    dependencies:
+      esbuild: 0.28.1
+      fdir: 6.5.0(picomatch@4.0.5)
+      picomatch: 4.0.5
+      postcss: 8.5.22
+      rollup: 4.62.2
+      tinyglobby: 0.2.17
+    optionalDependencies:
+      '@types/node': 22.20.1
+      fsevents: 2.3.3
+      jiti: 2.6.1
+      tsx: 4.22.4
+      yaml: 2.9.0
+
   vite@7.3.6(@types/node@26.1.1)(jiti@2.6.1)(tsx@4.22.4)(yaml@2.9.0):
     dependencies:
       esbuild: 0.28.1
@@ -7655,6 +7763,48 @@ snapshots:
   vitest-localstorage-mock@0.1.2(vitest@3.2.7(@types/debug@4.1.13)(@types/node@26.1.1)(jiti@2.6.1)(tsx@4.22.4)(yaml@2.9.0)):
     dependencies:
       vitest: 3.2.7(@types/debug@4.1.13)(@types/node@26.1.1)(jiti@2.6.1)(tsx@4.22.4)(yaml@2.9.0)
+
+  vitest@3.2.7(@types/debug@4.1.13)(@types/node@22.20.1)(jiti@2.6.1)(tsx@4.22.4)(yaml@2.9.0):
+    dependencies:
+      '@types/chai': 5.2.3
+      '@vitest/expect': 3.2.7
+      '@vitest/mocker': 3.2.7(vite@7.3.6(@types/node@26.1.1)(jiti@2.6.1)(tsx@4.22.4)(yaml@2.9.0))
+      '@vitest/pretty-format': 3.2.7
+      '@vitest/runner': 3.2.7
+      '@vitest/snapshot': 3.2.7
+      '@vitest/spy': 3.2.7
+      '@vitest/utils': 3.2.7
+      chai: 5.3.3
+      debug: 4.4.3
+      expect-type: 1.4.0
+      magic-string: 0.30.21
+      pathe: 2.0.3
+      picomatch: 4.0.5
+      std-env: 3.10.0
+      tinybench: 2.9.0
+      tinyexec: 0.3.2
+      tinyglobby: 0.2.17
+      tinypool: 1.1.1
+      tinyrainbow: 2.0.0
+      vite: 7.3.6(@types/node@22.20.1)(jiti@2.6.1)(tsx@4.22.4)(yaml@2.9.0)
+      vite-node: 3.2.4(@types/node@22.20.1)(jiti@2.6.1)(tsx@4.22.4)(yaml@2.9.0)
+      why-is-node-running: 2.3.0
+    optionalDependencies:
+      '@types/debug': 4.1.13
+      '@types/node': 22.20.1
+    transitivePeerDependencies:
+      - jiti
+      - less
+      - lightningcss
+      - msw
+      - sass
+      - sass-embedded
+      - stylus
+      - sugarss
+      - supports-color
+      - terser
+      - tsx
+      - yaml
 
   vitest@3.2.7(@types/debug@4.1.13)(@types/node@26.1.1)(jiti@2.6.1)(tsx@4.22.4)(yaml@2.9.0):
     dependencies:
