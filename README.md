@@ -2,7 +2,6 @@
 
 Small utilities used within the Galaxy.
 
-
 ## Installation
 
 ```bash
