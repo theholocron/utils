@@ -24,6 +24,9 @@ catalogs:
     '@theholocron/vitest-config':
       specifier: ^7.5.0
       version: 7.5.0
+    tsdown:
+      specifier: ^0.22.13
+      version: 0.22.13
   holocron:
     '@theholocron/cli':
       specifier: ^2.2.1
@@ -168,6 +171,9 @@ importers:
       dotenv:
         specifier: ^16.5.0
         version: 16.6.1
+      tsdown:
+        specifier: catalog:configs
+        version: 0.22.13(tsx@4.22.4)(typescript@5.9.3)
 
   packages/location-utils:
     devDependencies:
@@ -214,6 +220,9 @@ importers:
       '@theholocron/vitest-config':
         specifier: catalog:configs
         version: 7.5.0(@testing-library/user-event@14.6.1(@testing-library/dom@10.4.1))(@vitest/coverage-v8@3.2.7(vitest@3.2.7(@types/debug@4.1.13)(@types/node@26.1.1)(jiti@2.6.1)(tsx@4.22.4)(yaml@2.9.0)))(vitest@3.2.7(@types/debug@4.1.13)(@types/node@26.1.1)(jiti@2.6.1)(tsx@4.22.4)(yaml@2.9.0))
+      tsdown:
+        specifier: catalog:configs
+        version: 0.22.13(tsx@4.22.4)(typescript@5.9.3)
 
   packages/uri-utils:
     devDependencies:

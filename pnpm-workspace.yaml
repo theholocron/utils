@@ -14,4 +14,5 @@ catalogs:
     '@theholocron/lint-staged-config': ^7.5.0
     '@theholocron/prettier-config': ^7.5.0
     '@theholocron/tsdown-config': ^7.5.0
+    'tsdown': ^0.22.13
     '@theholocron/vitest-config': ^7.5.0
