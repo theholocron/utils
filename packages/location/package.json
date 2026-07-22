@@ -29,7 +29,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "start": "",
-    "types": "npx tsc"
+    "typecheck": "npx tsc --noEmit"
   },
   "packageManager": "pnpm@10.34.4",
   "engines": {

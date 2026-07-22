@@ -16,7 +16,7 @@
     "lint": "turbo run lint",
     "prepare": "husky",
     "test": "turbo run test",
-    "types": "turbo run types"
+    "typecheck": "turbo run typecheck"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",
