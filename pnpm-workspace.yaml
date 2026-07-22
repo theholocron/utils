@@ -1,13 +1,21 @@
 packages:
   - "packages/*"
 
+# Shared dep versions used across packages.
+catalog:
+  '@types/node': ^26.1.1
+  '@vitest/coverage-v8': ^4.1.10
+  '@vitest/eslint-plugin': ^1.6.23
+  eslint: ^10.7.0
+  eslint-plugin-n: ^18.2.2
+  globals: ^17.7.0
+  tsdown: ^0.22.13
+  typescript: ^5.9.3
+  vitest: ^4.1.10
+
+# Holocron CLI and plugins — pinned in lockstep; bump together when running setup.
 catalogs:
-  # Holocron CLI and plugins — pinned in lockstep; bump together when running setup.
-  holocron:
-    '@theholocron/cli': ^2.2.1
-    '@theholocron/holocron-config': ^7.5.0
-    '@theholocron/holocron-plugin-github': ^2.2.1
-  # Shared configs — release in lockstep; bump all entries together.
+# Shared configs — release in lockstep; bump all entries together.
   configs:
     '@theholocron/commitlint-config': ^7.5.0
     '@theholocron/semantic-release-config': ^7.5.0
@@ -15,5 +23,10 @@ catalogs:
     '@theholocron/lint-staged-config': ^7.5.0
     '@theholocron/prettier-config': ^7.5.0
     '@theholocron/tsdown-config': ^7.5.0
-    'tsdown': ^0.22.13
     '@theholocron/vitest-config': ^7.5.0
+
+# Holocron CLI and plugins — range covers all alpha releases; switch to ^2.0.0 on stable.
+  holocron:
+    '@theholocron/cli': ^2.2.1
+    '@theholocron/holocron-config': ^7.5.0
+    '@theholocron/holocron-plugin-github': ^2.2.1
