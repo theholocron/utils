@@ -12,6 +12,18 @@ const config = [
 		},
 	},
 	{
+		// These packages use browser APIs (navigator, sessionStorage, KeyboardEvent).
+		// The Node.js built-ins rule doesn't apply to browser-targeted code.
+		files: [
+			"packages/location-utils/src/**",
+			"packages/misc-utils/src/**",
+			"packages/storage-utils/src/**",
+		],
+		rules: {
+			"n/no-unsupported-features/node-builtins": "off",
+		},
+	},
+	{
 		ignores: [
 			"packages/*/dist/**",
 			"packages/*/coverage/**",

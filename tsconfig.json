@@ -1,12 +1,10 @@
 {
-  "display": "Array Utilities",
+  "display": "Utils Monorepo",
   "extends": "@tsconfig/node-lts/tsconfig.json",
   "compilerOptions": {
-    "declaration": true,
-    "emitDeclarationOnly": true,
-    "outDir": "dist",
-    "declarationMap": true
+    "allowImportingTsExtensions": true,
+    "noEmit": true
   },
-  "include": ["**/*.ts"],
-  "exclude": ["./node_modules"]
+  "include": ["*.ts"],
+  "exclude": ["node_modules", "packages"]
 }
