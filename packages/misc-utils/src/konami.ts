@@ -1,5 +1,10 @@
 export type TKonamiCode =
-	"ArrowDown" | "ArrowLeft" | "ArrowRight" | "ArrowUp" | "KeyA" | "KeyB";
+	| "ArrowDown"
+	| "ArrowLeft"
+	| "ArrowRight"
+	| "ArrowUp"
+	| "KeyA"
+	| "KeyB";
 
 export const CODE: TKonamiCode[] = [
 	"ArrowUp",
