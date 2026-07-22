@@ -8,7 +8,7 @@
       "dependsOn": ["^build"]
     },
     "lint": {
-      "inputs": ["src/**", "eslint.config.js"],
+      "inputs": ["src/**", "eslint.config.ts", "eslint.config.js"],
       "outputs": []
     },
     "release": {
@@ -18,6 +18,11 @@
       "inputs": ["src/**", "vitest.config.ts", "package.json"],
       "outputs": [],
       "dependsOn": ["^build"]
+    },
+    "test:coverage": {
+      "inputs": ["src/**", "vitest.config.ts", "package.json"],
+      "outputs": ["coverage/**"],
+      "dependsOn": ["build"]
     },
     "typecheck": {
       "inputs": ["src/**", "tsconfig.json"],
