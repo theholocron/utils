@@ -10,6 +10,7 @@ catalogs:
   # Shared configs — release in lockstep; bump all entries together.
   configs:
     '@theholocron/commitlint-config': ^7.5.0
+    '@theholocron/semantic-release-config': ^7.5.0
     '@theholocron/eslint-config': ^7.5.0
     '@theholocron/lint-staged-config': ^7.5.0
     '@theholocron/prettier-config': ^7.5.0
