@@ -1,8 +1,5 @@
 packages:
   - "packages/*"
-  # Excluded until Phase 2: these will be merged into packages/env
-  - "!packages/env-parser"
-  - "!packages/environment"
 
 catalogs:
   # Holocron CLI and plugins — pinned in lockstep; bump together when running setup.
