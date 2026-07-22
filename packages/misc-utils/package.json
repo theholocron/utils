@@ -29,7 +29,8 @@
   },
   "devDependencies": {
     "@theholocron/tsdown-config": "catalog:configs",
-    "@theholocron/vitest-config": "catalog:configs"
+    "@theholocron/vitest-config": "catalog:configs",
+    "tsdown": "catalog:configs"
   },
   "packageManager": "pnpm@10.34.4",
   "engines": {
