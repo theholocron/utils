@@ -13,3 +13,4 @@ catalogs:
     '@theholocron/eslint-config': ^4.1.0
     '@theholocron/lint-staged-config': ^4.1.0
     '@theholocron/prettier-config': ^4.1.0
+    '@theholocron/tsdown-config': ^7.5.0
