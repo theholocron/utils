@@ -131,6 +131,12 @@ importers:
 
   packages/date-time: {}
 
+  packages/env:
+    devDependencies:
+      dotenv:
+        specifier: ^16.5.0
+        version: 16.6.1
+
   packages/location: {}
 
   packages/misc: {}
@@ -1615,6 +1621,10 @@ packages:
   dot-prop@6.0.1:
     resolution: {integrity: sha512-tE7ztYzXHIeyvc7N+hR3oi7FIbf/NIjVP9hmAt3yMXzrQ072/fpjGLx2GxNxGxUl5V73MEqYzioOMoVhGMJ5cA==}
     engines: {node: '>=10'}
+
+  dotenv@16.6.1:
+    resolution: {integrity: sha512-uBq4egWHTcTt33a72vpSG0z3HnPuIl6NqYcTrKEg2azoEyl2hpW0zqlxysq2pK9HlDIHyHyakeYaYnSAwd8bow==}
+    engines: {node: '>=12'}
 
   duplexer@0.1.2:
     resolution: {integrity: sha512-jtD6YG370ZCIi/9GTaJKQxWTZD045+4R4hTk/x1UyoqadyJ9x9CgSi1RlVDQF8U2sxLLSnFkCaMihqljHIWgMg==}
@@ -4758,6 +4768,8 @@ snapshots:
   dot-prop@6.0.1:
     dependencies:
       is-obj: 2.0.0
+
+  dotenv@16.6.1: {}
 
   duplexer@0.1.2: {}
 

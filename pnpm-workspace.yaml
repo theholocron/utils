@@ -1,6 +1,6 @@
 packages:
   - "packages/*"
-  # Excluded until Phase 2: these will be merged into packages/env
+  # These source packages have been merged into packages/env; kept for reference only.
   - "!packages/env-parser"
   - "!packages/environment"
 
