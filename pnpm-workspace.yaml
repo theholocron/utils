@@ -9,7 +9,10 @@ catalogs:
     '@theholocron/holocron-plugin-github': ^2.2.1
   # Shared configs — release in lockstep; bump all entries together.
   configs:
-    '@theholocron/commitlint-config': ^4.1.0
-    '@theholocron/eslint-config': ^4.1.0
-    '@theholocron/lint-staged-config': ^4.1.0
-    '@theholocron/prettier-config': ^4.1.0
+    '@theholocron/commitlint-config': ^7.5.0
+    '@theholocron/eslint-config': ^7.5.0
+    '@theholocron/lint-staged-config': ^7.5.0
+    '@theholocron/prettier-config': ^7.5.0
+    '@theholocron/tsdown-config': ^7.5.0
+    'tsdown': ^0.22.13
+    '@theholocron/vitest-config': ^7.5.0
