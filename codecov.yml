@@ -1,27 +1,67 @@
 coverage:
+  require_ci_to_pass: true
+  precision: 2
+  round: down
+  range: "70...100"
   status:
-    # Apply default rules for flags coverage not uploaded
-    default_rules:
-      flag_coverage_not_uploaded_behavior: exclude
-
-    # Set project-specific coverage targets
     project:
-      array:
+      default:
+        # Set to auto until coverage gaps in underserved packages are resolved (see #161).
+        # Long-term target matches the 80% threshold in @theholocron/vitest-config/bundles/library.
         target: auto
-        threshold: 1%  # PR fails if coverage drops by 1% or more
-      misc:
-        target: auto
-        threshold: 1%
-      storage:
-        target: auto
-        threshold: 1%
-      string:
-        target: auto
-        threshold: 1%
-      uri:
-        target: auto
-        threshold: 1%
+        threshold: 2%
+    patch:
+      default:
+        target: 80%
+        threshold: 2%
 
 comment:
-  layout: "reach, diff, flags, files"
+  layout: "reach,diff,flags,components"
   behavior: default
+  require_changes: true
+
+component_management:
+  default_rules:
+    statuses:
+      - type: patch
+        target: 80%
+  individual_components:
+    - component_id: array-utils
+      name: "array-utils"
+      paths:
+        - packages/array-utils/**
+
+    - component_id: date-time-utils
+      name: "date-time-utils"
+      paths:
+        - packages/date-time-utils/**
+
+    - component_id: env-utils
+      name: "env-utils"
+      paths:
+        - packages/env-utils/**
+
+    - component_id: location-utils
+      name: "location-utils"
+      paths:
+        - packages/location-utils/**
+
+    - component_id: misc-utils
+      name: "misc-utils"
+      paths:
+        - packages/misc-utils/**
+
+    - component_id: storage-utils
+      name: "storage-utils"
+      paths:
+        - packages/storage-utils/**
+
+    - component_id: string-utils
+      name: "string-utils"
+      paths:
+        - packages/string-utils/**
+
+    - component_id: uri-utils
+      name: "uri-utils"
+      paths:
+        - packages/uri-utils/**
