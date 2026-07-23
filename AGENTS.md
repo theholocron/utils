@@ -42,12 +42,9 @@ read the same rules. Put durable, repo-wide agent guidance here.
 
 ## Adding a new utility package
 
-1. Create `packages/<name>-utils/` with `src/index.ts`, `package.json`,
-   `tsdown.config.ts`, `vitest.config.ts`, and `tsconfig.json`.
-2. Follow the existing pattern — re-export from `@theholocron/tsdown-config/presets/library`
-   and `@theholocron/vitest-config/bundles/library` (with `globals: true`).
-3. If the package uses browser APIs, add `"lib": ["dom", "dom.iterable", "es2022"]`
-   to its tsconfig and add the browser-package override to the root `eslint.config.ts`.
+1. Create `packages/<name>-utils/` with `src/index.ts`, `package.json`, `tsdown.config.ts`, `vitest.config.ts`, and `tsconfig.json`.
+2. Re-export from `@theholocron/tsdown-config/presets/library` and `@theholocron/vitest-config/bundles/library` (pass `globals: true`).
+3. If the package uses browser APIs, add `"lib": ["dom", "dom.iterable", "es2022"]` to its tsconfig and add the browser-package override to the root `eslint.config.ts`.
 4. Add the package path to `prepareCmd` in `release.config.ts` (keep alphabetical order).
 5. Add a `component_id` entry to `codecov.yml`.
 
