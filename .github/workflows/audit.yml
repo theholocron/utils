@@ -1,6 +1,6 @@
 # AUTO-GENERATED — do not edit directly.
 # Source:  theholocron/holocron · packages/cli/src/commands/setup-workflows.ts
-# Synced:  2026-07-22T20:30:51.679Z
+# Synced:  2026-07-23T00:34:36.251Z
 # Tool:    holocron setup
 # Changes: run `holocron setup` to regenerate.
 name: Audit
@@ -16,4 +16,6 @@ permissions:
 jobs:
   audit:
     uses: theholocron/.github/.github/workflows/audit.yml@main
+    with:
+      run-knip: true
     secrets: inherit
