@@ -6,8 +6,6 @@ Small utilities.
 
 <!-- /holocron:description -->
 
-A pnpm workspace monorepo of independently published utility packages.
-
 ## Packages
 
 | Package                                                      | Description                                             |
@@ -21,21 +19,18 @@ A pnpm workspace monorepo of independently published utility packages.
 | [`@theholocron/string-utils`](./packages/string-utils)       | String casing, casting, and numbering                   |
 | [`@theholocron/uri-utils`](./packages/uri-utils)             | URL search param utilities                              |
 
-## Installation
-
-```bash
-pnpm add @theholocron/<name>-utils
-```
-
 ## Development
 
+This repo uses [pnpm workspaces](https://pnpm.io/workspaces) and [Turbo](https://turbo.build).
+
 ```bash
-pnpm build      # compile all packages
-pnpm test       # run tests
-pnpm typecheck  # type-check all packages
-pnpm lint       # lint all packages
+pnpm install       # install all deps
+pnpm build         # compile all packages
+pnpm test          # run tests
+pnpm typecheck     # type-check all packages
+pnpm lint          # lint all packages
 ```
 
-## Documentation
+## Releases
 
-Check out [The Holocron Archive](https://docs.theholocron.dev/projects/utils/) for more information.
+Releases are automated via [semantic-release](https://semantic-release.gitbook.io) on push to `main`. All packages are versioned and published in lockstep. See [CHANGELOG.md](CHANGELOG.md) for the release history.
