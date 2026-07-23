@@ -1,11 +1,13 @@
-# URI
+# @theholocron/uri-utils
 
-Grab details from a URL.
+URL and URI utilities.
 
 ## Installation
 
 ```bash
-npm install --save-dev @theholocron/utils-uri
+pnpm add @theholocron/uri-utils
 ```
 
-Check out [The Holocron Archive](https://docs.theholocron.dev/projects/utilities/) for more information.
+## Documentation
+
+Check out [The Holocron Archive](https://docs.theholocron.dev/projects/utils/) for more information.

@@ -1,11 +1,13 @@
-# Date & Time
+# @theholocron/date-time-utils
 
 Handle dates and time.
 
 ## Installation
 
 ```bash
-npm install --save-dev @theholocron/utils-date-time
+pnpm add @theholocron/date-time-utils
 ```
 
-Check out [The Holocron Archive](https://docs.theholocron.dev/projects/utilities/) for more information.
+## Documentation
+
+Check out [The Holocron Archive](https://docs.theholocron.dev/projects/utils/) for more information.

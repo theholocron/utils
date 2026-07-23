@@ -1,11 +1,22 @@
-# Location
+# @theholocron/location-utils
 
-Location utilities.
+Browser geolocation utilities.
 
 ## Installation
 
 ```bash
-npm install --save-dev @theholocron/utils-location
+pnpm add @theholocron/location-utils
 ```
 
-Check out [The Holocron Archive](https://docs.theholocron.dev/projects/utilities/) for more information.
+## Usage
+
+```typescript
+import { location } from "@theholocron/location-utils";
+
+const coords = await location.getCurrent();
+// { latitude, longitude, accuracy, ... }
+```
+
+## Documentation
+
+Check out [The Holocron Archive](https://docs.theholocron.dev/projects/utils/) for more information.

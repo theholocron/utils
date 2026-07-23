@@ -1,11 +1,13 @@
-# Storage
+# @theholocron/storage-utils
 
-Storage utilities.
+Session storage utilities.
 
 ## Installation
 
 ```bash
-npm install --save-dev @theholocron/utils-storage
+pnpm add @theholocron/storage-utils
 ```
 
-Check out [The Holocron Archive](https://docs.theholocron.dev/projects/utilities/) for more information.
+## Documentation
+
+Check out [The Holocron Archive](https://docs.theholocron.dev/projects/utils/) for more information.
