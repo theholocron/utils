@@ -1,8 +1,8 @@
-# theholocron/utils
+# `theholocron/utils`
 
 <!-- holocron:description -->
 
-Small utilities used within the Galaxy.
+Small utilities.
 
 <!-- /holocron:description -->
 

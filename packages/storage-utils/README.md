@@ -1,4 +1,4 @@
-# @theholocron/storage-utils
+# `@theholocron/storage-utils`
 
 Session storage utilities.
 

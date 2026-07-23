@@ -1,4 +1,4 @@
-# @theholocron/array-utils
+# `@theholocron/array-utils`
 
 Convert or manipulate arrays.
 

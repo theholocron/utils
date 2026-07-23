@@ -1,4 +1,4 @@
-# @theholocron/location-utils
+# `@theholocron/location-utils`
 
 Browser geolocation utilities.
 

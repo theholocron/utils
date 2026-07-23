@@ -1,4 +1,4 @@
-# @theholocron/date-time-utils
+# `@theholocron/date-time-utils`
 
 Handle dates and time.
 

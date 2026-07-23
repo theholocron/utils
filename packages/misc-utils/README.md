@@ -1,4 +1,4 @@
-# @theholocron/misc-utils
+# `@theholocron/misc-utils`
 
 Miscellaneous utilities.
 

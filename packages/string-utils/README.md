@@ -1,4 +1,4 @@
-# @theholocron/string-utils
+# `@theholocron/string-utils`
 
 Convert a string to any case or cast between types.
 

@@ -1,4 +1,4 @@
-# @theholocron/uri-utils
+# `@theholocron/uri-utils`
 
 URL and URI utilities.
 
