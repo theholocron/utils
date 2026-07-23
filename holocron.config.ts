@@ -23,7 +23,7 @@ export default defineConfig({
 	},
 	workflows: [
 		...workflows,
-		{ name: "audit", with: { "run-knip": true } },
+		"audit",
 		{ name: "release", with: { "run-build": true } },
 	],
 	providers,
