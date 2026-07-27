@@ -10,8 +10,8 @@ catalogs:
       specifier: ^7.5.0
       version: 7.5.0
     '@theholocron/eslint-config':
-      specifier: ^7.5.0
-      version: 7.5.0
+      specifier: ^7.6.0
+      version: 7.6.0
     '@theholocron/lint-staged-config':
       specifier: ^7.5.0
       version: 7.5.0
@@ -43,6 +43,9 @@ catalogs:
     eslint-plugin-n:
       specifier: ^18.2.2
       version: 18.2.2
+    eslint-plugin-simple-import-sort:
+      specifier: ^14.0.0
+      version: 14.0.0
     globals:
       specifier: ^17.7.0
       version: 17.7.0
@@ -99,7 +102,7 @@ importers:
         version: 7.5.0(@commitlint/cli@19.8.1(@types/node@26.1.1)(typescript@5.9.3))(@commitlint/config-conventional@19.8.1)
       '@theholocron/eslint-config':
         specifier: catalog:configs
-        version: 7.5.0(@eslint/js@9.39.5)(eslint-plugin-n@18.2.2(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(globals@17.7.0)(typescript-eslint@8.65.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))
+        version: 7.6.0(@eslint/js@9.39.5)(eslint-plugin-n@18.2.2(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint-plugin-simple-import-sort@14.0.0(eslint@10.7.0(jiti@2.7.0)))(eslint@10.7.0(jiti@2.7.0))(globals@17.7.0)(typescript-eslint@8.65.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))
       '@theholocron/holocron-config':
         specifier: catalog:holocron
         version: 7.5.0(@theholocron/cli@2.2.1(vitest@4.1.10))
@@ -136,6 +139,9 @@ importers:
       eslint-plugin-n:
         specifier: 'catalog:'
         version: 18.2.2(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3)
+      eslint-plugin-simple-import-sort:
+        specifier: 'catalog:'
+        version: 14.0.0(eslint@10.7.0(jiti@2.7.0))
       globals:
         specifier: 'catalog:'
         version: 17.7.0
@@ -1278,8 +1284,8 @@ packages:
       '@commitlint/cli': ^21
       '@commitlint/config-conventional': ^21
 
-  '@theholocron/eslint-config@7.5.0':
-    resolution: {integrity: sha512-QI+JESYUAA8fZ65jC+lg/D0/oWc1HBHGjsj7i0XUcBDpHY4NyKDEVtix8L0OaCHfee1Vxl56OUAAdRKesbItCQ==}
+  '@theholocron/eslint-config@7.6.0':
+    resolution: {integrity: sha512-k1Xws/GxadHgcfaHhgbyluHT/53cuGtgLegHErOTwaja4Wl4L6eCwcveA2sOn3Yg39oJYIRsdhC8aH0pialEwg==}
     engines: {node: '>=22.0.0'}
     peerDependencies:
       '@eslint/js': ^10
@@ -1289,6 +1295,7 @@ packages:
       eslint-plugin-cypress: ^6
       eslint-plugin-n: ^18
       eslint-plugin-react: ^7
+      eslint-plugin-simple-import-sort: ^14
       eslint-plugin-storybook: ^10
       globals: ^17
       typescript-eslint: ^8
@@ -2103,6 +2110,11 @@ packages:
         optional: true
       typescript:
         optional: true
+
+  eslint-plugin-simple-import-sort@14.0.0:
+    resolution: {integrity: sha512-NUJO0+XFCkk+o5EsAJruTgnfMEpeWrPWeJS15UVF60GgXmqz1BJ9/3hzlvG7lkL8Bubzos5cCLptThbFfPnSMQ==}
+    peerDependencies:
+      eslint: '>=5.0.0'
 
   eslint-scope@9.1.2:
     resolution: {integrity: sha512-xS90H51cKw0jltxmvmHy2Iai1LIqrfbw57b79w/J7MfvDfkIkFZ+kj6zC3BjtUwh150HsSSdxXZcsuv72miDFQ==}
@@ -4462,10 +4474,11 @@ snapshots:
       '@commitlint/cli': 19.8.1(@types/node@26.1.1)(typescript@5.9.3)
       '@commitlint/config-conventional': 19.8.1
 
-  '@theholocron/eslint-config@7.5.0(@eslint/js@9.39.5)(eslint-plugin-n@18.2.2(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint@10.7.0(jiti@2.7.0))(globals@17.7.0)(typescript-eslint@8.65.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))':
+  '@theholocron/eslint-config@7.6.0(@eslint/js@9.39.5)(eslint-plugin-n@18.2.2(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))(eslint-plugin-simple-import-sort@14.0.0(eslint@10.7.0(jiti@2.7.0)))(eslint@10.7.0(jiti@2.7.0))(globals@17.7.0)(typescript-eslint@8.65.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3))':
     dependencies:
       '@eslint/js': 9.39.5
       eslint: 10.7.0(jiti@2.7.0)
+      eslint-plugin-simple-import-sort: 14.0.0(eslint@10.7.0(jiti@2.7.0))
       globals: 17.7.0
       typescript-eslint: 8.65.0(eslint@10.7.0(jiti@2.7.0))(typescript@5.9.3)
     optionalDependencies:
@@ -5188,6 +5201,10 @@ snapshots:
       semver: 7.8.5
     optionalDependencies:
       typescript: 5.9.3
+
+  eslint-plugin-simple-import-sort@14.0.0(eslint@10.7.0(jiti@2.7.0)):
+    dependencies:
+      eslint: 10.7.0(jiti@2.7.0)
 
   eslint-scope@9.1.2:
     dependencies:
