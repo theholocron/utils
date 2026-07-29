@@ -11,7 +11,7 @@ catalog:
   eslint: ^10.8.0
   eslint-plugin-n: ^18.2.2
   eslint-plugin-simple-import-sort: ^14.0.0
-  globals: ^17.7.0
+  globals: ^17.8.0
   tsdown: ^0.22.14
   typescript: ^5.9.3
   vitest: ^4.1.10
