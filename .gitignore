@@ -88,3 +88,4 @@ coverage
 reports
 dist
 test-report.junit.xml
+docs/.astro/
