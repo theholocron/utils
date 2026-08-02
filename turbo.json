@@ -16,7 +16,7 @@
     },
     "test": {
       "inputs": ["src/**", "vitest.config.ts", "package.json"],
-      "outputs": [],
+      "outputs": ["test-report.junit.xml"],
       "dependsOn": ["^build"]
     },
     "test:coverage": {
