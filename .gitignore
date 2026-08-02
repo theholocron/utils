@@ -89,3 +89,13 @@ reports
 dist
 test-report.junit.xml
 docs/.astro/
+docs/dist/
+
+# managed by holocron setup — skills
+/.agents/skills/
+/.claude/skills/git-safety
+/.claude/skills/pr-workflow
+/.claude/skills/commit-standards
+/.claude/skills/security-review
+/.claude/skills/turborepo
+# end managed by holocron setup — skills
