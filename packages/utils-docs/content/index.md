@@ -2,7 +2,7 @@
 title: Utils
 description: Lightweight TypeScript utility packages for arrays, strings, dates, environment detection, and more.
 sidebar:
-  hidden: true
+    hidden: true
 ---
 
 `@theholocron/utils` is a pnpm monorepo of small, focused TypeScript utility packages. Each package is published independently and can be installed on its own.

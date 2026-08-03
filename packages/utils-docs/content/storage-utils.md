@@ -43,12 +43,12 @@ storage.session.clear();
 
 ```ts
 interface TSessionStorage {
-  registerApp: (appName: string) => void;
-  sendTo: (key: string, value: unknown) => void;
-  getAll: () => object;
-  getFrom: (key: string) => object | null;
-  removeFrom: (key: string) => void;
-  clear: () => void;
+	registerApp: (appName: string) => void;
+	sendTo: (key: string, value: unknown) => void;
+	getAll: () => object;
+	getFrom: (key: string) => object | null;
+	removeFrom: (key: string) => void;
+	clear: () => void;
 }
 ```
 
