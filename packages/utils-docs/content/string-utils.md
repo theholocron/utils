@@ -17,17 +17,17 @@ All casing functions take a `string` and return a `string`:
 
 ```ts
 import {
-	toCamelCase,
-	toConstantCase,
-	toDotCase,
-	toKebabCase,
-	toLowerCase,
-	toPascalCase,
-	toPathCase,
-	toSentenceCase,
-	toSnakeCase,
-	toTitleCase,
-	toUpperCase,
+  toCamelCase,
+  toConstantCase,
+  toDotCase,
+  toKebabCase,
+  toLowerCase,
+  toPascalCase,
+  toPathCase,
+  toSentenceCase,
+  toSnakeCase,
+  toTitleCase,
+  toUpperCase,
 } from "@theholocron/string-utils";
 
 toCamelCase("hello world"); // "helloWorld"

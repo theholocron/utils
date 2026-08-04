@@ -33,8 +33,8 @@ const { get, map, deprecate } = createEnvParser({ appName: "my-app" });
 deprecate("database_url", "db__primary__url");
 
 export const config = map((get) => ({
-	port: get("port") ?? 3000,
-	db: { url: get("db.primary.url") ?? get("database_url") },
+  port: get("port") ?? 3000,
+  db: { url: get("db.primary.url") ?? get("database_url") },
 }));
 ```
 

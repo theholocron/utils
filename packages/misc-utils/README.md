@@ -21,9 +21,9 @@ console.log(konami.CODE);
 //  "ArrowLeft", "ArrowRight", "ArrowLeft", "ArrowRight", "KeyB", "KeyA"]
 
 window.addEventListener("keydown", (event) => {
-	if (konami.is(event)) {
-		console.log("Konami code entered!");
-	}
+  if (konami.is(event)) {
+    console.log("Konami code entered!");
+  }
 });
 ```
 

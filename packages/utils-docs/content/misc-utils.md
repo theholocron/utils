@@ -32,9 +32,9 @@ Returns `true` when the most recent `KeyboardEvent` completes the Konami Code se
 import { konami } from "@theholocron/misc-utils";
 
 document.addEventListener("keydown", (event) => {
-	if (konami.is(event)) {
-		console.log("Konami Code entered!");
-	}
+  if (konami.is(event)) {
+    console.log("Konami Code entered!");
+  }
 });
 ```
 

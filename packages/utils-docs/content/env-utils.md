@@ -57,10 +57,10 @@ parser.get("service.db.url");
 
 // Map to a typed config object
 export const config = parser.map((get) => ({
-	port: get("port") ?? 3000,
-	database: {
-		url: get("db.primary.url") ?? get("database_url"),
-	},
+  port: get("port") ?? 3000,
+  database: {
+    url: get("db.primary.url") ?? get("database_url"),
+  },
 }));
 ```
 
