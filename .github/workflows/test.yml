@@ -1,6 +1,5 @@
 # AUTO-GENERATED — do not edit directly.
 # Source:  theholocron/holocron · packages/cli/src/commands/setup-workflows.ts
-# Synced:  2026-07-22T20:30:51.676Z
 # Tool:    holocron setup
 # Changes: run `holocron setup` to regenerate.
 name: Test
@@ -17,6 +16,7 @@ concurrency:
 permissions:
   contents: read
   id-token: write
+  statuses: write
 
 jobs:
   test:

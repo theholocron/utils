@@ -1,7 +1,7 @@
 # AUTO-GENERATED — do not edit directly.
 # Source:  theholocron/holocron · packages/cli/src/commands/setup-workflows.ts
-# Tool:    holocron sync-github
-# Changes: edit source in theholocron/holocron and push to alpha or main.
+# Tool:    holocron setup
+# Changes: run `holocron setup` to regenerate.
 name: Deploy Docs
 
 on: # yamllint disable-line rule:truthy
@@ -9,6 +9,7 @@ on: # yamllint disable-line rule:truthy
     branches: [main]
     paths:
       - docs/**
+      - packages/utils-docs/**
   workflow_dispatch:
 
 concurrency:
@@ -24,4 +25,6 @@ jobs:
   deploy-docs:
     name: Deploy Docs
     uses: theholocron/.github/.github/workflows/deploy-docs.yml@main
+    with:
+      name: utils
     secrets: inherit
