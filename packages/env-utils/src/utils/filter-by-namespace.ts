@@ -28,12 +28,14 @@ export function filterByNamespace(
 /**
  * Merge multiple namespace-filtered views of a raw env record.
  *
- * Namespaces are listed in descending priority order — the first entry
- * wins when the same key exists under multiple prefixes.
+ * Uses a cascade model — **later entries win** over earlier ones when
+ * the same key exists under multiple prefixes. Put broad/global
+ * namespaces first and project-specific overrides last, the same way
+ * you would layer CSS rules or Object.assign calls.
  *
  * @example
- * // CLI_TEMPLATE_DEBUG overrides HOLOCRON_DEBUG
- * mergeNamespaces(raw, ["CLI_TEMPLATE", "HOLOCRON"])
+ * // HOLOCRON_DEBUG is the org-wide default; CLI_TEMPLATE_DEBUG overrides it.
+ * mergeNamespaces(raw, ["HOLOCRON", "CLI_TEMPLATE"])
  */
 export function mergeNamespaces(
 	raw: Record<string, string | undefined>,
@@ -41,9 +43,9 @@ export function mergeNamespaces(
 ): Record<string, string | undefined> {
 	const result: Record<string, string | undefined> = {};
 
-	// Process lowest-priority first; higher-priority namespaces overwrite.
-	for (let i = namespaces.length - 1; i >= 0; i--) {
-		Object.assign(result, filterByNamespace(raw, namespaces[i]!));
+	// Forward iteration: later namespaces overwrite earlier ones (last wins).
+	for (const ns of namespaces) {
+		Object.assign(result, filterByNamespace(raw, ns));
 	}
 
 	return result;

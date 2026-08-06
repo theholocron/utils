@@ -258,19 +258,20 @@ describe("createEnvParser", () => {
 		expect(get("debug")).toBe(false);
 	});
 
-	it("namespaces: first namespace wins over later ones for the same key", () => {
+	it("namespaces: last namespace wins over earlier ones for the same key", () => {
 		const { get } = createEnvParser({
 			appName: "test-app",
-			namespaces: ["CLI_TEMPLATE", "HOLOCRON"],
-			loader: makeLoader({ CLI_TEMPLATE_DEBUG: "false", HOLOCRON_DEBUG: "true" }),
+			// HOLOCRON is the global base; CLI_TEMPLATE is the local override (last = wins)
+			namespaces: ["HOLOCRON", "CLI_TEMPLATE"],
+			loader: makeLoader({ HOLOCRON_DEBUG: "true", CLI_TEMPLATE_DEBUG: "false" }),
 		});
 		expect(get("debug")).toBe(false);
 	});
 
-	it("namespaces: falls back to a lower-priority namespace when the key is absent from higher ones", () => {
+	it("namespaces: earlier namespace acts as base when the key is absent from later ones", () => {
 		const { get } = createEnvParser({
 			appName: "test-app",
-			namespaces: ["CLI_TEMPLATE", "HOLOCRON"],
+			namespaces: ["HOLOCRON", "CLI_TEMPLATE"],
 			loader: makeLoader({ HOLOCRON_VERBOSE: "true" }),
 		});
 		expect(get("verbose")).toBe(true);

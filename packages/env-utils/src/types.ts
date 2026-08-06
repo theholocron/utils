@@ -36,19 +36,25 @@ export interface EnvParserOptions {
 	 * (case-insensitive, followed by `_`) are visible to the parser.
 	 * The prefix is stripped before the key is normalised and looked up.
 	 *
-	 * Namespaces are listed in **descending priority order** — the first
-	 * entry wins when the same key exists under multiple prefixes. Use
-	 * the first slot for your app's own prefix and later slots for
-	 * shared/global prefixes (e.g. an org-wide `HOLOCRON_` set in
-	 * `~/.bashrc`) so that local vars take precedence without duplicating
-	 * them in every project's `.env`.
+	 * Uses a **cascade model** — later entries win when the same key
+	 * exists under multiple prefixes. Put broad/global namespaces first
+	 * and project-specific overrides last (same mental model as CSS
+	 * specificity or `Object.assign`).
+	 *
+	 * This lets you share an org-wide namespace (e.g. `HOLOCRON_` set
+	 * once in `~/.bashrc`) as a base, then override individual vars with
+	 * a project-specific prefix in `.env`, without copying every global
+	 * var into each project.
 	 *
 	 * @example
-	 * // CLI_TEMPLATE_DEBUG overrides HOLOCRON_DEBUG
-	 * createEnvParser({ appName: "my-cli", namespaces: ["CLI_TEMPLATE", "HOLOCRON"] })
+	 * // HOLOCRON_DEBUG is the global default; CLI_TEMPLATE_DEBUG overrides it.
+	 * createEnvParser({ appName: "my-cli", namespaces: ["HOLOCRON", "CLI_TEMPLATE"] })
 	 *
 	 * // Single namespace — only HOLOCRON_* vars are visible
 	 * createEnvParser({ appName: "my-cli", namespaces: ["HOLOCRON"] })
+	 *
+	 * // Completely custom — no org namespace at all
+	 * createEnvParser({ appName: "my-cli", namespaces: ["MY_TOOL"] })
 	 */
 	namespaces?: string[];
 }

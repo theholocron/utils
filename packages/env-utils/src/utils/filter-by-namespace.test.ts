@@ -57,28 +57,30 @@ describe("mergeNamespaces", () => {
 			HOLOCRON_DEBUG: "true",
 			CLI_TEMPLATE_SOUND: "false",
 		};
-		expect(mergeNamespaces(raw, ["CLI_TEMPLATE", "HOLOCRON"])).toEqual({
+		expect(mergeNamespaces(raw, ["HOLOCRON", "CLI_TEMPLATE"])).toEqual({
 			DEBUG: "true",
 			SOUND: "false",
 		});
 	});
 
-	it("first namespace wins when the same key exists in multiple namespaces", () => {
+	it("last namespace wins when the same key exists in multiple namespaces", () => {
 		const raw = {
 			HOLOCRON_DEBUG: "true",
 			CLI_TEMPLATE_DEBUG: "false",
 		};
-		expect(mergeNamespaces(raw, ["CLI_TEMPLATE", "HOLOCRON"])).toEqual({
+		// CLI_TEMPLATE is last = more specific = overrides HOLOCRON
+		expect(mergeNamespaces(raw, ["HOLOCRON", "CLI_TEMPLATE"])).toEqual({
 			DEBUG: "false",
 		});
 	});
 
-	it("later namespace acts as fallback when the key is absent from higher-priority ones", () => {
+	it("earlier namespace acts as base/fallback when the key is absent from later ones", () => {
 		const raw = {
 			HOLOCRON_VERBOSE: "true",
 			CLI_TEMPLATE_DEBUG: "false",
 		};
-		expect(mergeNamespaces(raw, ["CLI_TEMPLATE", "HOLOCRON"])).toEqual({
+		// HOLOCRON provides VERBOSE; CLI_TEMPLATE provides DEBUG and overrides nothing
+		expect(mergeNamespaces(raw, ["HOLOCRON", "CLI_TEMPLATE"])).toEqual({
 			DEBUG: "false",
 			VERBOSE: "true",
 		});
