@@ -29,6 +29,28 @@ export interface EnvParserOptions {
 	 * native types. Defaults to true.
 	 */
 	parseValues?: boolean;
+
+	/**
+	 * Namespace prefixes to filter and strip from raw env var keys.
+	 * When set, only vars whose names start with one of these prefixes
+	 * (case-insensitive, followed by `_`) are visible to the parser.
+	 * The prefix is stripped before the key is normalised and looked up.
+	 *
+	 * Namespaces are listed in **descending priority order** — the first
+	 * entry wins when the same key exists under multiple prefixes. Use
+	 * the first slot for your app's own prefix and later slots for
+	 * shared/global prefixes (e.g. an org-wide `HOLOCRON_` set in
+	 * `~/.bashrc`) so that local vars take precedence without duplicating
+	 * them in every project's `.env`.
+	 *
+	 * @example
+	 * // CLI_TEMPLATE_DEBUG overrides HOLOCRON_DEBUG
+	 * createEnvParser({ appName: "my-cli", namespaces: ["CLI_TEMPLATE", "HOLOCRON"] })
+	 *
+	 * // Single namespace — only HOLOCRON_* vars are visible
+	 * createEnvParser({ appName: "my-cli", namespaces: ["HOLOCRON"] })
+	 */
+	namespaces?: string[];
 }
 
 export interface EnvParser<T extends EnvObject = EnvObject> {
