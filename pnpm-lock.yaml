@@ -16,8 +16,8 @@ catalogs:
       specifier: ^7.8.1
       version: 7.13.2
     '@theholocron/prettier-config':
-      specifier: ^7.8.1
-      version: 7.13.2
+      specifier: ^7.17.0
+      version: 7.17.0
     '@theholocron/semantic-release-config':
       specifier: ^7.8.1
       version: 7.13.2
@@ -117,7 +117,7 @@ importers:
         version: 7.13.2(husky@9.1.7)(lint-staged@16.4.0)(sort-package-json@4.0.0)
       '@theholocron/prettier-config':
         specifier: catalog:configs
-        version: 7.13.2(prettier@3.9.6)
+        version: 7.17.0(prettier@3.9.6)
       '@theholocron/semantic-release-config':
         specifier: catalog:configs
         version: 7.13.2(@semantic-release/changelog@6.0.3(semantic-release@25.0.8(typescript@6.0.3)))(@semantic-release/commit-analyzer@13.0.1(semantic-release@25.0.8(typescript@6.0.3)))(@semantic-release/exec@7.1.0(semantic-release@25.0.8(typescript@6.0.3)))(@semantic-release/git@10.0.1(semantic-release@25.0.8(typescript@6.0.3)))(@semantic-release/github@12.0.9(semantic-release@25.0.8(typescript@6.0.3)))(@semantic-release/release-notes-generator@14.1.1(semantic-release@25.0.8(typescript@6.0.3)))(conventional-changelog-conventionalcommits@10.2.1)(semantic-release@25.0.8(typescript@6.0.3))
@@ -2163,8 +2163,8 @@ packages:
       sort-package-json:
         optional: true
 
-  '@theholocron/prettier-config@7.13.2':
-    resolution: {integrity: sha512-o3TFQxjgJG1k+ZxkeP4DU/yYX4ISMe8+IviVm/pXuOIO4K1HxrWh2YbJRBKF/avMgrEdGqKeTu40fsspDZ56aA==}
+  '@theholocron/prettier-config@7.17.0':
+    resolution: {integrity: sha512-xZ/+7/vu3qa1yB8AWZ3QkVcAfKt2iQQ56sIMm5N8GMP6H2FbV1Yo4GLX/Mlu8QVq1ttrdIZHF+1WQSiGr+WRBg==}
     engines: {node: '>=22.0.0'}
     peerDependencies:
       prettier: ^3
@@ -7234,7 +7234,7 @@ snapshots:
     optionalDependencies:
       sort-package-json: 4.0.0
 
-  '@theholocron/prettier-config@7.13.2(prettier@3.9.6)':
+  '@theholocron/prettier-config@7.17.0(prettier@3.9.6)':
     dependencies:
       prettier: 3.9.6
 
