@@ -5,7 +5,7 @@ packages:
 # Shared dep versions used across packages.
 catalog:
   '@tsconfig/node-lts': ^24.0.0
-  '@types/node': ^26.1.2
+  '@types/node': ^26.2.0
   '@vitest/coverage-v8': ^4.1.10
 
   eslint: ^10.8.1
