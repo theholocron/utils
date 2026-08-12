@@ -2,7 +2,7 @@
 # Source:  theholocron/holocron · packages/cli/src/commands/setup-workflows.ts
 # Tool:    holocron sync-github
 # Changes: edit source in theholocron/holocron and push to alpha or main.
-name: Deploy Docs
+name: Deploy
 
 on: # yamllint disable-line rule:truthy
   push:
@@ -22,7 +22,7 @@ permissions:
 
 jobs:
   deploy:
-    name: Deploy Docs
+    name: Deploy
     uses: theholocron/.github/.github/workflows/deploy.yml@main
     with:
       type: docs
