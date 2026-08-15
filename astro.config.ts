@@ -5,7 +5,9 @@ import utilsConfig from "@theholocron/utils-docs";
 
 export default defineConfig({
 	docs: utilsConfig,
-	importMetaUrl: import.meta.url,
 	starlight,
 	docsTheme,
+	srcDir: "./docs/src",
+	outDir: "./docs/dist",
+	publicDir: "./docs/public",
 });

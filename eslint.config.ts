@@ -20,7 +20,7 @@ const config = [
 		},
 	},
 	{
-		ignores: ["packages/*/dist/**", "packages/*/coverage/**", "**/node_modules/**"],
+		ignores: ["docs/**", "packages/*/dist/**", "packages/*/coverage/**", "**/node_modules/**"],
 	},
 ] satisfies Linter.Config[];
 
