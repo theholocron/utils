@@ -39,6 +39,7 @@
     "@theholocron/lint-staged-config": "catalog:configs",
     "@theholocron/prettier-config": "catalog:configs",
     "@theholocron/semantic-release-config": "catalog:configs",
+    "@theholocron/tsconfig": "catalog:configs",
     "@theholocron/tsdown-config": "catalog:configs",
     "@theholocron/utils-docs": "workspace:*",
     "@theholocron/vitest-config": "catalog:configs",
