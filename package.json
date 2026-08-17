@@ -41,7 +41,6 @@
     "@theholocron/semantic-release-config": "catalog:configs",
     "@theholocron/tsconfig": "catalog:configs",
     "@theholocron/tsdown-config": "catalog:configs",
-    "@theholocron/utils-docs": "workspace:*",
     "@theholocron/vitest-config": "catalog:configs",
     "@tsconfig/node-lts": "catalog:",
     "alexjs": "^1.0.0",

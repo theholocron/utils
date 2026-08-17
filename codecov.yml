@@ -65,8 +65,3 @@ component_management:
       name: "uri-utils"
       paths:
         - packages/uri-utils/**
-
-    - component_id: utils-docs
-      name: "utils-docs"
-      paths:
-        - packages/utils-docs/**
