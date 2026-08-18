@@ -8,6 +8,7 @@ export default defineConfig({
 	homepage: "https://docs.theholocron.dev/utils/",
 	repo: {
 		...repo,
+		protection: "strict",
 		teams: [{ slug: "gatekeepers", permission: "maintain" }],
 		topics: [
 			"array",
