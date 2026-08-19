@@ -216,6 +216,9 @@ importers:
       '@tsconfig/node-lts':
         specifier: 'catalog:'
         version: 24.0.1
+      '@types/node':
+        specifier: 'catalog:'
+        version: 26.2.0
       '@vitest/coverage-v8':
         specifier: 'catalog:'
         version: 4.1.10(vitest@4.1.10)
@@ -237,6 +240,9 @@ importers:
       '@tsconfig/node-lts':
         specifier: 'catalog:'
         version: 24.0.1
+      '@types/node':
+        specifier: 'catalog:'
+        version: 26.2.0
       '@vitest/coverage-v8':
         specifier: 'catalog:'
         version: 4.1.10(vitest@4.1.10)
@@ -285,6 +291,9 @@ importers:
       '@tsconfig/node-lts':
         specifier: 'catalog:'
         version: 24.0.1
+      '@types/node':
+        specifier: 'catalog:'
+        version: 26.2.0
       '@vitest/coverage-v8':
         specifier: 'catalog:'
         version: 4.1.10(vitest@4.1.10)
@@ -309,6 +318,9 @@ importers:
       '@tsconfig/node-lts':
         specifier: 'catalog:'
         version: 24.0.1
+      '@types/node':
+        specifier: 'catalog:'
+        version: 26.2.0
       '@vitest/coverage-v8':
         specifier: 'catalog:'
         version: 4.1.10(vitest@4.1.10)
@@ -330,6 +342,9 @@ importers:
       '@tsconfig/node-lts':
         specifier: 'catalog:'
         version: 24.0.1
+      '@types/node':
+        specifier: 'catalog:'
+        version: 26.2.0
       '@vitest/coverage-v8':
         specifier: 'catalog:'
         version: 4.1.10(vitest@4.1.10)
@@ -361,6 +376,9 @@ importers:
       '@tsconfig/node-lts':
         specifier: 'catalog:'
         version: 24.0.1
+      '@types/node':
+        specifier: 'catalog:'
+        version: 26.2.0
       '@vitest/coverage-v8':
         specifier: 'catalog:'
         version: 4.1.10(vitest@4.1.10)
@@ -2542,9 +2560,6 @@ packages:
 
   '@types/node@24.13.3':
     resolution: {integrity: sha512-Dh8vAsV36ig5wa9OX4pXvMc9D3Veibfw2wix0CUwYODLD8nkj9UsLjASr49nPg+2eKzxhBV+v7L8pXvT4e639Q==}
-
-  '@types/node@26.1.2':
-    resolution: {integrity: sha512-Vu4a5UFA9rIIFJ7rB/Vaafh9lrCQszopTCx6KjFboXTGQbPNasehVR5TEiithSDGyd1DEiUByggTZsg8jukeIg==}
 
   '@types/node@26.2.0':
     resolution: {integrity: sha512-5IviulTZeRNp2vAJ514cc/HUlY5nZ9fCbq9DMyC52BrhFZACo3nI0R7qBxhQmo/d27NFe96ur/b7Wwxklda+kg==}
@@ -7717,10 +7732,6 @@ snapshots:
     dependencies:
       undici-types: 7.18.2
 
-  '@types/node@26.1.2':
-    dependencies:
-      undici-types: 8.3.0
-
   '@types/node@26.2.0':
     dependencies:
       undici-types: 8.3.0
@@ -7729,7 +7740,7 @@ snapshots:
 
   '@types/sax@1.2.7':
     dependencies:
-      '@types/node': 26.1.2
+      '@types/node': 26.2.0
 
   '@types/unist@2.0.11': {}
 
@@ -7739,7 +7750,7 @@ snapshots:
 
   '@types/ws@8.18.1':
     dependencies:
-      '@types/node': 26.1.2
+      '@types/node': 26.2.0
 
   '@typescript-eslint/eslint-plugin@8.65.0(@typescript-eslint/parser@8.65.0(eslint@10.8.1(jiti@2.7.0))(typescript@6.0.3))(eslint@10.8.1(jiti@2.7.0))(typescript@6.0.3)':
     dependencies:
@@ -8187,7 +8198,7 @@ snapshots:
 
   buffer-image-size@0.6.4:
     dependencies:
-      '@types/node': 26.1.2
+      '@types/node': 26.2.0
 
   cac@7.0.0: {}
 
@@ -8989,7 +9000,7 @@ snapshots:
 
   happy-dom@20.11.1:
     dependencies:
-      '@types/node': 26.1.2
+      '@types/node': 26.2.0
       '@types/whatwg-mimetype': 3.0.2
       '@types/ws': 8.18.1
       buffer-image-size: 0.6.4
