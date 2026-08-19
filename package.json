@@ -12,6 +12,7 @@
   "license": "GPL-3.0",
   "author": "Newton Koumantzelis",
   "scripts": {
+    "audit": "knip",
     "build": "turbo run build",
     "format": "prettier --write .",
     "lint": "turbo run lint",
@@ -51,6 +52,7 @@
     "eslint-plugin-simple-import-sort": "catalog:",
     "globals": "catalog:",
     "husky": "^9.1.7",
+    "knip": "^6.32.2",
     "lint-staged": "^16.2.6",
     "prettier": "^3.9.6",
     "semantic-release": "^25.0.9",
