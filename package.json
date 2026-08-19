@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "@astrojs/starlight": "catalog:",
-    "@commitlint/cli": "^21.2.1",
+    "@commitlint/cli": "^21.2.2",
     "@commitlint/config-conventional": "^21.2.2",
     "@commitlint/types": "^21.2.0",
     "@semantic-release/changelog": "^6.0.3",
@@ -46,7 +46,7 @@
     "@tsconfig/node-lts": "catalog:",
     "alexjs": "^1.0.0",
     "astro": "catalog:",
-    "conventional-changelog-conventionalcommits": "^10.2.1",
+    "conventional-changelog-conventionalcommits": "^10.3.0",
     "eslint": "catalog:",
     "eslint-plugin-n": "catalog:",
     "eslint-plugin-simple-import-sort": "catalog:",
@@ -57,7 +57,7 @@
     "prettier": "^3.9.6",
     "semantic-release": "^25.0.9",
     "sort-package-json": "^4.0.0",
-    "turbo": "^2.10.9",
+    "turbo": "^2.10.10",
     "typescript": "catalog:"
   },
   "packageManager": "pnpm@10.34.4",
