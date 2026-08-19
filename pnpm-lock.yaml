@@ -7,8 +7,8 @@ settings:
 catalogs:
   configs:
     '@theholocron/astro-config':
-      specifier: ^7.19.1
-      version: 7.19.1
+      specifier: ^7.22.2
+      version: 7.22.2
     '@theholocron/commitlint-config':
       specifier: ^7.19.1
       version: 7.19.1
@@ -117,7 +117,7 @@ importers:
         version: 12.0.9(semantic-release@25.0.9(typescript@6.0.3))
       '@theholocron/astro-config':
         specifier: catalog:configs
-        version: 7.19.1(astro@7.2.4(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(@types/node@26.2.0)(jiti@2.7.0)(tsx@4.23.1)(yaml@2.9.0))
+        version: 7.22.2(astro@7.2.4(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(@types/node@26.2.0)(jiti@2.7.0)(tsx@4.23.1)(yaml@2.9.0))
       '@theholocron/cli':
         specifier: catalog:holocron
         version: 3.24.4(@opentelemetry/core@2.10.0(@opentelemetry/api@1.9.1))(@types/node@26.2.0)(vitest@4.1.10)
@@ -2323,8 +2323,8 @@ packages:
     peerDependencies:
       '@testing-library/dom': '>=7.21.4'
 
-  '@theholocron/astro-config@7.19.1':
-    resolution: {integrity: sha512-QE47/ODTNEwszna7jxlI7EDQBDtP0bs5UJy25+kgoa8AI5lDPtW2ZKHRPQ7nZc1T1hsyNF7zpUZZRwHwHisGFw==}
+  '@theholocron/astro-config@7.22.2':
+    resolution: {integrity: sha512-cU7nZqBIKZteVB3qBJ0hdSAsKv5EWN7/hreM4/3AiEevq4SDXCYriVXiGQ+MVHoTSLtZk3b4PFE2jEf+zuxg+g==}
     engines: {node: '>=22.0.0'}
     peerDependencies:
       astro: '>=5.0.0'
@@ -7559,7 +7559,7 @@ snapshots:
       '@testing-library/dom': 10.4.1
     optional: true
 
-  '@theholocron/astro-config@7.19.1(astro@7.2.4(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(@types/node@26.2.0)(jiti@2.7.0)(tsx@4.23.1)(yaml@2.9.0))':
+  '@theholocron/astro-config@7.22.2(astro@7.2.4(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(@types/node@26.2.0)(jiti@2.7.0)(tsx@4.23.1)(yaml@2.9.0))':
     dependencies:
       astro: 7.2.4(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(@types/node@26.2.0)(jiti@2.7.0)(tsx@4.23.1)(yaml@2.9.0)
 
