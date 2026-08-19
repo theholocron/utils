@@ -52,6 +52,9 @@ catalogs:
     astro:
       specifier: ^7.2.2
       version: 7.2.4
+    eslint:
+      specifier: ^10.8.1
+      version: 10.8.1
     eslint-plugin-n:
       specifier: ^18.3.0
       version: 18.3.0
@@ -164,7 +167,7 @@ importers:
         specifier: ^10.3.0
         version: 10.3.0
       eslint:
-        specifier: 10.8.1
+        specifier: 'catalog:'
         version: 10.8.1(jiti@2.7.0)
       eslint-plugin-n:
         specifier: 'catalog:'
