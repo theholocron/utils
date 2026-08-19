@@ -9,6 +9,16 @@ export default defineConfig({
 	repo: {
 		...repo,
 		protection: "strict",
+		requiredChecks: [
+			"audit / Audit the bundle size",
+			"audit / Knip",
+			"codecov/patch",
+			"codecov/project/array",
+			"codecov/project/misc",
+			"codecov/project/storage",
+			"codecov/project/string",
+			"codecov/project/uri",
+		],
 		teams: [{ slug: "gatekeepers", permission: "maintain" }],
 		topics: [
 			"array",
