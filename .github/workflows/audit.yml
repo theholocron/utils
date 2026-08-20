@@ -15,6 +15,4 @@ permissions:
 jobs:
   audit:
     uses: theholocron/.github/.github/workflows/audit.yml@main
-    with:
-      run-knip: true
     secrets: inherit
