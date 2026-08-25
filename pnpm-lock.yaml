@@ -7,7 +7,7 @@ settings:
 catalogs:
   configs:
     '@theholocron/astro-config':
-      specifier: ^7.24.1
+      specifier: ^7.22.4
       version: 7.24.1
     '@theholocron/commitlint-config':
       specifier: ^7.24.1
