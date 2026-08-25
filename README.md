@@ -8,6 +8,8 @@ Small utilities.
 
 ## Packages
 
+<!-- holocron:packages -->
+
 | Package                                                      | Description                                             |
 | ------------------------------------------------------------ | ------------------------------------------------------- |
 | [`@theholocron/array-utils`](./packages/array-utils)         | Array conversion and manipulation                       |
@@ -19,7 +21,11 @@ Small utilities.
 | [`@theholocron/string-utils`](./packages/string-utils)       | String casing, casting, and numbering                   |
 | [`@theholocron/uri-utils`](./packages/uri-utils)             | URL search param utilities                              |
 
+<!-- /holocron:packages -->
+
 ## Development
+
+<!-- holocron:development -->
 
 This repo uses [pnpm workspaces](https://pnpm.io/workspaces) and [Turbo](https://turbo.build).
 
@@ -31,6 +37,12 @@ pnpm typecheck     # type-check all packages
 pnpm lint          # lint all packages
 ```
 
+<!-- /holocron:development -->
+
 ## Releases
 
+<!-- holocron:releases -->
+
 Releases are automated via [semantic-release](https://semantic-release.gitbook.io) on push to `main`. All packages are versioned and published in lockstep. See [CHANGELOG.md](CHANGELOG.md) for the release history.
+
+<!-- /holocron:releases -->
