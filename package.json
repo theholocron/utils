@@ -23,6 +23,7 @@
     "typecheck": "turbo run typecheck"
   },
   "devDependencies": {
+    "@astrojs/react": "^6.0.4",
     "@astrojs/starlight": "catalog:",
     "@commitlint/cli": "^21.2.2",
     "@commitlint/config-conventional": "^21.2.2",
@@ -58,6 +59,8 @@
     "knip": "^6.32.2",
     "lint-staged": "^16.2.6",
     "prettier": "^3.9.6",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
     "semantic-release": "^25.0.9",
     "sort-package-json": "^4.0.0",
     "turbo": "^2.10.10",
