@@ -11,6 +11,7 @@
   },
   "license": "GPL-3.0",
   "author": "Newton Koumantzelis",
+  "type": "module",
   "scripts": {
     "audit": "knip",
     "build": "turbo run build",
