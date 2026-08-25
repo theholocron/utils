@@ -11,6 +11,7 @@
   },
   "license": "GPL-3.0",
   "author": "Newton Koumantzelis",
+  "type": "module",
   "scripts": {
     "audit": "knip",
     "build": "turbo run build",
@@ -22,6 +23,7 @@
     "typecheck": "turbo run typecheck"
   },
   "devDependencies": {
+    "@astrojs/react": "^6.0.4",
     "@astrojs/starlight": "catalog:",
     "@commitlint/cli": "^21.2.2",
     "@commitlint/config-conventional": "^21.2.2",
@@ -33,14 +35,14 @@
     "@theholocron/astro-config": "catalog:configs",
     "@theholocron/cli": "catalog:holocron",
     "@theholocron/commitlint-config": "catalog:configs",
-    "@theholocron/components-doc": "^1.2.0",
+    "@theholocron/components-doc": "catalog:docs",
     "@theholocron/docs-theme": "catalog:",
     "@theholocron/eslint-config": "catalog:configs",
     "@theholocron/holocron-config": "catalog:holocron",
     "@theholocron/holocron-plugin-github": "catalog:holocron",
     "@theholocron/lint-staged-config": "catalog:configs",
     "@theholocron/prettier-config": "catalog:configs",
-    "@theholocron/registry-doc": "^1.2.0",
+    "@theholocron/registry-doc": "catalog:docs",
     "@theholocron/semantic-release-config": "catalog:configs",
     "@theholocron/tsconfig": "catalog:configs",
     "@theholocron/tsdown-config": "catalog:configs",
@@ -57,6 +59,8 @@
     "knip": "^6.32.2",
     "lint-staged": "^16.2.6",
     "prettier": "^3.9.6",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
     "semantic-release": "^25.0.9",
     "sort-package-json": "^4.0.0",
     "turbo": "^2.10.10",
@@ -64,8 +68,7 @@
   },
   "packageManager": "pnpm@10.34.4",
   "engines": {
-    "node": ">=22",
-    "pnpm": ">=10"
+    "node": ">=22"
   },
   "releases": "https://github.com/theholocron/utils/releases",
   "wiki": "https://github.com/theholocron/utils/wiki"
