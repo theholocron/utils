@@ -70,6 +70,11 @@
   "engines": {
     "node": ">=22"
   },
+  "pnpm": {
+    "overrides": {
+      "@commitlint/config-conventional>conventional-changelog-conventionalcommits": "7"
+    }
+  },
   "releases": "https://github.com/theholocron/utils/releases",
   "wiki": "https://github.com/theholocron/utils/wiki"
 }
