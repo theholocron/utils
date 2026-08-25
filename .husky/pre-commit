@@ -9,5 +9,5 @@ if [ $? -ne 0 ]; then
 	exit 1
 fi
 
-# Run lint-staged
-npx lint-staged
+# Run lint-staged with a custom config
+npx lint-staged --config @theholocron/lint-staged-config
