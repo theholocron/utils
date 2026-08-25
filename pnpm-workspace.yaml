@@ -34,6 +34,11 @@ catalogs:
     '@theholocron/tsdown-config': ^7.19.1
     '@theholocron/vitest-config': ^7.19.1
 
+  # Docs components and registry — release in lockstep; bump both entries together.
+  docs:
+    '@theholocron/components-doc': ^1.6.0
+    '@theholocron/registry-doc': ^1.6.0
+
   # Holocron CLI and plugins — range covers all alpha releases; switch to ^2.0.0 on stable.
   holocron:
     '@theholocron/cli': ^3.24.4
