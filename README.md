@@ -2,7 +2,7 @@
 
 <!-- holocron:description -->
 
-Small utilities.
+Lightweight TypeScript utility packages for arrays, strings, dates, environment detection, and more.
 
 <!-- /holocron:description -->
 
