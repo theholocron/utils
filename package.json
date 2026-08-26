@@ -2,7 +2,7 @@
   "name": "@theholocron/utils",
   "version": "1.4.3",
   "private": true,
-  "description": "Small utilities.",
+  "description": "Lightweight TypeScript utility packages for arrays, strings, dates, environment detection, and more.",
   "keywords": [
     "array",
     "date-time",
