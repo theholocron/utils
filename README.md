@@ -1,7 +1,9 @@
 # `theholocron/utils`
 
 <!-- holocron:description -->
+
 Lightweight TypeScript utility packages for arrays, strings, dates, environment detection, and more.
+
 <!-- /holocron:description -->
 
 <!-- holocron:installation -->
@@ -15,7 +17,7 @@ pnpm install @theholocron/utils
 ## Usage
 
 ```typescript
-import { } from "@theholocron/utils";
+import {} from "@theholocron/utils";
 ```
 
 <!-- /holocron:installation -->
@@ -24,16 +26,16 @@ import { } from "@theholocron/utils";
 
 <!-- holocron:packages -->
 
-| Package | Docs | npm |
-|---|---|---|
-| `@theholocron/array-utils` | [Docs](https://docs.theholocron.dev/utils/array) | [npm](https://www.npmjs.com/package/@theholocron/array-utils) |
+| Package                        | Docs                                                 | npm                                                               |
+| ------------------------------ | ---------------------------------------------------- | ----------------------------------------------------------------- |
+| `@theholocron/array-utils`     | [Docs](https://docs.theholocron.dev/utils/array)     | [npm](https://www.npmjs.com/package/@theholocron/array-utils)     |
 | `@theholocron/date-time-utils` | [Docs](https://docs.theholocron.dev/utils/date-time) | [npm](https://www.npmjs.com/package/@theholocron/date-time-utils) |
-| `@theholocron/env-utils` | [Docs](https://docs.theholocron.dev/utils/env) | [npm](https://www.npmjs.com/package/@theholocron/env-utils) |
-| `@theholocron/location-utils` | [Docs](https://docs.theholocron.dev/utils/location) | [npm](https://www.npmjs.com/package/@theholocron/location-utils) |
-| `@theholocron/misc-utils` | [Docs](https://docs.theholocron.dev/utils/misc) | [npm](https://www.npmjs.com/package/@theholocron/misc-utils) |
-| `@theholocron/storage-utils` | [Docs](https://docs.theholocron.dev/utils/storage) | [npm](https://www.npmjs.com/package/@theholocron/storage-utils) |
-| `@theholocron/string-utils` | [Docs](https://docs.theholocron.dev/utils/string) | [npm](https://www.npmjs.com/package/@theholocron/string-utils) |
-| `@theholocron/uri-utils` | [Docs](https://docs.theholocron.dev/utils/uri) | [npm](https://www.npmjs.com/package/@theholocron/uri-utils) |
+| `@theholocron/env-utils`       | [Docs](https://docs.theholocron.dev/utils/env)       | [npm](https://www.npmjs.com/package/@theholocron/env-utils)       |
+| `@theholocron/location-utils`  | [Docs](https://docs.theholocron.dev/utils/location)  | [npm](https://www.npmjs.com/package/@theholocron/location-utils)  |
+| `@theholocron/misc-utils`      | [Docs](https://docs.theholocron.dev/utils/misc)      | [npm](https://www.npmjs.com/package/@theholocron/misc-utils)      |
+| `@theholocron/storage-utils`   | [Docs](https://docs.theholocron.dev/utils/storage)   | [npm](https://www.npmjs.com/package/@theholocron/storage-utils)   |
+| `@theholocron/string-utils`    | [Docs](https://docs.theholocron.dev/utils/string)    | [npm](https://www.npmjs.com/package/@theholocron/string-utils)    |
+| `@theholocron/uri-utils`       | [Docs](https://docs.theholocron.dev/utils/uri)       | [npm](https://www.npmjs.com/package/@theholocron/uri-utils)       |
 
 <!-- /holocron:packages -->
 
@@ -41,14 +43,14 @@ import { } from "@theholocron/utils";
 
 <!-- holocron:development -->
 
-| Script | Command |
-|---|---|
-| `pnpm build` | `turbo run build` |
-| `pnpm lint` | `turbo run lint` |
-| `pnpm test` | `turbo run test` |
+| Script               | Command                   |
+| -------------------- | ------------------------- |
+| `pnpm build`         | `turbo run build`         |
+| `pnpm lint`          | `turbo run lint`          |
+| `pnpm test`          | `turbo run test`          |
 | `pnpm test:coverage` | `turbo run test:coverage` |
-| `pnpm typecheck` | `turbo run typecheck` |
-| `pnpm audit` | `knip` |
+| `pnpm typecheck`     | `turbo run typecheck`     |
+| `pnpm audit`         | `knip`                    |
 
 <!-- /holocron:development -->
 
