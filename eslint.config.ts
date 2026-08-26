@@ -12,14 +12,6 @@ const config = [
 		},
 	},
 	{
-		// Each packages/* dir is the root of an independently published npm package,
-		// not a nested package.json file. The no-nested-exports rule is a false positive here.
-		files: ["packages/*/package.json"],
-		rules: {
-			"package-json/no-nested-exports": "off",
-		},
-	},
-	{
 		ignores: ["docs/**", "packages/*/dist/**", "packages/*/coverage/**", "**/node_modules/**"],
 	},
 ] satisfies Linter.Config[];

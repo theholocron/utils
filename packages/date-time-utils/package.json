@@ -13,7 +13,7 @@
   "bugs": "https://github.com/theholocron/utils/issues",
   "repository": {
     "type": "git",
-    "url": "https://github.com/theholocron/utils.git",
+    "url": "git+https://github.com/theholocron/utils.git",
     "directory": "packages/date-time-utils"
   },
   "license": "GPL-3.0",
