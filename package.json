@@ -17,7 +17,7 @@
   ],
   "homepage": "https://docs.theholocron.dev/utils/",
   "bugs": "https://github.com/theholocron/utils/issues",
-  "repository": "github:theholocron/utils",
+  "repository": "theholocron/utils",
   "license": "GPL-3.0",
   "author": "Newton Koumantzelis",
   "type": "module",
