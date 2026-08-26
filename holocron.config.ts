@@ -4,7 +4,7 @@ import { node } from "@theholocron/holocron-config";
 
 const { repo, workflows, providers } = node();
 export default defineConfig({
-	description: "Small utilities.",
+	description: "Lightweight TypeScript utility packages for arrays, strings, dates, environment detection, and more.",
 	homepage: "https://docs.theholocron.dev/utils/",
 	repo: {
 		...repo,
