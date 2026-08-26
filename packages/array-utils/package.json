@@ -9,7 +9,11 @@
   ],
   "homepage": "https://github.com/theholocron/utils/tree/main/packages/utils-array#readme",
   "bugs": "https://github.com/theholocron/utils/issues",
-  "repository": "github:theholocron/utils",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/theholocron/utils.git",
+    "directory": "packages/array-utils"
+  },
   "license": "GPL-3.0",
   "author": "Newton Koumantzelis",
   "sideEffects": false,
