@@ -3,12 +3,21 @@
   "version": "1.4.2",
   "private": true,
   "description": "Lightweight TypeScript utility packages for arrays, strings, dates, environment detection, and more.",
+  "keywords": [
+    "array",
+    "date-time",
+    "developer-tools",
+    "environment",
+    "nodejs",
+    "storage",
+    "string",
+    "typescript",
+    "uri",
+    "utilities"
+  ],
   "homepage": "https://docs.theholocron.dev/utils/",
   "bugs": "https://github.com/theholocron/utils/issues",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/theholocron/utils.git"
-  },
+  "repository": "github:theholocron/utils",
   "license": "GPL-3.0",
   "author": "Newton Koumantzelis",
   "type": "module",
