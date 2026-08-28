@@ -6,6 +6,9 @@ const { repo, workflows, providers } = node();
 export default defineConfig({
 	description: "Lightweight TypeScript utility packages for arrays, strings, dates, environment detection, and more.",
 	homepage: "https://docs.theholocron.dev/utils/",
+	org: "theholocron",
+	domain: "theholocron.dev",
+	docs: { build: "workflow", https: true },
 	repo: {
 		...repo,
 		protection: "strict",
@@ -38,12 +41,13 @@ export default defineConfig({
 		"audit",
 		{ name: "release", with: { "run-build": true } },
 		"sync",
-		{
-			name: "deploy",
-			with: { docs: true, preview: { project: "theholocron-preview", domain: "preview.theholocron.dev" } },
-		},
+		{ name: "deploy", with: { docs: true, preview: true } },
 	],
-	providers,
+	providers: {
+		...providers,
+		deployment: "cloudflare",
+		dns: "cloudflare",
+	},
 	agent: "claude",
 	skills: ["git-safety", "pr-workflow", "commit-standards", "security-review", "turborepo"],
 } satisfies HolocronConfig);
