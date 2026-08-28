@@ -38,7 +38,7 @@ export default defineConfig({
 		"audit",
 		{ name: "release", with: { "run-build": true } },
 		"sync",
-		{ name: "deploy", with: { docs: true } },
+		{ name: "deploy", with: { docs: true, preview: { project: "theholocron-preview", domain: "preview.theholocron.dev" } } },
 	],
 	providers,
 	agent: "claude",
