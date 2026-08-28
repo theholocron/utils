@@ -1,18 +1,19 @@
 import type { HolocronConfig } from "@theholocron/cli";
 import { defineConfig } from "@theholocron/cli";
-import { node } from "@theholocron/holocron-config";
+import { nodeDocs } from "@theholocron/holocron-config";
 
-const { repo, workflows, providers } = node();
+const { repo, workflows, providers, org, domain, docs } = nodeDocs();
 export default defineConfig({
 	description: "Lightweight TypeScript utility packages for arrays, strings, dates, environment detection, and more.",
 	homepage: "https://docs.theholocron.dev/utils/",
+	org,
+	domain,
+	docs,
 	repo: {
 		...repo,
-		protection: "strict",
 		requiredChecks: [
+			...repo.requiredChecks,
 			"audit / Audit the bundle size",
-			"audit / Knip",
-			"codecov/patch",
 			"codecov/project/array",
 			"codecov/project/misc",
 			"codecov/project/storage",
@@ -33,14 +34,8 @@ export default defineConfig({
 			"utilities",
 		],
 	},
-	workflows: [
-		...workflows,
-		"audit",
-		{ name: "release", with: { "run-build": true } },
-		"sync",
-		{ name: "deploy", with: { docs: true } },
-	],
-	providers,
+	workflows: [...workflows, "audit", { name: "release", with: { "run-build": true } }, "sync"],
+	providers: { ...providers, secrets: "github" },
 	agent: "claude",
 	skills: ["git-safety", "pr-workflow", "commit-standards", "security-review", "turborepo"],
 } satisfies HolocronConfig);
