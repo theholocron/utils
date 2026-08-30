@@ -41,9 +41,9 @@ catalogs:
 
   # Holocron CLI and plugins — range covers all alpha releases; switch to ^2.0.0 on stable.
   holocron:
-    '@theholocron/cli': ^3.37.0
+    '@theholocron/cli': ^3.37.1
     '@theholocron/holocron-config': ^7.26.0
-    '@theholocron/holocron-plugin-github': ^3.37.0
+    '@theholocron/holocron-plugin-github': ^3.37.1
 
 overrides:
   '@eslint/json': ^1.2.0
