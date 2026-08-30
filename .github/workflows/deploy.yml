@@ -7,11 +7,6 @@ name: Deploy
 on: # yamllint disable-line rule:truthy
   push:
     branches: [main]
-    paths:
-      - docs/**
-      - astro.config.ts
-      - pnpm-workspace.yaml
-      - pnpm-lock.yaml
   workflow_dispatch:
 
 concurrency:
@@ -27,6 +22,4 @@ jobs:
   deploy:
     name: Deploy
     uses: theholocron/.github/.github/workflows/deploy.yml@main
-    with:
-      type: docs
     secrets: inherit
