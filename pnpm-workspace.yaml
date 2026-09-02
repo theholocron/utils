@@ -42,7 +42,9 @@ catalogs:
   # Holocron CLI and plugins — range covers all alpha releases; switch to ^2.0.0 on stable.
   holocron:
     '@theholocron/cli': ^3.37.1
-    '@theholocron/holocron-config': ^7.26.0
+    '@theholocron/holocron-config': ^7.31.0
+    '@theholocron/holocron-plugin-cloudflare': ^3.46.0
+    '@theholocron/holocron-plugin-fern': ^3.46.0
     '@theholocron/holocron-plugin-github': ^3.37.1
 
 overrides:
