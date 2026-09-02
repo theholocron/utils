@@ -1,6 +1,6 @@
 {
   "name": "@theholocron/utils",
-  "version": "1.5.1",
+  "version": "1.5.2",
   "private": true,
   "description": "Lightweight TypeScript utility packages for arrays, strings, dates, environment detection, and more.",
   "keywords": [
