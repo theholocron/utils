@@ -99,3 +99,8 @@ docs/dist/
 /.claude/skills/security-review
 /.claude/skills/turborepo
 # end managed by holocron setup — skills
+
+# managed by holocron setup — prompts
+/.agents/prompts/
+# end managed by holocron setup — prompts
+.astro/
