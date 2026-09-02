@@ -48,6 +48,8 @@
     "@theholocron/docs-theme": "catalog:",
     "@theholocron/eslint-config": "catalog:configs",
     "@theholocron/holocron-config": "catalog:holocron",
+    "@theholocron/holocron-plugin-cloudflare": "catalog:holocron",
+    "@theholocron/holocron-plugin-fern": "catalog:holocron",
     "@theholocron/holocron-plugin-github": "catalog:holocron",
     "@theholocron/lint-staged-config": "catalog:configs",
     "@theholocron/prettier-config": "catalog:configs",
