@@ -30,6 +30,8 @@ const config: KnipConfig = {
 		// passed as --config arg to lint-staged binary in .husky/pre-commit
 		"@theholocron/lint-staged-config",
 		// loaded at runtime by the holocron plugin system — not a static import
+		"@theholocron/holocron-plugin-cloudflare",
+		"@theholocron/holocron-plugin-fern",
 		"@theholocron/holocron-plugin-github",
 		// installed at root so packages can resolve via catalog; not imported by root code
 		"@theholocron/tsdown-config",
