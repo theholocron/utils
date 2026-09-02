@@ -32,4 +32,6 @@ jobs:
     with:
       preview: true
       preview-id: pr-${{ github.event.pull_request.number }}
+      fern-org: holocron
+      base-path: utils
     secrets: inherit
