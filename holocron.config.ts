@@ -35,7 +35,11 @@ export default defineConfig({
 		],
 	},
 	workflows: [...workflows, "audit", { name: "release", with: { "run-build": true } }, "sync"],
-	providers: { ...providers, secrets: "github" },
+	providers: {
+		...providers,
+		secrets: "github",
+		wiki: ["fern", { domain: "wiki.theholocron.dev", fernOrg: "holocron", icon: "fa-duotone fa-toolbox" }],
+	},
 	agent: "claude",
 	skills: ["git-safety", "pr-workflow", "commit-standards", "security-review", "turborepo"],
 } satisfies HolocronConfig);
