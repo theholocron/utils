@@ -2,24 +2,13 @@ import type { HolocronConfig } from "@theholocron/cli";
 import { defineConfig } from "@theholocron/cli";
 import { compose, nodeDocs, wikiCapability as wiki } from "@theholocron/holocron-config";
 
-const { repo, workflows, providers, org, domain, docs } = compose(nodeDocs(), wiki());
+const preset = compose(nodeDocs(), wiki());
 export default defineConfig({
+	...preset,
 	description: "Lightweight TypeScript utility packages for arrays, strings, dates, environment detection, and more.",
 	homepage: "https://docs.theholocron.dev/utils/",
-	org,
-	domain,
-	docs,
 	repo: {
-		...repo,
-		requiredChecks: [
-			...repo.requiredChecks,
-			"audit / Audit the bundle size",
-			"codecov/project/array",
-			"codecov/project/misc",
-			"codecov/project/storage",
-			"codecov/project/string",
-			"codecov/project/uri",
-		],
+		...preset.repo,
 		teams: [{ slug: "gatekeepers", permission: "maintain" }],
 		topics: [
 			"array",
@@ -34,9 +23,22 @@ export default defineConfig({
 			"utilities",
 		],
 	},
-	workflows: [...workflows, "audit", { name: "release", with: { "run-build": true } }, "sync"],
+	tasks: [
+		...preset.tasks,
+		{ name: "audit", required: true },
+		{ name: "release", with: { "run-build": true } },
+		"sync",
+	],
+	extraRequiredChecks: [
+		...preset.extraRequiredChecks,
+		"codecov/project/array",
+		"codecov/project/misc",
+		"codecov/project/storage",
+		"codecov/project/string",
+		"codecov/project/uri",
+	],
 	providers: {
-		...providers,
+		...preset.providers,
 		secrets: "github",
 		wiki: ["fern", { domain: "wiki.theholocron.dev", fernOrg: "holocron", icon: "fa-duotone fa-toolbox" }],
 	},
