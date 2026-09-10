@@ -5,7 +5,7 @@ packages:
 # Shared dep versions used across packages.
 catalog:
   '@astrojs/starlight': ^0.42.0
-  '@theholocron/docs-theme': ^1.10.0
+  '@theholocron/docs-theme': ^1.10.1
   '@tsconfig/node-lts': ^24.0.1
   '@types/node': ^26.2.0
   '@vitest/coverage-v8': ^4.1.10
@@ -24,28 +24,28 @@ catalog:
 catalogs:
   # Shared configs — release in lockstep; bump all entries together.
   configs:
-    '@theholocron/astro-config': ^7.33.0
-    '@theholocron/commitlint-config': ^7.33.0
-    '@theholocron/eslint-config': ^7.33.0
-    '@theholocron/lint-staged-config': ^7.33.0
-    '@theholocron/prettier-config': ^7.33.0
-    '@theholocron/semantic-release-config': ^7.33.0
-    '@theholocron/tsconfig': ^7.33.0
-    '@theholocron/tsdown-config': ^7.33.0
-    '@theholocron/vitest-config': ^7.33.0
+    '@theholocron/astro-config': ^8.2.0
+    '@theholocron/commitlint-config': ^8.2.0
+    '@theholocron/eslint-config': ^8.2.0
+    '@theholocron/lint-staged-config': ^8.2.0
+    '@theholocron/prettier-config': ^8.2.0
+    '@theholocron/semantic-release-config': ^8.2.0
+    '@theholocron/tsconfig': ^8.2.0
+    '@theholocron/tsdown-config': ^8.2.0
+    '@theholocron/vitest-config': ^8.2.0
 
   # Docs components and registry — release in lockstep; bump both entries together.
   docs:
-    '@theholocron/components-doc': ^1.8.1
-    '@theholocron/registry-doc': ^1.8.1
+    '@theholocron/components-doc': ^1.13.0
+    '@theholocron/registry-doc': ^1.13.0
 
   # Holocron CLI and plugins — range covers all alpha releases; switch to ^2.0.0 on stable.
   holocron:
-    '@theholocron/cli': ^3.53.0
-    '@theholocron/holocron-config': ^7.33.0
-    '@theholocron/holocron-plugin-cloudflare': ^3.53.0
-    '@theholocron/holocron-plugin-fern': ^3.53.0
-    '@theholocron/holocron-plugin-github': ^3.53.0
+    '@theholocron/cli': ^4.16.2
+    '@theholocron/holocron-config': ^8.2.0
+    '@theholocron/holocron-plugin-cloudflare': ^4.16.2
+    '@theholocron/holocron-plugin-fern': ^4.16.2
+    '@theholocron/holocron-plugin-github': ^4.16.2
 
 overrides:
   '@eslint/json': ^1.2.0
