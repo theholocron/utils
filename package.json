@@ -29,7 +29,8 @@
     "release": "semantic-release",
     "test": "turbo run test",
     "test:coverage": "turbo run test:coverage",
-    "typecheck": "turbo run typecheck"
+    "typecheck": "turbo run typecheck",
+    "prepare": "husky"
   },
   "devDependencies": {
     "@astrojs/react": "^6.0.5",
