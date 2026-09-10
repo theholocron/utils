@@ -7,7 +7,7 @@ catalog:
   '@astrojs/starlight': ^0.42.0
   '@theholocron/docs-theme': ^1.10.1
   '@tsconfig/node-lts': ^24.0.1
-  '@types/node': ^26.2.0
+  '@types/node': ^26.5.0
   '@vitest/coverage-v8': ^4.1.10
 
   astro: ^7.3.1
