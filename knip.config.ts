@@ -31,12 +31,18 @@ const config: KnipConfig = {
 		"@theholocron/lint-staged-config",
 		// loaded at runtime by the holocron plugin system — not a static import
 		"@theholocron/holocron-plugin-github",
+		"@theholocron/holocron-plugin-cloudflare",
+		"@theholocron/holocron-plugin-fern",
 		// installed at root so packages can resolve via catalog; not imported by root code
 		"@theholocron/tsdown-config",
 		"@theholocron/vitest-config",
+		// docs workspace uses @astrojs/react as Astro peer dep and
+		// components-doc/registry-doc via .mdx — not traceable as TS imports
+		"@astrojs/react",
+		"@theholocron/components-doc",
+		"@theholocron/registry-doc",
 		// binary tools — invoked via CLI or hooks, not module imports
 		"alexjs",
-		"husky",
 		"sort-package-json",
 	],
 	ignoreExportsUsedInFile: true,
