@@ -38,10 +38,10 @@ packages under [`packages/`](./packages) for the tools it ships.
 | Script               | Command                   |
 | -------------------- | ------------------------- |
 | `pnpm build`         | `turbo run build`         |
-| `pnpm lint`          | `turbo run lint`          |
-| `pnpm test`          | `turbo run test`          |
+| `pnpm lint`          | `holocron run lint`       |
+| `pnpm test`          | `holocron run test`       |
 | `pnpm test:coverage` | `turbo run test:coverage` |
-| `pnpm typecheck`     | `turbo run typecheck`     |
+| `pnpm typecheck`     | `holocron run typecheck`  |
 | `pnpm audit`         | `knip`                    |
 
 <!-- /holocron:development -->
