@@ -18,7 +18,7 @@ catalog:
   happy-dom: ^20.14.0
   tsdown: ^0.23.0
   typescript: ^6.0.3
-  vitest: ^4.1.10
+  vitest: ^5.0.0
 
 # Holocron CLI and plugins — pinned in lockstep; bump together when running setup.
 catalogs:
