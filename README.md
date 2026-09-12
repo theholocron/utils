@@ -3,22 +3,14 @@
 <!-- holocron:description -->
 
 Lightweight TypeScript utility packages for arrays, strings, dates, environment detection, and more.
-
 <!-- /holocron:description -->
 
 <!-- holocron:installation -->
 
 ## Installation
 
-```bash
-pnpm install @theholocron/utils
-```
-
-## Usage
-
-```typescript
-import {} from "@theholocron/utils";
-```
+This repository is a workspace root — it is not published. See the
+packages under [`packages/`](./packages) for the tools it ships.
 
 <!-- /holocron:installation -->
 
