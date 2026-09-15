@@ -1,8 +1,8 @@
 # AUTO-GENERATED — do not edit directly.
-# Source:  theholocron/holocron · packages/cli/src/commands/sync.ts
+# Source:  theholocron/holocron · packages/astromech/src/thin-callers.ts
 # Tool:    holocron sync
 # Changes: edit source in theholocron/holocron
-name: Bookkeeping
+name: Platform
 
 on: # yamllint disable-line rule:truthy
   pull_request:
@@ -17,5 +17,6 @@ permissions:
 
 jobs:
   bookkeeping:
+    name: Bookkeeping
     uses: theholocron/.github/.github/workflows/bookkeeping.yml@main
     secrets: inherit

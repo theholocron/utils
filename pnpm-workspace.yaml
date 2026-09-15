@@ -39,13 +39,13 @@ catalogs:
     "@theholocron/components-doc": ^1.13.0
     "@theholocron/registry-doc": ^1.13.0
 
-  # Holocron CLI and plugins — range covers all alpha releases; switch to ^2.0.0 on stable.
+  # Holocron CLI and plugins — pinned in lockstep; bump together when running setup.
   holocron:
-    "@theholocron/cli": ^4.16.2
-    "@theholocron/holocron-config": ^8.2.0
-    "@theholocron/holocron-plugin-cloudflare": ^4.16.2
-    "@theholocron/holocron-plugin-fern": ^4.16.2
-    "@theholocron/holocron-plugin-github": ^4.16.2
+    "@theholocron/astromech": 5.0.0-alpha.3
+    "@theholocron/cli": 5.0.0-alpha.3
+    "@theholocron/holocron-plugin-cloudflare": 5.0.0-alpha.3
+    "@theholocron/holocron-plugin-fern": 5.0.0-alpha.3
+    "@theholocron/holocron-plugin-github": 5.0.0-alpha.3
 
 overrides:
   "@eslint/json": ^1.2.0

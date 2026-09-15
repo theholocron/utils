@@ -3,7 +3,7 @@ import type { KnipConfig } from "knip";
 const config: KnipConfig = {
 	workspaces: {
 		".": {
-			entry: ["holocron.config.ts"],
+			entry: ["holocron.config.ts", "astromech.config.ts"],
 			project: ["*.ts", "*.cjs"],
 			// standalone tool configs — not imported by project code
 			ignoreFiles: ["devmoji.config.cjs"],
