@@ -1,14 +1,20 @@
 import type { HolocronConfig } from "@theholocron/cli";
 import { defineConfig } from "@theholocron/cli";
-import { compose, nodeDocs, wikiCapability as wiki } from "@theholocron/holocron-config";
 
-const preset = compose(nodeDocs(), wiki());
 export default defineConfig({
-	...preset,
 	description: "Lightweight TypeScript utility packages for arrays, strings, dates, environment detection, and more.",
 	homepage: "https://docs.theholocron.dev/utils/",
+	org: "theholocron",
+	domain: "theholocron.dev",
+	docs: { build: "workflow", https: true },
 	repo: {
-		...preset.repo,
+		protection: "strict",
+		properties: {
+			lifecycle: "active",
+			open_source: true,
+			runtime_environment: "node",
+			uses_external_packages: true,
+		},
 		teams: [{ slug: "gatekeepers", permission: "maintain" }],
 		topics: [
 			"array",
@@ -24,13 +30,25 @@ export default defineConfig({
 		],
 	},
 	tasks: [
-		...preset.tasks,
-		{ name: "audit", required: true },
-		{ name: "release", with: { "run-build": true } },
-		"sync",
+		{ name: "sourceQuality.staticAnalysis", required: true },
+		{ name: "sourceQuality.formatting", required: true },
+		{ name: "sourceQuality.structuredDataValidation", required: true },
+		{ name: "security.secretDetection", required: true },
+		{ name: "platform.commitStandards", required: true },
+		{ name: "verification.unitTests", required: true },
+		"security.codeScanning",
+		"review",
+		"stale",
+		"greetings",
+		"dependencies",
+		"bookkeeping",
+		{ name: "verification.typeSafety", required: true },
+		{ name: "knowledge.docs", with: { preview: true } },
+		"knowledge.wiki",
 	],
 	extraRequiredChecks: [
-		...preset.extraRequiredChecks,
+		"codecov/patch",
+		"codecov/project",
 		"codecov/project/array",
 		"codecov/project/misc",
 		"codecov/project/storage",
@@ -38,8 +56,13 @@ export default defineConfig({
 		"codecov/project/uri",
 	],
 	providers: {
-		...preset.providers,
+		source: "github",
+		ci: "github",
+		issues: ["github", { labels: { inProgress: "status:in-progress", inReview: "status:in-review" } }],
 		secrets: "github",
+		dns: "cloudflare",
+		deployment: ["cloudflare", { accountId: "9c558af98664d13fc89b7e0a0d93d5a8" }],
+		workers: ["cloudflare", { accountId: "9c558af98664d13fc89b7e0a0d93d5a8" }],
 		wiki: ["fern", { domain: "wiki.theholocron.dev", fernOrg: "holocron", icon: "fa-duotone fa-toolbox" }],
 	},
 	agent: "claude",
