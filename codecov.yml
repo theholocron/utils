@@ -44,6 +44,11 @@ component_management:
       paths:
         - packages/env-utils/**
 
+    - component_id: fs-utils
+      name: "fs-utils"
+      paths:
+        - packages/fs-utils/**
+
     - component_id: location-utils
       name: "location-utils"
       paths:
@@ -53,6 +58,11 @@ component_management:
       name: "misc-utils"
       paths:
         - packages/misc-utils/**
+
+    - component_id: object-utils
+      name: "object-utils"
+      paths:
+        - packages/object-utils/**
 
     - component_id: storage-utils
       name: "storage-utils"
