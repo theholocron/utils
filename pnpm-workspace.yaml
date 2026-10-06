@@ -36,8 +36,8 @@ catalogs:
 
   # Docs components and registry — release in lockstep; bump both entries together.
   docs:
-    "@theholocron/components-doc": ^1.13.0
-    "@theholocron/registry-doc": ^1.13.0
+    "@theholocron/components-doc": ^1.16.0
+    "@theholocron/registry-doc": ^1.16.0
 
   # Holocron CLI and plugins — pinned in lockstep; bump together when running setup.
   holocron:
