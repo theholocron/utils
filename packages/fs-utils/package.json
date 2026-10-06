@@ -1,18 +1,20 @@
 {
-  "name": "@theholocron/misc-utils",
+  "name": "@theholocron/fs-utils",
   "version": "1.8.3",
-  "description": "Miscellaneous utilities.",
+  "description": "Walk a directory tree upward to find the nearest match or project root.",
   "keywords": [
-    "misc",
+    "filesystem",
+    "directory",
+    "git",
     "typescript",
     "utils"
   ],
-  "homepage": "https://github.com/theholocron/utils/tree/main/packages/utils-misc#readme",
+  "homepage": "https://github.com/theholocron/utils/tree/main/packages/fs-utils#readme",
   "bugs": "https://github.com/theholocron/utils/issues",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/theholocron/utils.git",
-    "directory": "packages/misc-utils"
+    "directory": "packages/fs-utils"
   },
   "license": "GPL-3.0",
   "author": "Newton Koumantzelis",

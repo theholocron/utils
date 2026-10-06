@@ -1,18 +1,19 @@
 {
-  "name": "@theholocron/misc-utils",
+  "name": "@theholocron/object-utils",
   "version": "1.8.3",
-  "description": "Miscellaneous utilities.",
+  "description": "Inspect and deep-merge plain objects.",
   "keywords": [
-    "misc",
+    "object",
+    "merge",
     "typescript",
     "utils"
   ],
-  "homepage": "https://github.com/theholocron/utils/tree/main/packages/utils-misc#readme",
+  "homepage": "https://github.com/theholocron/utils/tree/main/packages/object-utils#readme",
   "bugs": "https://github.com/theholocron/utils/issues",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/theholocron/utils.git",
-    "directory": "packages/misc-utils"
+    "directory": "packages/object-utils"
   },
   "license": "GPL-3.0",
   "author": "Newton Koumantzelis",
