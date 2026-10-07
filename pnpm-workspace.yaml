@@ -41,11 +41,11 @@ catalogs:
 
   # Holocron CLI and plugins — pinned in lockstep; bump together when running setup.
   holocron:
-    "@theholocron/astromech": 5.0.0-alpha.3
-    "@theholocron/cli": 5.0.0-alpha.3
-    "@theholocron/holocron-plugin-cloudflare": 5.0.0-alpha.3
-    "@theholocron/holocron-plugin-fern": 5.0.0-alpha.3
-    "@theholocron/holocron-plugin-github": 5.0.0-alpha.3
+    "@theholocron/astromech": 5.0.0-alpha.114
+    "@theholocron/cli": 5.0.0-alpha.114
+    "@theholocron/holocron-plugin-cloudflare": 5.0.0-alpha.114
+    "@theholocron/holocron-plugin-fern": 5.0.0-alpha.114
+    "@theholocron/holocron-plugin-github": 5.0.0-alpha.114
 
 overrides:
   "@eslint/json": ^1.2.0
