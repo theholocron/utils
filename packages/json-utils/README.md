@@ -39,7 +39,7 @@ function, a symbol).
 
 ### `detectIndent(text)`
 
-The leading whitespace of the first indented line (spaces or a tab), or
+The leading space of the first indented line (spaces or a tab), or
 `undefined` for an empty, single-line or unindented document.
 
 ## Documentation
