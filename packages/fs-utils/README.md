@@ -11,7 +11,11 @@ pnpm add @theholocron/fs-utils
 ## Usage
 
 ```typescript
-import { findUpward, hasGitEntry } from "@theholocron/fs-utils";
+import { findRoot, findUpward, hasGitEntry } from "@theholocron/fs-utils";
+
+// nearest ancestor holding a marker file or directory
+const repoRoot = await findRoot(process.cwd(), ".git");
+const monorepoRoot = await findRoot(process.cwd(), ["pnpm-workspace.yaml", "turbo.json"]);
 
 // find the nearest ancestor holding a config file, stopping at the repo root
 const configDir = await findUpward(
@@ -34,6 +38,26 @@ fully checked before stopping) — returning `true` ends the walk there
 with no result, instead of continuing to the parent. Without `stop`,
 walks all the way to the filesystem root. Always terminates: directory
 nesting is finite.
+
+### `findRoot(startDir, marker, options?)` / `findRootSync(...)`
+
+The nearest ancestor of `startDir` — itself first — that contains `marker`: a
+file or directory name, or a list of names where any one counts. Resolves to
+`undefined` when nothing is found. `findRootSync` is the synchronous twin.
+
+- `options.fallback: "start"` — return the start directory instead of
+  `undefined` when nothing is found (a soft-skip for callers that treat the
+  start dir as the root anyway).
+- `options.realpath: true` — resolve symlinks and relative segments of
+  `startDir` before walking. A relative start otherwise hits `dirname`'s fixed
+  point (`"."`) a couple of steps up, and a symlinked one walks the link's own
+  ancestors instead of the physical tree. A start path that doesn't exist
+  counts as not found.
+
+```typescript
+// a git root that never throws and never returns undefined
+const root = findRootSync(cwd, ".git", { fallback: "start", realpath: true });
+```
 
 ### `hasGitEntry(dir)`
 
