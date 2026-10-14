@@ -44,14 +44,17 @@ nesting is finite.
 The nearest ancestor of `startDir` — itself first — that contains `marker`: a
 file or directory name, or a list of names where any one counts. Resolves to
 `undefined` when nothing is found. `findRootSync` is the synchronous twin.
+Each marker must be a bare name — an empty string, `.`, `..` or anything with a
+path separator throws a `TypeError`, as does any filesystem error other than
+"not there" (e.g. `EACCES`). A relative `startDir` is resolved against the
+working directory up front, so results are always absolute.
 
 - `options.fallback: "start"` — return the start directory instead of
   `undefined` when nothing is found (a soft-skip for callers that treat the
-  start dir as the root anyway).
-- `options.realpath: true` — resolve symlinks and relative segments of
-  `startDir` before walking. A relative start otherwise hits `dirname`'s fixed
-  point (`"."`) a couple of steps up, and a symlinked one walks the link's own
-  ancestors instead of the physical tree. A start path that doesn't exist
+  start dir as the root anyway; always absolute).
+- `options.realpath: true` — resolve symlinks of `startDir` before
+  walking, so a symlinked start walks the physical tree instead of the link's
+  own ancestors. A start path that doesn't exist
   counts as not found.
 
 ```typescript

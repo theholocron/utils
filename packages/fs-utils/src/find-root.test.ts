@@ -1,6 +1,6 @@
-import { mkdir, mkdtemp, realpath, rm, symlink, writeFile } from "node:fs/promises";
+import { chmod, mkdir, mkdtemp, realpath, rm, symlink, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
-import { join, relative } from "node:path";
+import { join, relative, resolve } from "node:path";
 
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
 
@@ -85,6 +85,54 @@ describe.each(variants)("%s", (_name, find) => {
 		expect(await find(missing, "marker.txt", { realpath: true })).toBeUndefined();
 		expect(await find(missing, "marker.txt", { realpath: true, fallback: "start" })).toBe(missing);
 	});
+
+	it("resolves a relative start directory to an absolute path, with or without realpath", async () => {
+		const rel = relative(process.cwd(), nested);
+		expect(await find(rel, "definitely-not-a-real-marker-4f9c.txt", { fallback: "start" })).toBe(nested);
+		const missing = relative(process.cwd(), join(root, "nope"));
+		expect(await find(missing, "marker.txt", { realpath: true, fallback: "start" })).toBe(
+			resolve(process.cwd(), missing)
+		);
+	});
+
+	it.each(["", ".", "..", "../x", "a/b", "a\\b", "/abs", "bad\0name"])(
+		"rejects marker %j that isn't a single name",
+		async (bad) => {
+			await expect(Promise.resolve().then(() => find(nested, bad))).rejects.toThrow(TypeError);
+			await expect(Promise.resolve().then(() => find(nested, ["ok.txt", bad]))).rejects.toThrow(TypeError);
+		}
+	);
+
+	it("rejects an empty marker list", async () => {
+		await expect(Promise.resolve().then(() => find(nested, []))).rejects.toThrow(TypeError);
+	});
+
+	it.skipIf(process.platform === "win32" || process.getuid?.() === 0)(
+		"propagates a lookup failure that isn't absence (EACCES)",
+		async () => {
+			await chmod(join(root, "a"), 0o000);
+			try {
+				await expect(Promise.resolve().then(() => find(nested, "marker.txt"))).rejects.toMatchObject({
+					code: "EACCES",
+				});
+			} finally {
+				await chmod(join(root, "a"), 0o755);
+			}
+		}
+	);
+
+	it("propagates a realpath failure that isn't absence (ELOOP)", async () => {
+		const loop = join(root, "loop");
+		await symlink(loop, loop);
+		await expect(Promise.resolve().then(() => find(loop, "marker.txt", { realpath: true }))).rejects.toMatchObject({
+			code: "ELOOP",
+		});
+	});
+
+	it("treats a start path under a regular file as not found (ENOTDIR)", async () => {
+		await writeFile(join(root, "file.txt"), "");
+		expect(await find(join(root, "file.txt", "sub"), "marker.txt", { realpath: true })).toBeUndefined();
+	});
 });
 
 describe("findRoot vs findRootSync", () => {
@@ -92,5 +140,31 @@ describe("findRoot vs findRootSync", () => {
 		expect(await findRoot(__dirname, ".git", { realpath: true })).toBe(
 			findRootSync(__dirname, ".git", { realpath: true })
 		);
+	});
+});
+
+describe("findRoot", () => {
+	it("does not block on realpath: the start is resolved asynchronously", async () => {
+		const p = findRoot(process.cwd(), ".git", { realpath: true });
+		expect(p).toBeInstanceOf(Promise);
+		await p;
+	});
+
+	it("keeps a relative search on the original tree if the cwd changes mid-walk", async () => {
+		const root = await realpath(await mkdtemp(join(tmpdir(), "fs-utils-chdir-")));
+		const other = await realpath(await mkdtemp(join(tmpdir(), "fs-utils-chdir-other-")));
+		const cwd = process.cwd();
+		try {
+			await mkdir(join(root, "a"), { recursive: true });
+			await writeFile(join(root, "marker.txt"), "");
+			process.chdir(root);
+			const pending = findRoot("a", "marker.txt");
+			process.chdir(other);
+			expect(await pending).toBe(root);
+		} finally {
+			process.chdir(cwd);
+			await rm(root, { recursive: true, force: true });
+			await rm(other, { recursive: true, force: true });
+		}
 	});
 });
