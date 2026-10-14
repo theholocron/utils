@@ -35,11 +35,11 @@ export function parseGitRemoteUrl(url: string): GitRemote | undefined {
 	if (!match) return undefined;
 
 	const host = match[1]!.replace(/^\[|\]$/g, "");
-	const segments = match[2]!
-		.replace(/\/+$/, "")
-		.replace(/\.git$/, "")
-		.split("/")
-		.filter(Boolean);
+	// Split before trimming: dropping empty segments also drops trailing slashes
+	// without a `/+$` regex, which backtracks quadratically on a long run of `/`.
+	const segments = match[2]!.split("/").filter(Boolean);
+	const last = segments.pop()!.replace(/\.git$/, "");
+	if (last) segments.push(last);
 	if (segments.length < 2) return undefined;
 
 	const repo = segments[segments.length - 1]!;

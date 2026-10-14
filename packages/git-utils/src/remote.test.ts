@@ -49,6 +49,14 @@ describe("parseGitRemoteUrl", () => {
 		expect(parseGitRemoteUrl(url)).toBeUndefined();
 	});
 
+	it("parses a long run of slashes in linear time, and rejects a lone .git segment", () => {
+		const started = Date.now();
+		expect(parseGitRemoteUrl(`https://github.com/a/b${"/".repeat(200_000)}`)).toMatchObject({ slug: "a/b" });
+		expect(parseGitRemoteUrl(`https://github.com/a/b${"/".repeat(200_000)}x y`)).toBeUndefined();
+		expect(Date.now() - started).toBeLessThan(1000);
+		expect(parseGitRemoteUrl("https://github.com/owner/.git")).toBeUndefined();
+	});
+
 	it("works for any host, not just github.com", () => {
 		expect(parseGitRemoteUrl("git@gitlab.example.com:team/app.git")).toEqual({
 			host: "gitlab.example.com",
