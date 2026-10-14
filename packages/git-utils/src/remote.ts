@@ -1,8 +1,3 @@
-import { execFile } from "node:child_process";
-import { promisify } from "node:util";
-
-const execFileAsync = promisify(execFile);
-
 export interface GitRemote {
 	host: string;
 	/** Everything before the repo name: `owner`, or `group/subgroup` on hosts with nested groups. */
@@ -50,7 +45,13 @@ export function parseGitRemoteUrl(url: string): GitRemote | undefined {
  */
 export type GitExec = (args: string[], options: { cwd: string }) => Promise<string>;
 
-const defaultExec: GitExec = async (args, { cwd }) => (await execFileAsync("git", args, { cwd })).stdout;
+// Loaded on first use so that importing this module (e.g. for the pure
+// `parseGitRemoteUrl`) never touches `node:child_process` — which also keeps it
+// safe for consumers whose tests mock that module.
+const defaultExec: GitExec = async (args, { cwd }) => {
+	const [{ execFile }, { promisify }] = await Promise.all([import("node:child_process"), import("node:util")]);
+	return (await promisify(execFile)("git", args, { cwd })).stdout;
+};
 
 export interface ReadGitRemoteOptions {
 	exec?: GitExec;

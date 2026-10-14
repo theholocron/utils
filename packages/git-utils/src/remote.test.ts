@@ -69,6 +69,26 @@ describe("parseGitRemoteUrl", () => {
 	});
 });
 
+describe("importing the module", () => {
+	it("does not load node:child_process until the default exec is used", async () => {
+		vi.resetModules();
+		vi.doMock("node:child_process", () => {
+			throw new Error("node:child_process must not be loaded at import time");
+		});
+		try {
+			const mod = await import("./remote.ts");
+			expect(mod.parseGitRemoteUrl("git@github.com:a/b.git")?.slug).toBe("a/b");
+			// with an injected exec the default is never reached either
+			expect(await mod.readGitRemote("/x", { exec: async () => "https://github.com/a/b" })).toMatchObject({
+				repo: "b",
+			});
+		} finally {
+			vi.doUnmock("node:child_process");
+			vi.resetModules();
+		}
+	});
+});
+
 describe("readGitRemote", () => {
 	it("runs `git remote get-url origin` in the given directory and parses the output", async () => {
 		const exec = vi.fn().mockResolvedValue("git@github.com:theholocron/holocron.git\n");
