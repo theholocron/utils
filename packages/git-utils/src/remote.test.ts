@@ -1,0 +1,117 @@
+import { execFileSync } from "node:child_process";
+import { mkdtemp, rm } from "node:fs/promises";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
+
+import { describe, expect, it, vi } from "vitest";
+
+import { parseGitRemoteUrl, readGitRemote } from "./remote.ts";
+
+const gh = { host: "github.com", owner: "theholocron", repo: "holocron", slug: "theholocron/holocron" };
+
+describe("parseGitRemoteUrl", () => {
+	it.each([
+		["https", "https://github.com/theholocron/holocron.git"],
+		["https without .git", "https://github.com/theholocron/holocron"],
+		["https with a trailing slash", "https://github.com/theholocron/holocron/"],
+		["https with .git and a trailing slash", "https://github.com/theholocron/holocron.git/"],
+		["https with credentials", "https://user:tok@github.com/theholocron/holocron.git"],
+		["https with a port", "https://github.com:8443/theholocron/holocron.git"],
+		["http", "http://github.com/theholocron/holocron.git"],
+		["scp-style ssh", "git@github.com:theholocron/holocron.git"],
+		["scp-style ssh without .git", "git@github.com:theholocron/holocron"],
+		["scp-style without a user", "github.com:theholocron/holocron.git"],
+		["ssh://", "ssh://git@github.com/theholocron/holocron.git"],
+		["ssh:// with a port", "ssh://git@github.com:22/theholocron/holocron.git"],
+		["git://", "git://github.com/theholocron/holocron.git"],
+		["surrounding whitespace / newline", "  https://github.com/theholocron/holocron.git\n"],
+	])("parses %s", (_label, url) => {
+		expect(parseGitRemoteUrl(url)).toEqual(gh);
+	});
+
+	it("works for any host, not just github.com", () => {
+		expect(parseGitRemoteUrl("git@gitlab.example.com:team/app.git")).toEqual({
+			host: "gitlab.example.com",
+			owner: "team",
+			repo: "app",
+			slug: "team/app",
+		});
+		expect(parseGitRemoteUrl("git@gitserver:org/tool")?.host).toBe("gitserver");
+	});
+
+	it("keeps nested groups in the owner", () => {
+		expect(parseGitRemoteUrl("https://gitlab.com/group/sub/app.git")).toEqual({
+			host: "gitlab.com",
+			owner: "group/sub",
+			repo: "app",
+			slug: "group/sub/app",
+		});
+	});
+
+	it("keeps a dot inside the repo name and only strips a final .git", () => {
+		expect(parseGitRemoteUrl("https://github.com/o/my.repo.git")?.repo).toBe("my.repo");
+		expect(parseGitRemoteUrl("https://github.com/o/repo.github.io")?.repo).toBe("repo.github.io");
+	});
+
+	it.each([
+		["empty", ""],
+		["whitespace", "   "],
+		["a local path", "/Users/me/code/repo"],
+		["a relative path", "../repo"],
+		["a windows path", "C:\\code\\repo"],
+		["a windows drive path with slashes", "C:/code/repo"],
+		["a url with no path", "https://github.com"],
+		["a url with one path segment", "https://github.com/onlyone"],
+		["scp-style with one segment", "git@github.com:onlyone"],
+		["garbage", "not a url"],
+	])("returns undefined for %s", (_label, url) => {
+		expect(parseGitRemoteUrl(url)).toBeUndefined();
+	});
+});
+
+describe("readGitRemote", () => {
+	it("runs `git remote get-url origin` in the given directory and parses the output", async () => {
+		const exec = vi.fn().mockResolvedValue("git@github.com:theholocron/holocron.git\n");
+		expect(await readGitRemote("/repo", { exec })).toEqual(gh);
+		expect(exec).toHaveBeenCalledWith(["remote", "get-url", "origin"], { cwd: "/repo" });
+	});
+
+	it("asks for another remote by name", async () => {
+		const exec = vi.fn().mockResolvedValue("https://github.com/a/b.git");
+		await readGitRemote("/repo", { exec, remote: "upstream" });
+		expect(exec).toHaveBeenCalledWith(["remote", "get-url", "upstream"], { cwd: "/repo" });
+	});
+
+	it("is undefined when git fails (not a repo, no such remote, git missing)", async () => {
+		const exec = vi.fn().mockRejectedValue(new Error("fatal: No such remote 'origin'"));
+		expect(await readGitRemote("/repo", { exec })).toBeUndefined();
+	});
+
+	it("is undefined when the URL isn't one it understands", async () => {
+		const exec = vi.fn().mockResolvedValue("/some/local/path\n");
+		expect(await readGitRemote("/repo", { exec })).toBeUndefined();
+	});
+
+	it("reads a real repository with the default exec", async () => {
+		const dir = await mkdtemp(join(tmpdir(), "git-utils-"));
+		try {
+			execFileSync("git", ["init", "-q"], { cwd: dir });
+			execFileSync("git", ["remote", "add", "origin", "https://github.com/theholocron/holocron.git"], {
+				cwd: dir,
+			});
+			expect(await readGitRemote(dir)).toEqual(gh);
+			expect(await readGitRemote(dir, { remote: "nope" })).toBeUndefined();
+		} finally {
+			await rm(dir, { recursive: true, force: true });
+		}
+	});
+
+	it("is undefined outside a repository with the default exec", async () => {
+		const dir = await mkdtemp(join(tmpdir(), "git-utils-norepo-"));
+		try {
+			expect(await readGitRemote(dir)).toBeUndefined();
+		} finally {
+			await rm(dir, { recursive: true, force: true });
+		}
+	});
+});
