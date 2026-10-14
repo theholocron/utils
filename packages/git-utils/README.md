@@ -31,7 +31,7 @@ await updateGitignore(".gitignore", {
 
 Pure. Understands `https://host/owner/repo(.git)(/)` (with credentials or a
 port), scp-style `git@host:owner/repo(.git)`, `ssh://git@host(:port)/owner/repo`
-and `git://`, on any host (a bracketed IPv6 host comes back without its brackets).
+and `git://`, on any server (a bracketed IPv6 address comes back without its brackets).
 The whole input must be one remote: trailing text after it, other than a
 `?query` or `#fragment`, gives `undefined`. Nested groups stay in `owner` (`group/sub`). Returns
 `{ host, owner, repo, slug }`, or `undefined` for a local path, an empty
@@ -63,7 +63,7 @@ found.
 Writes only when the content changes, atomically (a temp file renamed into
 place; a symlinked path is updated through the link), and resolves to `true`
 when it wrote. Calls for the same path in one process run one after another; a
-read error other than "no such file" rejects instead of overwriting.
+read error other than "no such file" fails instead of overwriting.
 
 ## Documentation
 
