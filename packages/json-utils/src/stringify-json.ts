@@ -1,28 +1,61 @@
 export interface StringifyJsonOptions {
-	/** Indent for each level: a number of spaces or a literal string (e.g. `"\t"`). Default `2`. */
+	/**
+	 * Indent for each level: a number of spaces (a non-negative integer) or a
+	 * string of spaces and tabs (e.g. `"\t"`). Any length works, unlike
+	 * `JSON.stringify`'s own ten-character cap. Default `2`.
+	 */
 	indent?: number | string;
 	/**
 	 * The existing file's text. Its detected indent and line endings are used
 	 * instead of `indent`, so rewriting a file doesn't reformat it. Falls back
 	 * to `indent` when no indent can be detected (empty or single-line input).
+	 * A file that mixes `\r\n` and `\n` keeps whichever it uses more (`\n` on a tie).
 	 */
 	like?: string;
 }
 
 /**
- * The first indentation used in a JSON document — the leading whitespace of
- * the first indented line (spaces or a tab). `undefined` when there is none,
- * e.g. a minified or single-line document.
+ * The indentation one level of nesting adds in a JSON document — the leading
+ * whitespace (spaces or a tab) of the first line after the first one, less any
+ * padding the root value's own line starts with. `undefined` when there is
+ * none, e.g. a minified or single-line document.
  *
  * Raw newlines can't occur inside a JSON string, so any line that starts with
  * whitespace is structural indentation.
  */
 export function detectIndent(text: string): string | undefined {
-	for (const line of text.split(/\r?\n/)) {
+	const lines = text.split(/\r?\n/);
+	const rootAt = lines.findIndex((line) => line.trim() !== "");
+	if (rootAt === -1) return undefined;
+	const rootPad = (/^[ \t]*/.exec(lines[rootAt] as string) as RegExpExecArray)[0];
+	for (const line of lines.slice(rootAt + 1)) {
 		const match = /^([ \t]+)\S/.exec(line);
-		if (match) return match[1];
+		if (!match) continue;
+		const pad = match[1] as string;
+		const nested = pad.startsWith(rootPad) ? pad.slice(rootPad.length) : pad;
+		if (nested) return nested;
 	}
 	return undefined;
+}
+
+/** `\r\n` when it is the file's majority line ending, else `\n`. */
+function detectEol(text: string): "\n" | "\r\n" {
+	const crlf = text.match(/\r\n/g)?.length ?? 0;
+	const lf = (text.match(/\n/g)?.length ?? 0) - crlf;
+	return crlf > lf ? "\r\n" : "\n";
+}
+
+function resolveIndent(indent: number | string): string {
+	if (typeof indent === "number") {
+		if (!Number.isInteger(indent) || indent < 0) {
+			throw new TypeError(`indent must be a non-negative integer, got ${indent}`);
+		}
+		return " ".repeat(indent);
+	}
+	if (!/^[ \t]*$/.test(indent)) {
+		throw new TypeError(`indent must contain only spaces and tabs, got ${JSON.stringify(indent)}`);
+	}
+	return indent;
 }
 
 /**
@@ -33,17 +66,23 @@ export function detectIndent(text: string): string | undefined {
  * spaces, …) and line endings (`\r\n`) when rewriting it.
  *
  * @throws {TypeError} when `value` has no JSON representation (`undefined`, a
- * function, a symbol) — `JSON.stringify` would return `undefined` for it.
+ * function, a symbol) — `JSON.stringify` would return `undefined` for it — or
+ * when `indent` isn't a non-negative integer or a string of spaces and tabs
+ * (anything else would produce text no JSON parser accepts).
  */
 export function stringifyJson(value: unknown, options: StringifyJsonOptions = {}): string {
-	let indent = options.indent ?? 2;
+	let indent = resolveIndent(options.indent ?? 2);
 	let eol = "\n";
 	if (options.like !== undefined) {
 		indent = detectIndent(options.like) ?? indent;
-		if (options.like.includes("\r\n")) eol = "\r\n";
+		eol = detectEol(options.like);
 	}
-	const json = JSON.stringify(value, null, indent) as string | undefined;
+	// A tab per level, then swapped for `indent`: JSON.stringify caps its own
+	// indent at ten characters. Newlines are structural only — it escapes them
+	// inside strings — so every line's leading tabs are indentation.
+	const json = (indent === "" ? JSON.stringify(value) : JSON.stringify(value, null, "\t")) as string | undefined;
 	if (json === undefined) throw new TypeError("Cannot stringify a value that has no JSON representation");
-	// Newlines in the output are structural only: JSON.stringify escapes them inside strings.
-	return (eol === "\n" ? json : json.replace(/\n/g, eol)) + eol;
+	const indented =
+		indent === "" || indent === "\t" ? json : json.replace(/^\t+/gm, (tabs) => indent.repeat(tabs.length));
+	return (eol === "\n" ? indented : indented.replace(/\n/g, eol)) + eol;
 }
