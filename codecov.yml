@@ -49,6 +49,11 @@ component_management:
       paths:
         - packages/fs-utils/**
 
+    - component_id: json-utils
+      name: "json-utils"
+      paths:
+        - packages/json-utils/**
+
     - component_id: location-utils
       name: "location-utils"
       paths:
