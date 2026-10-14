@@ -4,11 +4,21 @@ description: Stringify JSON with a trailing newline, preserving a file's own ind
 ---
 
 import { PackageHeader, Installation } from "@theholocron/components-doc";
-import { getUtils } from "@theholocron/registry-doc";
+import { getDocsBaseUrl, getGitHubBaseUrl, getScope, getUtils } from "@theholocron/registry-doc";
 
-<PackageHeader entry={getUtils()["json-utils"]} />
+{/* registry-doc doesn't list json-utils yet; build the entry the same way it does until it does. */}
 
-<Installation package={getUtils()["json-utils"].package} />
+export const entry = getUtils()["json-utils"] ?? {
+  slug: "json-utils",
+  package: `${getScope()}/json-utils`,
+  docsUrl: `${getDocsBaseUrl()}/utils/json`,
+  npmUrl: `https://www.npmjs.com/package/${getScope()}/json-utils`,
+  githubUrl: `${getGitHubBaseUrl()}/utils`,
+};
+
+<PackageHeader entry={entry} />
+
+<Installation package={entry.package} />
 
 ## API
 
