@@ -24,9 +24,29 @@ describe("parseGitRemoteUrl", () => {
 		["ssh://", "ssh://git@github.com/theholocron/holocron.git"],
 		["ssh:// with a port", "ssh://git@github.com:22/theholocron/holocron.git"],
 		["git://", "git://github.com/theholocron/holocron.git"],
+		["https with a query", "https://github.com/theholocron/holocron.git?ref=main"],
+		["https with a fragment", "https://github.com/theholocron/holocron#readme"],
 		["surrounding whitespace / newline", "  https://github.com/theholocron/holocron.git\n"],
 	])("parses %s", (_label, url) => {
 		expect(parseGitRemoteUrl(url)).toEqual(gh);
+	});
+
+	it.each([
+		["https", "https://[2001:db8::1]/theholocron/holocron.git"],
+		["https with a port", "https://[2001:db8::1]:8443/theholocron/holocron.git"],
+		["ssh://", "ssh://git@[::1]:22/theholocron/holocron.git"],
+		["scp-style", "git@[2001:db8::1]:theholocron/holocron.git"],
+	])("parses a bracketed IPv6 host (%s), without the brackets", (_label, url) => {
+		expect(parseGitRemoteUrl(url)).toMatchObject({ owner: "theholocron", repo: "holocron" });
+		expect(parseGitRemoteUrl(url)?.host).toMatch(/^[0-9a-f:]+$/);
+	});
+
+	it.each([
+		["trailing text", "https://github.com/theholocron/holocron.git extra stuff"],
+		["a second URL", "https://github.com/a/b https://github.com/c/d"],
+		["trailing text after a query", "https://github.com/a/b?x=1 junk"],
+	])("rejects %s", (_label, url) => {
+		expect(parseGitRemoteUrl(url)).toBeUndefined();
 	});
 
 	it("works for any host, not just github.com", () => {

@@ -1,4 +1,4 @@
-import { mkdtemp, readFile, rm, stat, writeFile } from "node:fs/promises";
+import { chmod, mkdir, mkdtemp, readdir, readFile, rm, stat, symlink, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 
@@ -53,6 +53,35 @@ describe("upsertManagedBlock", () => {
 	});
 });
 
+describe("upsertManagedBlock edge cases", () => {
+	const crlfBlock = block.replace(/\n/g, "\r\n");
+
+	it("keeps a CRLF file CRLF, and is idempotent on it", () => {
+		const once = upsertManagedBlock("node_modules\r\ndist\r\n", opts);
+		expect(once).toBe(`node_modules\r\ndist\r\n\r\n${crlfBlock}\r\n`);
+		expect(upsertManagedBlock(once, opts)).toBe(once);
+	});
+
+	it("CRLF, end missing: stops at the CRLF blank line and keeps what follows", () => {
+		const before = "top\r\n\r\n# managed: skills\r\n/stale\r\n\r\nkeep-me\r\n";
+		expect(upsertManagedBlock(before, opts)).toBe(`top\r\n\r\n${crlfBlock}\r\n\r\nkeep-me\r\n`);
+	});
+
+	it("treats a whitespace-only line as the blank-line boundary", () => {
+		const before = "# managed: skills\n/stale\n  \t\nkeep-me\n";
+		expect(upsertManagedBlock(before, opts)).toBe(`${block}\n  \t\nkeep-me\n`);
+	});
+
+	it("an end marker past the blank-line boundary doesn't close the block or eat what's between", () => {
+		const before = "# managed: skills\n/stale\n\nuser-rule\n# end managed: skills\ntail\n";
+		expect(upsertManagedBlock(before, opts)).toBe(`${block}\n\nuser-rule\n# end managed: skills\ntail\n`);
+	});
+
+	it.each([[""], ["   "], ["a\nb"], ["a\r"]])("rejects the block line %j", (bad) => {
+		expect(() => upsertManagedBlock("", { ...opts, lines: ["ok", bad] })).toThrow(TypeError);
+	});
+});
+
 describe("updateGitignore", () => {
 	let dir: string;
 	beforeEach(async () => {
@@ -82,5 +111,54 @@ describe("updateGitignore", () => {
 		await new Promise((r) => setTimeout(r, 20));
 		expect(await updateGitignore(path, opts)).toBe(false);
 		expect((await stat(path)).mtimeMs).toBe(before);
+	});
+
+	it("serializes concurrent updates to the same file so neither is lost", async () => {
+		const path = join(dir, ".gitignore");
+		await writeFile(path, "node_modules\n");
+		const other = { start: "# managed: prompts", end: "# end managed: prompts", lines: ["/.prompts/"] };
+		await Promise.all([updateGitignore(path, opts), updateGitignore(path, other)]);
+		const text = await readFile(path, "utf8");
+		expect(text).toContain("node_modules");
+		expect(text).toContain("# end managed: skills");
+		expect(text).toContain("# end managed: prompts");
+	});
+
+	it("keeps going after a failed update in the queue", async () => {
+		const path = join(dir, ".gitignore");
+		await expect(updateGitignore(path, { ...opts, lines: [""] })).rejects.toThrow(TypeError);
+		expect(await updateGitignore(path, opts)).toBe(true);
+	});
+
+	it("writes through a temp file: no stray files, and the file's mode survives", async () => {
+		const path = join(dir, ".gitignore");
+		await writeFile(path, "a\n");
+		await chmod(path, 0o600);
+		await updateGitignore(path, opts);
+		expect((await stat(path)).mode & 0o777).toBe(0o600);
+		expect(await readdir(dir)).toEqual([".gitignore"]);
+	});
+
+	it("updates through a symlink instead of replacing it", async () => {
+		const real = join(dir, "real-ignore");
+		const link = join(dir, ".gitignore");
+		await writeFile(real, "a\n");
+		await symlink(real, link);
+		await updateGitignore(link, opts);
+		expect((await stat(link)).isFile()).toBe(true);
+		expect(await readFile(real, "utf8")).toContain("# end managed: skills");
+		expect((await readdir(dir)).sort()).toEqual([".gitignore", "real-ignore"]);
+	});
+
+	it("rejects on a read error other than a missing file, leaving the file alone", async () => {
+		const sub = join(dir, "is-a-dir");
+		await mkdir(sub);
+		await expect(updateGitignore(sub, opts)).rejects.toMatchObject({ code: "EISDIR" });
+	});
+
+	it("removes its temp file and rejects when the write fails", async () => {
+		const path = join(dir, "sub", ".gitignore");
+		await expect(updateGitignore(path, opts)).rejects.toMatchObject({ code: "ENOENT" });
+		expect(await readdir(dir)).toEqual([]);
 	});
 });

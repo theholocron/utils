@@ -31,7 +31,9 @@ await updateGitignore(".gitignore", {
 
 Pure. Understands `https://host/owner/repo(.git)(/)` (with credentials or a
 port), scp-style `git@host:owner/repo(.git)`, `ssh://git@host(:port)/owner/repo`
-and `git://`, on any host. Nested groups stay in `owner` (`group/sub`). Returns
+and `git://`, on any host (a bracketed IPv6 host comes back without its brackets).
+The whole input must be one remote: trailing text after it, other than a
+`?query` or `#fragment`, gives `undefined`. Nested groups stay in `owner` (`group/sub`). Returns
 `{ host, owner, repo, slug }`, or `undefined` for a local path, an empty
 string, or a URL with fewer than two path segments.
 
@@ -49,13 +51,19 @@ Pure. Inserts or replaces the lines between two marker lines, leaving the rest
 of the text alone. Appends the block (blank-line separated) when it isn't there
 yet; replaces it in place when it is. If `start` is present but `end` is
 missing, the block is taken to run to the next blank line or end of file, so
-the content after it is **kept**. Idempotent. There are no default markers —
-choose them, and keep them stable so existing blocks are still found.
+the content after it is **kept** (an `end` marker further down than that blank
+line doesn't close the block). A CRLF file stays CRLF. `lines` entries must be
+non-blank single lines, or a `TypeError` is thrown. Idempotent. There are no
+default markers — choose them, and keep them stable so existing blocks are still
+found.
 
 ### `updateGitignore(path, options)`
 
 `upsertManagedBlock` on a file; a missing file counts as empty and is created.
-Writes only when the content changes, and resolves to `true` when it wrote.
+Writes only when the content changes, atomically (a temp file renamed into
+place; a symlinked path is updated through the link), and resolves to `true`
+when it wrote. Calls for the same path in one process run one after another; a
+read error other than "no such file" rejects instead of overwriting.
 
 ## Documentation
 

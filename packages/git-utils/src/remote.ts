@@ -15,18 +15,26 @@ export interface GitRemote {
  * - `ssh://git@github.com(:22)/owner/repo(.git)`
  * - `git://github.com/owner/repo.git`
  *
+ * A bracketed IPv6 host is returned without its brackets. The whole input must
+ * be one remote: trailing text after the URL (apart from a `?query` or
+ * `#fragment`) makes it `undefined`.
+ *
  * `undefined` for anything else (a local path, an empty string, a URL with
  * fewer than two path segments).
  */
 export function parseGitRemoteUrl(url: string): GitRemote | undefined {
 	const input = url.trim();
-	const withScheme = /^[a-z][a-z0-9+.-]*:\/\/(?:[^@/\s]*@)?([^:/\s]+)(?::\d+)?\/([^\s?#]+)/i.exec(input);
+	// A host is a bracketed IPv6 literal (`[::1]`, whose colons aren't separators) or a name without `:`.
+	const withScheme =
+		/^[a-z][a-z0-9+.-]*:\/\/(?:[^@/\s]*@)?(\[[0-9a-f:.]+\]|[^:/\s]+)(?::\d+)?\/([^\s?#]+)(?:[?#]\S*)?$/i.exec(
+			input
+		);
 	// `host:path`, not `scheme://…` (the lookahead) and not a Windows drive (`C:`, one letter).
-	const scp = withScheme ? null : /^(?:[^@/\s]+@)?([^:/\s]{2,}):(?!\/\/)([^\s]+)$/.exec(input);
+	const scp = withScheme ? null : /^(?:[^@/\s]+@)?(\[[0-9a-f:.]+\]|[^:/\s]{2,}):(?!\/\/)([^\s]+)$/i.exec(input);
 	const match = withScheme ?? scp;
 	if (!match) return undefined;
 
-	const host = match[1]!;
+	const host = match[1]!.replace(/^\[|\]$/g, "");
 	const segments = match[2]!
 		.replace(/\/+$/, "")
 		.replace(/\.git$/, "")

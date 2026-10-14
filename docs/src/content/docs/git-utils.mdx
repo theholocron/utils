@@ -16,7 +16,7 @@ Node-only: it shells out to `git` and touches the filesystem. Zero dependencies.
 
 ### `parseGitRemoteUrl(url)`
 
-Pure. Understands `https://host/owner/repo(.git)(/)` (with credentials or a port), scp-style `git@host:owner/repo(.git)`, `ssh://git@host(:port)/owner/repo` and `git://`, on any host. Nested groups stay in `owner`. Returns `{ host, owner, repo, slug }`, or `undefined` for a local path, an empty string, or a URL with fewer than two path segments.
+Pure. Understands `https://host/owner/repo(.git)(/)` (with credentials or a port), scp-style `git@host:owner/repo(.git)`, `ssh://git@host(:port)/owner/repo` and `git://`, on any host (bracketed IPv6 hosts included, returned without brackets). The whole input must be one remote — trailing text after it, other than a `?query` or `#fragment`, gives `undefined`. Nested groups stay in `owner`. Returns `{ host, owner, repo, slug }`, or `undefined` for a local path, an empty string, or a URL with fewer than two path segments.
 
 ```ts
 import { parseGitRemoteUrl } from "@theholocron/git-utils";
@@ -38,7 +38,7 @@ Runs `git remote get-url <remote>` in `cwd` and parses it. `undefined` when `cwd
 
 ### `upsertManagedBlock(content, { start, end, lines })`
 
-Pure. Inserts or replaces the lines between two marker lines, leaving the rest of the text alone: appended (blank-line separated) when absent, replaced in place when present. If `start` is present but `end` is missing, the block is taken to run to the next blank line or end of file, so the content after it is kept. Idempotent. There are no default markers — choose them and keep them stable.
+Pure. Inserts or replaces the lines between two marker lines, leaving the rest of the text alone: appended (blank-line separated) when absent, replaced in place when present. If `start` is present but `end` is missing, the block is taken to run to the next blank line or end of file, so the content after it is kept; an `end` marker further down than that blank line doesn't close the block. A CRLF file stays CRLF. `lines` entries must be non-blank single lines (a `TypeError` otherwise). Idempotent. There are no default markers — choose them and keep them stable.
 
 ```ts
 import { upsertManagedBlock } from "@theholocron/git-utils";
@@ -53,4 +53,4 @@ upsertManagedBlock("node_modules\n", {
 
 ### `updateGitignore(path, options)`
 
-`upsertManagedBlock` applied to a file; a missing file counts as empty and is created. Writes only when the content changes and resolves to `true` when it wrote.
+`upsertManagedBlock` applied to a file; a missing file counts as empty and is created. Writes only when the content changes — atomically, through a temp file renamed into place (a symlinked path is updated through the link) — and resolves to `true` when it wrote. Calls for the same path in one process run one after another; a read error other than "no such file" rejects instead of overwriting.
