@@ -5,7 +5,7 @@ export type DependencyField = "dependencies" | "devDependencies" | "peerDependen
 /**
  * Every package name declared in `pkg`'s dependency maps — `dependencies` and
  * `devDependencies` unless `fields` says otherwise. An absent `pkg`, a missing
- * map or a non-object map contributes nothing.
+ * map, an array or any other non-object contributes nothing.
  */
 export function dependencyNames(
 	pkg: PackageJson | undefined,
@@ -14,7 +14,8 @@ export function dependencyNames(
 	const names = new Set<string>();
 	for (const field of fields) {
 		const map = pkg?.[field];
-		if (typeof map === "object" && map !== null) for (const name of Object.keys(map)) names.add(name);
+		if (typeof map === "object" && map !== null && !Array.isArray(map))
+			for (const name of Object.keys(map)) names.add(name);
 	}
 	return names;
 }

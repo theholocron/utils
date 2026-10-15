@@ -22,5 +22,6 @@ describe("dependencyNames", () => {
 		expect(dependencyNames(undefined).size).toBe(0);
 		expect(dependencyNames({}).size).toBe(0);
 		expect(dependencyNames({ dependencies: null as never, devDependencies: "x" as never }).size).toBe(0);
+		expect(dependencyNames({ dependencies: ["a", "b"] as never }).size).toBe(0);
 	});
 });

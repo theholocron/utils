@@ -33,12 +33,17 @@ describe("detectPackageManager", () => {
 	});
 
 	it("checks lockfiles in order: pnpm, bun, yarn, npm", () => {
-		const all = ["pnpm-lock.yaml", "bun.lockb", "yarn.lock", "package-lock.json"];
+		const all = ["pnpm-lock.yaml", "bun.lockb", "yarn.lock", "npm-shrinkwrap.json"];
 		const expected = ["pnpm", "bun", "yarn", "npm"];
 		all.forEach((file, i) => {
 			const present = Object.fromEntries(all.slice(i).map((f) => [join("/r", f), ""]));
 			expect(detectPackageManager("/r", memory(present))).toBe(expected[i]);
 		});
+	});
+
+	it("reads package-lock.json as npm too, with npm-shrinkwrap.json taking precedence", () => {
+		expect(detectPackageManager("/r", memory({ [join("/r", "package-lock.json")]: "" }))).toBe("npm");
+		expect(detectPackageManager("/r", memory({ [join("/r", "npm-shrinkwrap.json")]: "" }))).toBe("npm");
 	});
 
 	it("falls back to pnpm, or to the fallback given", () => {

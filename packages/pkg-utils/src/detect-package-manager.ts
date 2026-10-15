@@ -22,6 +22,7 @@ const LOCKFILES: ReadonlyArray<readonly [file: string, manager: PackageManager]>
 	["bun.lockb", "bun"],
 	["bun.lock", "bun"],
 	["yarn.lock", "yarn"],
+	["npm-shrinkwrap.json", "npm"],
 	["package-lock.json", "npm"],
 ];
 

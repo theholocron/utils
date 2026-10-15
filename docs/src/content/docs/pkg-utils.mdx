@@ -18,7 +18,7 @@ The parsed `<dir>/package.json`, or `undefined` when it is missing, unreadable o
 
 ### `parsePackageJson(text)`
 
-Parses `package.json` text, ignoring a leading byte-order mark. `undefined` for invalid JSON or JSON that isn't an object.
+Parses `package.json` text, ignoring a leading byte-order mark. `undefined` for invalid JSON or JSON that isn't an object. A recognized field of the wrong type is left out, and the string-map fields keep only their string-valued entries.
 
 ### `dependencyNames(pkg, fields?)`
 
@@ -26,7 +26,7 @@ Every package name declared in `dependencies` and `devDependencies` (or the `fie
 
 ### `detectPackageManager(dir, options?)`
 
-The name in `package.json#packageManager` when it is pnpm, npm, yarn or bun, else the first lockfile found, else `options.fallback` (default `"pnpm"`).
+The name in `package.json#packageManager` when it is pnpm, npm, yarn or bun, else the first lockfile found (including `npm-shrinkwrap.json`), else `options.fallback` (default `"pnpm"`).
 
 ```ts
 import { dependencyNames, detectPackageManager, readPackageJson } from "@theholocron/pkg-utils";

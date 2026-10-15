@@ -27,7 +27,9 @@ file read, for callers with an injected or in-memory filesystem.
 ### `parsePackageJson(text)`
 
 Parses `package.json` text, ignoring a leading byte-order mark. `undefined` for
-invalid JSON or JSON that isn't an object.
+invalid JSON or JSON that isn't an object. The fields `PackageJson` types are
+checked: one of the wrong type is left out, and the string-map fields (`scripts`,
+and the dependency maps) keep only their string-valued entries.
 
 ### `dependencyNames(pkg, fields?)`
 
@@ -39,7 +41,7 @@ the `fields` you pass: also `peerDependencies`, `optionalDependencies`), as a
 
 The name in `package.json#packageManager` (`pnpm@10.0.0` → `pnpm`) when it is
 pnpm, npm, yarn or bun, else the first lockfile found (`pnpm-lock.yaml`,
-`bun.lockb`/`bun.lock`, `yarn.lock`, `package-lock.json`), else `options.fallback`
+`bun.lockb`/`bun.lock`, `yarn.lock`, `npm-shrinkwrap.json`/`package-lock.json`), else `options.fallback`
 (default `"pnpm"`). `options.readFile` and `options.fileExists` replace the disk
 access.
 
