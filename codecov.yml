@@ -73,6 +73,11 @@ component_management:
       paths:
         - packages/object-utils/**
 
+    - component_id: pkg-utils
+      name: "pkg-utils"
+      paths:
+        - packages/pkg-utils/**
+
     - component_id: storage-utils
       name: "storage-utils"
       paths:

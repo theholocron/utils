@@ -78,11 +78,11 @@ catalogs:
       version: 4.1.10
   docs:
     '@theholocron/components-doc':
-      specifier: ^1.18.0
-      version: 1.18.0
+      specifier: ^1.19.0
+      version: 1.19.0
     '@theholocron/registry-doc':
-      specifier: ^1.18.0
-      version: 1.18.0
+      specifier: ^1.19.0
+      version: 1.19.0
   holocron:
     '@theholocron/astromech':
       specifier: 5.0.0-alpha.129
@@ -149,7 +149,7 @@ importers:
         version: 8.2.0(@commitlint/cli@21.2.2(@types/node@26.2.0)(conventional-commits-parser@7.1.2)(typescript@6.0.3))(@commitlint/config-conventional@21.2.2)
       '@theholocron/components-doc':
         specifier: catalog:docs
-        version: 1.18.0(@astrojs/react@6.0.5(@types/node@26.2.0)(@types/react-dom@19.2.5(@types/react@19.2.18))(@types/react@19.2.18)(esbuild@0.28.2)(jiti@2.7.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(tsx@4.23.12)(yaml@2.9.0))(@astrojs/starlight@0.42.0(astro@7.3.2(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(@types/node@26.2.0)(jiti@2.7.0)(tsx@4.23.12)(yaml@2.9.0))(typescript@6.0.3))(astro@7.3.2(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(@types/node@26.2.0)(jiti@2.7.0)(tsx@4.23.12)(yaml@2.9.0))(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+        version: 1.19.0(@astrojs/react@6.0.5(@types/node@26.2.0)(@types/react-dom@19.2.5(@types/react@19.2.18))(@types/react@19.2.18)(esbuild@0.28.2)(jiti@2.7.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(tsx@4.23.12)(yaml@2.9.0))(@astrojs/starlight@0.42.0(astro@7.3.2(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(@types/node@26.2.0)(jiti@2.7.0)(tsx@4.23.12)(yaml@2.9.0))(typescript@6.0.3))(astro@7.3.2(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(@types/node@26.2.0)(jiti@2.7.0)(tsx@4.23.12)(yaml@2.9.0))(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       '@theholocron/docs-theme':
         specifier: 'catalog:'
         version: 1.10.1(@astrojs/starlight@0.42.0(astro@7.3.2(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(@types/node@26.2.0)(jiti@2.7.0)(tsx@4.23.12)(yaml@2.9.0))(typescript@6.0.3))(astro@7.3.2(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(@types/node@26.2.0)(jiti@2.7.0)(tsx@4.23.12)(yaml@2.9.0))
@@ -173,7 +173,7 @@ importers:
         version: 8.2.0(prettier@3.9.6)
       '@theholocron/registry-doc':
         specifier: catalog:docs
-        version: 1.18.0
+        version: 1.19.0
       '@theholocron/semantic-release-config':
         specifier: catalog:configs
         version: 8.2.0(@semantic-release/changelog@6.0.3(semantic-release@25.0.9(typescript@6.0.3)))(@semantic-release/commit-analyzer@13.0.1(semantic-release@25.0.9(typescript@6.0.3)))(@semantic-release/exec@7.1.0(semantic-release@25.0.9(typescript@6.0.3)))(@semantic-release/git@10.0.1(semantic-release@25.0.9(typescript@6.0.3)))(@semantic-release/github@12.0.9(semantic-release@25.0.9(typescript@6.0.3)))(@semantic-release/release-notes-generator@14.1.1(semantic-release@25.0.9(typescript@6.0.3)))(conventional-changelog-conventionalcommits@9.3.1)(semantic-release@25.0.9(typescript@6.0.3))
@@ -466,6 +466,33 @@ importers:
         version: 4.1.10(@opentelemetry/api@1.9.1)(@types/node@26.2.0)(@vitest/coverage-v8@4.1.10)(happy-dom@20.14.0)(vite@8.2.2(@types/node@26.2.0)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.23.12)(yaml@2.9.0))
 
   packages/object-utils:
+    devDependencies:
+      '@theholocron/cli':
+        specifier: catalog:holocron
+        version: 5.0.0-alpha.114(@astrojs/react@6.0.5(@types/node@26.2.0)(@types/react-dom@19.2.5(@types/react@19.2.18))(@types/react@19.2.18)(esbuild@0.28.2)(jiti@2.7.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(tsx@4.23.12)(yaml@2.9.0))(@astrojs/starlight@0.42.0(astro@7.3.2(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(@types/node@26.2.0)(jiti@2.7.0)(tsx@4.23.12)(yaml@2.9.0))(typescript@6.0.3))(@opentelemetry/core@2.11.0(@opentelemetry/api@1.9.1))(@types/node@26.2.0)(astro@7.3.2(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(@types/node@26.2.0)(jiti@2.7.0)(tsx@4.23.12)(yaml@2.9.0))(dotenv@17.4.2)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(typescript@6.0.3)(vitest@4.1.10)
+      '@theholocron/tsdown-config':
+        specifier: catalog:configs
+        version: 8.2.0(tsdown@0.23.0(oxc-resolver@11.24.2)(tsx@4.23.12)(typescript@6.0.3))
+      '@theholocron/vitest-config':
+        specifier: catalog:configs
+        version: 8.2.0(@testing-library/user-event@14.6.1(@testing-library/dom@10.4.1))(@vitest/coverage-v8@4.1.10)(vitest@4.1.10)
+      '@tsconfig/node-lts':
+        specifier: 'catalog:'
+        version: 24.0.1
+      '@types/node':
+        specifier: 'catalog:'
+        version: 26.2.0
+      '@vitest/coverage-v8':
+        specifier: 'catalog:'
+        version: 4.1.10(vitest@4.1.10)
+      tsdown:
+        specifier: 'catalog:'
+        version: 0.23.0(oxc-resolver@11.24.2)(tsx@4.23.12)(typescript@6.0.3)
+      vitest:
+        specifier: 'catalog:'
+        version: 4.1.10(@opentelemetry/api@1.9.1)(@types/node@26.2.0)(@vitest/coverage-v8@4.1.10)(happy-dom@20.14.0)(vite@8.2.2(@types/node@26.2.0)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.23.12)(yaml@2.9.0))
+
+  packages/pkg-utils:
     devDependencies:
       '@theholocron/cli':
         specifier: catalog:holocron
@@ -2584,8 +2611,8 @@ packages:
       '@commitlint/cli': ^21
       '@commitlint/config-conventional': ^21
 
-  '@theholocron/components-doc@1.16.0':
-    resolution: {integrity: sha512-YGZzqaFAgiJi+u2b79wG3crMdxX8K8mOHZdTbwNBfTsu6ulqTbrAbZEXp1D+24wI+COmZp5nWL7pgPJv8+KEfg==}
+  '@theholocron/components-doc@1.18.0':
+    resolution: {integrity: sha512-nSuul76J8uAXFZHAUfEWwB+h8jLWNS8+cZedAKlxGenSdsjZ/HguOSNb7EfxmuqsheswUbCV36sEMnGVGfXdrQ==}
     engines: {node: '>=22.0.0'}
     peerDependencies:
       '@astrojs/react': '>=3.0.0'
@@ -2601,8 +2628,8 @@ packages:
       react-dom:
         optional: true
 
-  '@theholocron/components-doc@1.18.0':
-    resolution: {integrity: sha512-nSuul76J8uAXFZHAUfEWwB+h8jLWNS8+cZedAKlxGenSdsjZ/HguOSNb7EfxmuqsheswUbCV36sEMnGVGfXdrQ==}
+  '@theholocron/components-doc@1.19.0':
+    resolution: {integrity: sha512-+CuX4HzOyl0DHLh8BVIfBLAmh6+H78wiY5HqM6m+bbq9XoLw6uwLpSd847HlLK7mixgy8MY+Gbwa2qlD+CNqRA==}
     engines: {node: '>=22.0.0'}
     peerDependencies:
       '@astrojs/react': '>=3.0.0'
@@ -2781,12 +2808,12 @@ packages:
     peerDependencies:
       prettier: ^3
 
-  '@theholocron/registry-doc@1.16.0':
-    resolution: {integrity: sha512-EyZY6yAAN1sgzU6bKGK6f+wkTZo518RCC3OdLYgECPfh1dLx2wQ2MPtqa/YCVDkvf4IK1o3CTGb2PkuP/dK4eg==}
-    engines: {node: '>=22.0.0'}
-
   '@theholocron/registry-doc@1.18.0':
     resolution: {integrity: sha512-5MtjJAe7wNoEaKdNkdFDapzjDmOTLua0vIqAg6qR9b+MesIuIKj6Zno0Dy7yKbyzkBd9hy3IbNJzlwfxVzTm4w==}
+    engines: {node: '>=22.0.0'}
+
+  '@theholocron/registry-doc@1.19.0':
+    resolution: {integrity: sha512-Cfp/fgl1hq8GZu4Vw+MPKDi4N27SaIUKTdZSE9wAwvnlPvJzXAV70urRoMDZdojk6Gtif6pfL1jXePAmnMKNbw==}
     engines: {node: '>=22.0.0'}
 
   '@theholocron/semantic-release-config@8.2.0':
@@ -8316,13 +8343,13 @@ snapshots:
       '@napi-rs/keyring': 1.3.0
       '@sentry/node': 10.73.0(@opentelemetry/core@2.11.0(@opentelemetry/api@1.9.1))
       '@theholocron/astromech': 5.0.0-alpha.114
-      '@theholocron/components-doc': 1.16.0(@astrojs/react@6.0.5(@types/node@26.2.0)(@types/react-dom@19.2.5(@types/react@19.2.18))(@types/react@19.2.18)(esbuild@0.28.2)(jiti@2.7.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(tsx@4.23.12)(yaml@2.9.0))(@astrojs/starlight@0.42.0(astro@7.3.2(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(@types/node@26.2.0)(jiti@2.7.0)(tsx@4.23.12)(yaml@2.9.0))(typescript@6.0.3))(astro@7.3.2(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(@types/node@26.2.0)(jiti@2.7.0)(tsx@4.23.12)(yaml@2.9.0))(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@theholocron/components-doc': 1.18.0(@astrojs/react@6.0.5(@types/node@26.2.0)(@types/react-dom@19.2.5(@types/react@19.2.18))(@types/react@19.2.18)(esbuild@0.28.2)(jiti@2.7.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(tsx@4.23.12)(yaml@2.9.0))(@astrojs/starlight@0.42.0(astro@7.3.2(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(@types/node@26.2.0)(jiti@2.7.0)(tsx@4.23.12)(yaml@2.9.0))(typescript@6.0.3))(astro@7.3.2(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(@types/node@26.2.0)(jiti@2.7.0)(tsx@4.23.12)(yaml@2.9.0))(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       '@theholocron/datapad': 5.0.0-alpha.114
       '@theholocron/env-utils': 1.7.0(dotenv@17.4.2)
       '@theholocron/github-client': 1.37.1(@axiomhq/pino@2.0.0)(@sentry/node@10.73.0(@opentelemetry/core@2.11.0(@opentelemetry/api@1.9.1)))(pino-pretty@13.1.3)(pino@10.3.1)(posthog-node@5.51.8)(vitest@4.1.10)
       '@theholocron/http-client': 1.37.1(@axiomhq/pino@2.0.0)(@sentry/node@10.73.0(@opentelemetry/core@2.11.0(@opentelemetry/api@1.9.1)))(pino-pretty@13.1.3)(pino@10.3.1)(posthog-node@5.51.8)(vitest@4.1.10)
       '@theholocron/observability': 0.4.0(@axiomhq/pino@2.0.0)(@sentry/node@10.73.0(@opentelemetry/core@2.11.0(@opentelemetry/api@1.9.1)))(pino-pretty@13.1.3)(pino@10.3.1)(posthog-node@5.51.8)(vitest@4.1.10)
-      '@theholocron/registry-doc': 1.16.0
+      '@theholocron/registry-doc': 1.18.0
       chalk: 6.0.0
       ora: 9.4.1
       pino: 10.3.1
@@ -8360,7 +8387,7 @@ snapshots:
       '@commitlint/cli': 21.2.2(@types/node@26.2.0)(conventional-commits-parser@7.1.2)(typescript@6.0.3)
       '@commitlint/config-conventional': 21.2.2
 
-  '@theholocron/components-doc@1.16.0(@astrojs/react@6.0.5(@types/node@26.2.0)(@types/react-dom@19.2.5(@types/react@19.2.18))(@types/react@19.2.18)(esbuild@0.28.2)(jiti@2.7.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(tsx@4.23.12)(yaml@2.9.0))(@astrojs/starlight@0.42.0(astro@7.3.2(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(@types/node@26.2.0)(jiti@2.7.0)(tsx@4.23.12)(yaml@2.9.0))(typescript@6.0.3))(astro@7.3.2(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(@types/node@26.2.0)(jiti@2.7.0)(tsx@4.23.12)(yaml@2.9.0))(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@theholocron/components-doc@1.18.0(@astrojs/react@6.0.5(@types/node@26.2.0)(@types/react-dom@19.2.5(@types/react@19.2.18))(@types/react@19.2.18)(esbuild@0.28.2)(jiti@2.7.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(tsx@4.23.12)(yaml@2.9.0))(@astrojs/starlight@0.42.0(astro@7.3.2(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(@types/node@26.2.0)(jiti@2.7.0)(tsx@4.23.12)(yaml@2.9.0))(typescript@6.0.3))(astro@7.3.2(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(@types/node@26.2.0)(jiti@2.7.0)(tsx@4.23.12)(yaml@2.9.0))(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
       '@astrojs/starlight': 0.42.0(astro@7.3.2(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(@types/node@26.2.0)(jiti@2.7.0)(tsx@4.23.12)(yaml@2.9.0))(typescript@6.0.3)
       '@codesandbox/sandpack-react': 2.20.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
@@ -8374,7 +8401,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@theholocron/components-doc@1.18.0(@astrojs/react@6.0.5(@types/node@26.2.0)(@types/react-dom@19.2.5(@types/react@19.2.18))(@types/react@19.2.18)(esbuild@0.28.2)(jiti@2.7.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(tsx@4.23.12)(yaml@2.9.0))(@astrojs/starlight@0.42.0(astro@7.3.2(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(@types/node@26.2.0)(jiti@2.7.0)(tsx@4.23.12)(yaml@2.9.0))(typescript@6.0.3))(astro@7.3.2(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(@types/node@26.2.0)(jiti@2.7.0)(tsx@4.23.12)(yaml@2.9.0))(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@theholocron/components-doc@1.19.0(@astrojs/react@6.0.5(@types/node@26.2.0)(@types/react-dom@19.2.5(@types/react@19.2.18))(@types/react@19.2.18)(esbuild@0.28.2)(jiti@2.7.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(tsx@4.23.12)(yaml@2.9.0))(@astrojs/starlight@0.42.0(astro@7.3.2(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(@types/node@26.2.0)(jiti@2.7.0)(tsx@4.23.12)(yaml@2.9.0))(typescript@6.0.3))(astro@7.3.2(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(@types/node@26.2.0)(jiti@2.7.0)(tsx@4.23.12)(yaml@2.9.0))(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
       '@astrojs/starlight': 0.42.0(astro@7.3.2(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(@types/node@26.2.0)(jiti@2.7.0)(tsx@4.23.12)(yaml@2.9.0))(typescript@6.0.3)
       '@codesandbox/sandpack-react': 2.20.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
@@ -8495,9 +8522,9 @@ snapshots:
     dependencies:
       prettier: 3.9.6
 
-  '@theholocron/registry-doc@1.16.0': {}
-
   '@theholocron/registry-doc@1.18.0': {}
+
+  '@theholocron/registry-doc@1.19.0': {}
 
   '@theholocron/semantic-release-config@8.2.0(@semantic-release/changelog@6.0.3(semantic-release@25.0.9(typescript@6.0.3)))(@semantic-release/commit-analyzer@13.0.1(semantic-release@25.0.9(typescript@6.0.3)))(@semantic-release/exec@7.1.0(semantic-release@25.0.9(typescript@6.0.3)))(@semantic-release/git@10.0.1(semantic-release@25.0.9(typescript@6.0.3)))(@semantic-release/github@12.0.9(semantic-release@25.0.9(typescript@6.0.3)))(@semantic-release/release-notes-generator@14.1.1(semantic-release@25.0.9(typescript@6.0.3)))(conventional-changelog-conventionalcommits@9.3.1)(semantic-release@25.0.9(typescript@6.0.3))':
     dependencies:
