@@ -125,6 +125,17 @@ describe.each([
 			}
 		});
 
+		it("finds nothing when PATH is unset", async () => {
+			await script(binA, "tool");
+			const saved = process.env["PATH"];
+			delete process.env["PATH"];
+			try {
+				expect(await find("tool", { platform: "linux" })).toBeUndefined();
+			} finally {
+				process.env["PATH"] = saved;
+			}
+		});
+
 		it("does not append extensions on POSIX", async () => {
 			await script(binA, "tool.EXE");
 			expect(await find("tool", { ...posix(binA), pathExt: ".EXE" })).toBeUndefined();
