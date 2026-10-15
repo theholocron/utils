@@ -2,7 +2,7 @@ import { defineConfig } from "@theholocron/semantic-release-config";
 
 export default defineConfig({
 	exec: {
-		prepareCmd: "pnpm exec holocron package bump-versions ${nextRelease.version}",
+		prepareCmd: "pnpm exec holocron bump-versions ${nextRelease.version}",
 		// Raw bulk `pnpm -r publish` aborts the entire release the moment ANY
 		// package 404s/ENEEDAUTHs (a brand-new package needing its first manual
 		// `publish --initial`, a transient npm auth hiccup, ...) -- confirmed
