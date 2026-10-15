@@ -49,6 +49,10 @@ component_management:
       paths:
         - packages/fs-utils/**
 
+    - component_id: git-utils
+      name: "git-utils"
+      paths:
+        - packages/git-utils/**
     - component_id: json-utils
       name: "json-utils"
       paths:
