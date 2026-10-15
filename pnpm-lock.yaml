@@ -85,8 +85,8 @@ catalogs:
       version: 1.18.0
   holocron:
     '@theholocron/astromech':
-      specifier: 5.0.0-alpha.114
-      version: 5.0.0-alpha.114
+      specifier: 5.0.0-alpha.129
+      version: 5.0.0-alpha.129
     '@theholocron/cli':
       specifier: 5.0.0-alpha.114
       version: 5.0.0-alpha.114
@@ -140,7 +140,7 @@ importers:
         version: 8.2.0(@types/node@26.2.0)(@types/react-dom@19.2.5(@types/react@19.2.18))(@types/react@19.2.18)(astro@7.3.2(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(@types/node@26.2.0)(jiti@2.7.0)(tsx@4.23.12)(yaml@2.9.0))(jiti@2.7.0)(lightningcss@1.33.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(tsx@4.23.12)(yaml@2.9.0)
       '@theholocron/astromech':
         specifier: catalog:holocron
-        version: 5.0.0-alpha.114
+        version: 5.0.0-alpha.129
       '@theholocron/cli':
         specifier: catalog:holocron
         version: 5.0.0-alpha.114(@astrojs/react@6.0.5(@types/node@26.2.0)(@types/react-dom@19.2.5(@types/react@19.2.18))(@types/react@19.2.18)(esbuild@0.28.2)(jiti@2.7.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(tsx@4.23.12)(yaml@2.9.0))(@astrojs/starlight@0.42.0(astro@7.3.2(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(@types/node@26.2.0)(jiti@2.7.0)(tsx@4.23.12)(yaml@2.9.0))(typescript@6.0.3))(@opentelemetry/core@2.11.0(@opentelemetry/api@1.9.1))(@types/node@26.2.0)(astro@7.3.2(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(@types/node@26.2.0)(jiti@2.7.0)(tsx@4.23.12)(yaml@2.9.0))(dotenv@17.4.2)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(typescript@6.0.3)(vitest@4.1.10)
@@ -2564,6 +2564,10 @@ packages:
     resolution: {integrity: sha512-quArhR1be3ulwcTjZvidsTXVlVYJdUXD4cXUw0/XuF9IHay3z3PqmCFzv2J5szYRZ4ZvgR6ypmCgvSgfiMTi8Q==}
     engines: {node: '>=22'}
 
+  '@theholocron/astromech@5.0.0-alpha.129':
+    resolution: {integrity: sha512-gsoppjNldERGJI/ZzazaajxkE3+c3KARqboF/uQjISTCux4Xp4YbPRUMBP8B2KPbCoMWuKS0yCWHAziBuhcPOA==}
+    engines: {node: '>=22'}
+
   '@theholocron/cli@5.0.0-alpha.114':
     resolution: {integrity: sha512-zt1wRg/4Z4EZ6jR9Ci2gSK632XEwFbFHvii8ywpX93Inhq9141/2QAIJfWnx58JMVJWtlqZjwzP2rC4G2WI3rQ==}
     engines: {node: '>=22.0.0'}
@@ -2618,6 +2622,10 @@ packages:
     resolution: {integrity: sha512-nxRDcvhP8Xn45WFNSP4J9H+RcL5zc5ErsSrH7n9ONIqczkfAeThX+Icmez1NMec0eejh94wtVpaY2ycQDT1EiA==}
     engines: {node: '>=22'}
 
+  '@theholocron/datapad@5.0.0-alpha.129':
+    resolution: {integrity: sha512-f8aEAoGnPbt8FR/AyQDh+tkz52Co5dZGKySjYFKzZulJz2B/DnGibbWBSEYgONEJWT+HI2Io8V3k3+9xOSWhFQ==}
+    engines: {node: '>=22'}
+
   '@theholocron/docs-theme@1.10.1':
     resolution: {integrity: sha512-a0m2fK1HrDjQm+vZr3fIU6BMoGxsnA7VLvXkFdOuwY97oqzREWSdJw+dAu86dJyxDR2OwtfOsxIG7h0v2Cjhdw==}
     engines: {node: '>=22.0.0'}
@@ -2663,6 +2671,10 @@ packages:
       eslint-plugin-storybook:
         optional: true
 
+  '@theholocron/fs-utils@1.9.2':
+    resolution: {integrity: sha512-HegfRnYnuccPY0pVMJ4D+bGaJb4QBjdupG8nNJQS80BRdKJIzeZuNV3OcKYfwu8lVQ7+T/o/YPQPqQyuyG5tBA==}
+    engines: {node: '>=22'}
+
   '@theholocron/github-client@1.37.1':
     resolution: {integrity: sha512-SFjCXsz7yafZ4G/AtIgGlinLujai5oF4ZC8LbzUg5/z7T02qnw2hyLwZbea1dWWco7jx8j7VnbpInOjXnOX00Q==}
     engines: {node: '>=22.0.0'}
@@ -2706,6 +2718,14 @@ packages:
     peerDependenciesMeta:
       sort-package-json:
         optional: true
+
+  '@theholocron/misc-utils@1.9.2':
+    resolution: {integrity: sha512-QarKqWiTaOC6EN5Ge149ngxgwBHRSxVrY/7fxSjmA4EVPX7uHlqu4GwhoYuBtwoB/pidJKueWqiO+Adt+XCz0w==}
+    engines: {node: '>=22'}
+
+  '@theholocron/object-utils@1.9.2':
+    resolution: {integrity: sha512-N6CvWH+c1b83zEyaII40yYZDHGvgQUcnzlQTp7PubfcFa1XohmKzrsrAflVgTd61DDqdrTlPaM+XDFOhWr3O8w==}
+    engines: {node: '>=22'}
 
   '@theholocron/observability@0.3.2':
     resolution: {integrity: sha512-QqeB8vbCRldy0S82oLNiMEV9RHW+0yJzMl9bLG5phG38FN9mWE9G+8li+dYfNvZlG5mnoZ3l7cqST4cZ4ZBI9A==}
@@ -8281,6 +8301,10 @@ snapshots:
     dependencies:
       '@theholocron/datapad': 5.0.0-alpha.114
 
+  '@theholocron/astromech@5.0.0-alpha.129':
+    dependencies:
+      '@theholocron/datapad': 5.0.0-alpha.129
+
   '@theholocron/cli@5.0.0-alpha.114(@astrojs/react@6.0.5(@types/node@26.2.0)(@types/react-dom@19.2.5(@types/react@19.2.18))(@types/react@19.2.18)(esbuild@0.28.2)(jiti@2.7.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(tsx@4.23.12)(yaml@2.9.0))(@astrojs/starlight@0.42.0(astro@7.3.2(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(@types/node@26.2.0)(jiti@2.7.0)(tsx@4.23.12)(yaml@2.9.0))(typescript@6.0.3))(@opentelemetry/core@2.11.0(@opentelemetry/api@1.9.1))(@types/node@26.2.0)(astro@7.3.2(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(@types/node@26.2.0)(jiti@2.7.0)(tsx@4.23.12)(yaml@2.9.0))(dotenv@17.4.2)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(typescript@6.0.3)(vitest@4.1.10)':
     dependencies:
       '@axiomhq/pino': 2.0.0
@@ -8368,6 +8392,13 @@ snapshots:
     dependencies:
       tsx: 4.23.12
 
+  '@theholocron/datapad@5.0.0-alpha.129':
+    dependencies:
+      '@theholocron/fs-utils': 1.9.2
+      '@theholocron/misc-utils': 1.9.2
+      '@theholocron/object-utils': 1.9.2
+      tsx: 4.23.12
+
   '@theholocron/docs-theme@1.10.1(@astrojs/starlight@0.42.0(astro@7.3.2(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(@types/node@26.2.0)(jiti@2.7.0)(tsx@4.23.12)(yaml@2.9.0))(typescript@6.0.3))(astro@7.3.2(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(@types/node@26.2.0)(jiti@2.7.0)(tsx@4.23.12)(yaml@2.9.0))':
     dependencies:
       '@astrojs/starlight': 0.42.0(astro@7.3.2(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(@types/node@26.2.0)(jiti@2.7.0)(tsx@4.23.12)(yaml@2.9.0))(typescript@6.0.3)
@@ -8389,6 +8420,8 @@ snapshots:
       typescript-eslint: 8.65.0(eslint@10.10.0(jiti@2.7.0))(typescript@6.0.3)
     optionalDependencies:
       eslint-plugin-n: 18.3.0(eslint@10.10.0(jiti@2.7.0))(typescript@6.0.3)
+
+  '@theholocron/fs-utils@1.9.2': {}
 
   '@theholocron/github-client@1.37.1(@axiomhq/pino@2.0.0)(@sentry/node@10.73.0(@opentelemetry/core@2.11.0(@opentelemetry/api@1.9.1)))(pino-pretty@13.1.3)(pino@10.3.1)(posthog-node@5.51.8)(vitest@4.1.10)':
     dependencies:
@@ -8435,6 +8468,10 @@ snapshots:
       lint-staged: 16.4.0
     optionalDependencies:
       sort-package-json: 4.0.0
+
+  '@theholocron/misc-utils@1.9.2': {}
+
+  '@theholocron/object-utils@1.9.2': {}
 
   '@theholocron/observability@0.3.2(@axiomhq/pino@2.0.0)(@sentry/node@10.73.0(@opentelemetry/core@2.11.0(@opentelemetry/api@1.9.1)))(pino-pretty@13.1.3)(pino@10.3.1)(posthog-node@5.51.8)(vitest@4.1.10)':
     optionalDependencies:
