@@ -11,7 +11,7 @@ pnpm add @theholocron/fs-utils
 ## Usage
 
 ```typescript
-import { findExecutable, findRoot, findUpward, hasGitEntry } from "@theholocron/fs-utils";
+import { findExecutable, findExecutableSync, findRoot, findUpward, hasGitEntry } from "@theholocron/fs-utils";
 
 // nearest ancestor holding a marker file or directory
 const repoRoot = await findRoot(process.cwd(), ".git");
@@ -70,11 +70,14 @@ count. `bin` must be a bare command name (an empty string, `.`, `..` or anything
 with a path separator throws a `TypeError`), as does any filesystem error other
 than "not there" / "not permitted".
 
-- `options.path` — directories to search, delimited like `PATH` (`:` on POSIX,
-  `;` on Windows). Empty entries are skipped.
+- `options.path` — directories to search, delimited like `PATH` on the target
+  platform (`:` on POSIX, `;` on Windows). Empty entries are skipped; relative
+  ones are resolved against the working directory when the call starts, so
+  results are always absolute.
 - `options.pathExt` / `options.platform` — on Windows there is no exec bit:
   `bin` is tried with each `PATHEXT` extension (default `.COM;.EXE;.BAT;.CMD`)
-  unless it already ends in one.
+  unless it already ends in one. An extension containing a path separator
+  throws a `TypeError`.
 
 ```typescript
 // a project-local binary first, then the real PATH
