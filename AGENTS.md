@@ -19,6 +19,7 @@ read the same rules. Put durable, repo-wide agent guidance here.
 | `@theholocron/array-utils`     | Array conversion and manipulation                     |                                                                                    |
 | `@theholocron/date-time-utils` | Date and time utilities                               |                                                                                    |
 | `@theholocron/env-utils`       | Runtime environment detection + typed env-var parsing | Merged from `@magnite/environment` + `@magnite/env-parser`; `dotenv` is a peer dep |
+| `@theholocron/json-utils`      | Stringify JSON, preserving a file's indent and EOLs   | Pure, zero dependencies                                                            |
 | `@theholocron/location-utils`  | Browser geolocation wrapper                           | Uses browser APIs — no tests yet (see #166)                                        |
 | `@theholocron/misc-utils`      | Miscellaneous utilities (Konami code, etc.)           | Uses browser APIs (`KeyboardEvent`)                                                |
 | `@theholocron/storage-utils`   | Session storage wrapper                               | Uses browser APIs (`sessionStorage`) — coverage at 62% (see #167)                  |

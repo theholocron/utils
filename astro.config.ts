@@ -14,6 +14,7 @@ export default defineConfig({
 					{ label: "Array", slug: "array-utils" },
 					{ label: "Date & Time", slug: "date-time-utils" },
 					{ label: "Environment", slug: "env-utils" },
+					{ label: "JSON", slug: "json-utils" },
 					{ label: "Location", slug: "location-utils" },
 					{ label: "Misc", slug: "misc-utils" },
 					{ label: "Storage", slug: "storage-utils" },

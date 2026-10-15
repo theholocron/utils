@@ -78,11 +78,11 @@ catalogs:
       version: 4.1.10
   docs:
     '@theholocron/components-doc':
-      specifier: ^1.16.0
-      version: 1.16.0
+      specifier: ^1.18.0
+      version: 1.18.0
     '@theholocron/registry-doc':
-      specifier: ^1.16.0
-      version: 1.16.0
+      specifier: ^1.18.0
+      version: 1.18.0
   holocron:
     '@theholocron/astromech':
       specifier: 5.0.0-alpha.114
@@ -149,7 +149,7 @@ importers:
         version: 8.2.0(@commitlint/cli@21.2.2(@types/node@26.2.0)(conventional-commits-parser@7.1.2)(typescript@6.0.3))(@commitlint/config-conventional@21.2.2)
       '@theholocron/components-doc':
         specifier: catalog:docs
-        version: 1.16.0(@astrojs/react@6.0.5(@types/node@26.2.0)(@types/react-dom@19.2.5(@types/react@19.2.18))(@types/react@19.2.18)(esbuild@0.28.2)(jiti@2.7.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(tsx@4.23.12)(yaml@2.9.0))(@astrojs/starlight@0.42.0(astro@7.3.2(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(@types/node@26.2.0)(jiti@2.7.0)(tsx@4.23.12)(yaml@2.9.0))(typescript@6.0.3))(astro@7.3.2(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(@types/node@26.2.0)(jiti@2.7.0)(tsx@4.23.12)(yaml@2.9.0))(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+        version: 1.18.0(@astrojs/react@6.0.5(@types/node@26.2.0)(@types/react-dom@19.2.5(@types/react@19.2.18))(@types/react@19.2.18)(esbuild@0.28.2)(jiti@2.7.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(tsx@4.23.12)(yaml@2.9.0))(@astrojs/starlight@0.42.0(astro@7.3.2(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(@types/node@26.2.0)(jiti@2.7.0)(tsx@4.23.12)(yaml@2.9.0))(typescript@6.0.3))(astro@7.3.2(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(@types/node@26.2.0)(jiti@2.7.0)(tsx@4.23.12)(yaml@2.9.0))(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       '@theholocron/docs-theme':
         specifier: 'catalog:'
         version: 1.10.1(@astrojs/starlight@0.42.0(astro@7.3.2(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(@types/node@26.2.0)(jiti@2.7.0)(tsx@4.23.12)(yaml@2.9.0))(typescript@6.0.3))(astro@7.3.2(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(@types/node@26.2.0)(jiti@2.7.0)(tsx@4.23.12)(yaml@2.9.0))
@@ -173,7 +173,7 @@ importers:
         version: 8.2.0(prettier@3.9.6)
       '@theholocron/registry-doc':
         specifier: catalog:docs
-        version: 1.16.0
+        version: 1.18.0
       '@theholocron/semantic-release-config':
         specifier: catalog:configs
         version: 8.2.0(@semantic-release/changelog@6.0.3(semantic-release@25.0.9(typescript@6.0.3)))(@semantic-release/commit-analyzer@13.0.1(semantic-release@25.0.9(typescript@6.0.3)))(@semantic-release/exec@7.1.0(semantic-release@25.0.9(typescript@6.0.3)))(@semantic-release/git@10.0.1(semantic-release@25.0.9(typescript@6.0.3)))(@semantic-release/github@12.0.9(semantic-release@25.0.9(typescript@6.0.3)))(@semantic-release/release-notes-generator@14.1.1(semantic-release@25.0.9(typescript@6.0.3)))(conventional-changelog-conventionalcommits@9.3.1)(semantic-release@25.0.9(typescript@6.0.3))
@@ -328,6 +328,33 @@ importers:
         version: 4.1.10(@opentelemetry/api@1.9.1)(@types/node@26.2.0)(@vitest/coverage-v8@4.1.10)(happy-dom@20.14.0)(vite@8.2.2(@types/node@26.2.0)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.23.12)(yaml@2.9.0))
 
   packages/fs-utils:
+    devDependencies:
+      '@theholocron/cli':
+        specifier: catalog:holocron
+        version: 5.0.0-alpha.114(@astrojs/react@6.0.5(@types/node@26.2.0)(@types/react-dom@19.2.5(@types/react@19.2.18))(@types/react@19.2.18)(esbuild@0.28.2)(jiti@2.7.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(tsx@4.23.12)(yaml@2.9.0))(@astrojs/starlight@0.42.0(astro@7.3.2(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(@types/node@26.2.0)(jiti@2.7.0)(tsx@4.23.12)(yaml@2.9.0))(typescript@6.0.3))(@opentelemetry/core@2.11.0(@opentelemetry/api@1.9.1))(@types/node@26.2.0)(astro@7.3.2(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(@types/node@26.2.0)(jiti@2.7.0)(tsx@4.23.12)(yaml@2.9.0))(dotenv@17.4.2)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(typescript@6.0.3)(vitest@4.1.10)
+      '@theholocron/tsdown-config':
+        specifier: catalog:configs
+        version: 8.2.0(tsdown@0.23.0(oxc-resolver@11.24.2)(tsx@4.23.12)(typescript@6.0.3))
+      '@theholocron/vitest-config':
+        specifier: catalog:configs
+        version: 8.2.0(@testing-library/user-event@14.6.1(@testing-library/dom@10.4.1))(@vitest/coverage-v8@4.1.10)(vitest@4.1.10)
+      '@tsconfig/node-lts':
+        specifier: 'catalog:'
+        version: 24.0.1
+      '@types/node':
+        specifier: 'catalog:'
+        version: 26.2.0
+      '@vitest/coverage-v8':
+        specifier: 'catalog:'
+        version: 4.1.10(vitest@4.1.10)
+      tsdown:
+        specifier: 'catalog:'
+        version: 0.23.0(oxc-resolver@11.24.2)(tsx@4.23.12)(typescript@6.0.3)
+      vitest:
+        specifier: 'catalog:'
+        version: 4.1.10(@opentelemetry/api@1.9.1)(@types/node@26.2.0)(@vitest/coverage-v8@4.1.10)(happy-dom@20.14.0)(vite@8.2.2(@types/node@26.2.0)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.23.12)(yaml@2.9.0))
+
+  packages/json-utils:
     devDependencies:
       '@theholocron/cli':
         specifier: catalog:holocron
@@ -2543,6 +2570,23 @@ packages:
       react-dom:
         optional: true
 
+  '@theholocron/components-doc@1.18.0':
+    resolution: {integrity: sha512-nSuul76J8uAXFZHAUfEWwB+h8jLWNS8+cZedAKlxGenSdsjZ/HguOSNb7EfxmuqsheswUbCV36sEMnGVGfXdrQ==}
+    engines: {node: '>=22.0.0'}
+    peerDependencies:
+      '@astrojs/react': '>=3.0.0'
+      '@astrojs/starlight': '>=0.30.0'
+      astro: '>=5.0.0'
+      react: '>=18.0.0'
+      react-dom: '>=18.0.0'
+    peerDependenciesMeta:
+      '@astrojs/react':
+        optional: true
+      react:
+        optional: true
+      react-dom:
+        optional: true
+
   '@theholocron/datapad@5.0.0-alpha.114':
     resolution: {integrity: sha512-nxRDcvhP8Xn45WFNSP4J9H+RcL5zc5ErsSrH7n9ONIqczkfAeThX+Icmez1NMec0eejh94wtVpaY2ycQDT1EiA==}
     engines: {node: '>=22'}
@@ -2692,6 +2736,10 @@ packages:
 
   '@theholocron/registry-doc@1.16.0':
     resolution: {integrity: sha512-EyZY6yAAN1sgzU6bKGK6f+wkTZo518RCC3OdLYgECPfh1dLx2wQ2MPtqa/YCVDkvf4IK1o3CTGb2PkuP/dK4eg==}
+    engines: {node: '>=22.0.0'}
+
+  '@theholocron/registry-doc@1.18.0':
+    resolution: {integrity: sha512-5MtjJAe7wNoEaKdNkdFDapzjDmOTLua0vIqAg6qR9b+MesIuIKj6Zno0Dy7yKbyzkBd9hy3IbNJzlwfxVzTm4w==}
     engines: {node: '>=22.0.0'}
 
   '@theholocron/semantic-release-config@8.2.0':
@@ -2985,133 +3033,157 @@ packages:
     resolution: {integrity: sha512-6ViGFAr+N2Yjnc8wBx16wJZGB0pGmClILO+FUC3kzwEydfjXQovWEdcFyl98RVtWdj9ahS41XXe2zKFl+L3uWg==}
     cpu: [arm64]
     os: [android]
+    deprecated: yuku-codegen is pure JavaScript since 0.14
 
   '@yuku-codegen/binding-darwin-arm64@0.9.4':
     resolution: {integrity: sha512-0BTB70ha+wRsz6fI5HosevJpMmvgndmf+6ND1OneFKCrWhNzX/2xIQ36Z8rUgv5bpnWjKl6bRvzSFV3PU+WOlQ==}
     cpu: [arm64]
     os: [darwin]
+    deprecated: yuku-codegen is pure JavaScript since 0.14
 
   '@yuku-codegen/binding-darwin-x64@0.9.4':
     resolution: {integrity: sha512-9QVVqq8LCD6v+Gl099u32YJ0999HBCoe09ecIeifKTi4Y1azX44DkF9q9pP2lxgwRUvR3GmWl5k1pLe3ojR2rg==}
     cpu: [x64]
     os: [darwin]
+    deprecated: yuku-codegen is pure JavaScript since 0.14
 
   '@yuku-codegen/binding-freebsd-x64@0.9.4':
     resolution: {integrity: sha512-Qm3ky33Em9w1XVSryq+D/arLVapeqp0Bu1719UGV6olmfp4kTD+NfsLG9bRx5hOJSu1Zl3r9LbyTP1oTmcHAsg==}
     cpu: [x64]
     os: [freebsd]
+    deprecated: yuku-codegen is pure JavaScript since 0.14
 
   '@yuku-codegen/binding-linux-arm-gnu@0.9.4':
     resolution: {integrity: sha512-euKmS7pnkeJylEN6+9bfu0jHtGfbQRfFBIpmTe8YVnWzQ5Rjyrns13+1kao2RSS9DNkucX1RXIdiTvQoDUXF0w==}
     cpu: [arm]
     os: [linux]
     libc: [glibc]
+    deprecated: yuku-codegen is pure JavaScript since 0.14
 
   '@yuku-codegen/binding-linux-arm-musl@0.9.4':
     resolution: {integrity: sha512-7JTizi2O+ks9/dLPDLYmVLsYQUC9Fxu0e6LNA+F6FFQ/sV2o7owBb1eTccMKkgauWGGUpJYQvlXrCKpGwguvhA==}
     cpu: [arm]
     os: [linux]
     libc: [musl]
+    deprecated: yuku-codegen is pure JavaScript since 0.14
 
   '@yuku-codegen/binding-linux-arm64-gnu@0.9.4':
     resolution: {integrity: sha512-f7eLYDwmcz56Jzvp8UmXUehFzTAn6hEHt64GDWNWGSqrphHRvWLEshQ+sQv8DfNpkXFaOQ49erl4gb2Wm0JM+A==}
     cpu: [arm64]
     os: [linux]
     libc: [glibc]
+    deprecated: yuku-codegen is pure JavaScript since 0.14
 
   '@yuku-codegen/binding-linux-arm64-musl@0.9.4':
     resolution: {integrity: sha512-bLdjCgo+u3dU3HH/t+WZ8FsAo2IgdOzruTHZ+XTFquj6j//QJjH9xfyRtu7h65lCT3CQVW9aGEe6/A/HPyA9KQ==}
     cpu: [arm64]
     os: [linux]
     libc: [musl]
+    deprecated: yuku-codegen is pure JavaScript since 0.14
 
   '@yuku-codegen/binding-linux-x64-gnu@0.9.4':
     resolution: {integrity: sha512-hDMB71QCDx2AAxhlCBgakngMAa4KK6f6rcTt9v8nrzoXs681cmZultGeZk0tjONxli+N+VMhXQUoiVCSJuKiQg==}
     cpu: [x64]
     os: [linux]
     libc: [glibc]
+    deprecated: yuku-codegen is pure JavaScript since 0.14
 
   '@yuku-codegen/binding-linux-x64-musl@0.9.4':
     resolution: {integrity: sha512-uk1hOZA79AqziAH9A/eSD05VchNRdnLb6zxFGHhCbLYeeGYL+KOEL0+kCIPtaKuQ7wdxDOooiKE1D0jpaWQ0aA==}
     cpu: [x64]
     os: [linux]
     libc: [musl]
+    deprecated: yuku-codegen is pure JavaScript since 0.14
 
   '@yuku-codegen/binding-win32-arm64@0.9.4':
     resolution: {integrity: sha512-IbZuNVrctjts5lAKUEd9ppnzvylaPdYBTv8AVDtY6EyQ5hpgUfsReqbqODJVGpn2/uIk1fa1jWP012orPoiK+A==}
     cpu: [arm64]
     os: [win32]
+    deprecated: yuku-codegen is pure JavaScript since 0.14
 
   '@yuku-codegen/binding-win32-x64@0.9.4':
     resolution: {integrity: sha512-UqC4C0PlVAPEQ8fYr0AamuW2zKAkqQFiaaQ88Rl3YlzSNlshj+VmDoSbJRw4TFYL22+Vw53zDSJ95aXyjJN/aw==}
     cpu: [x64]
     os: [win32]
+    deprecated: yuku-codegen is pure JavaScript since 0.14
 
   '@yuku-parser/binding-android-arm64@0.9.4':
     resolution: {integrity: sha512-x+dZef5ulszaYzgjHLUgnhDXAgJsGfodl30JuTinfLN5mEyB50burpUuyUqufGQp0fpI/sHLAN3V8fuJteFEQQ==}
     cpu: [arm64]
     os: [android]
+    deprecated: yuku-parser runs on yuku-core since 0.14
 
   '@yuku-parser/binding-darwin-arm64@0.9.4':
     resolution: {integrity: sha512-bSpjVPP8zTTcMZi78gxPkZZhVNbg4Doqsb2CrxHR2g+vZxP7Ey4GVzgD5nVYSHgS1y8dGULGW8AhPrfRWFEF6w==}
     cpu: [arm64]
     os: [darwin]
+    deprecated: yuku-parser runs on yuku-core since 0.14
 
   '@yuku-parser/binding-darwin-x64@0.9.4':
     resolution: {integrity: sha512-QNswJLBxsoDkghztrF0bUy+DEUoeX1lS4cL3dCM1IB4hfLoZ3Jf3jmCoggDnqN++sJ91F6w8oHiyQ4ZhUEr/bg==}
     cpu: [x64]
     os: [darwin]
+    deprecated: yuku-parser runs on yuku-core since 0.14
 
   '@yuku-parser/binding-freebsd-x64@0.9.4':
     resolution: {integrity: sha512-D4rmGI0EOwxmKsv3+iGQDmtJ9/Oqr9wPxsQpONZ+QmxHqNbl+08XaJkhuC5wAg17bj6afcpdQfiIAoSMBY17Rw==}
     cpu: [x64]
     os: [freebsd]
+    deprecated: yuku-parser runs on yuku-core since 0.14
 
   '@yuku-parser/binding-linux-arm-gnu@0.9.4':
     resolution: {integrity: sha512-rZuqBxlaRnNY57nawRP1LPx4i+ieCrvIQkBsbGu/xjWkZGzFCrHPliy5YiMxp3Mw4v5KftAlDJx7c9jApNk2ww==}
     cpu: [arm]
     os: [linux]
     libc: [glibc]
+    deprecated: yuku-parser runs on yuku-core since 0.14
 
   '@yuku-parser/binding-linux-arm-musl@0.9.4':
     resolution: {integrity: sha512-0PRDvRZvh18Q1lADxs0RMtqYHTd3dD/o1WEnMO/K8o7V9Gmy/7nD3/HjGQCxFPxkHTp41toF+DsXgEandAc2Gw==}
     cpu: [arm]
     os: [linux]
     libc: [musl]
+    deprecated: yuku-parser runs on yuku-core since 0.14
 
   '@yuku-parser/binding-linux-arm64-gnu@0.9.4':
     resolution: {integrity: sha512-CT1I24KFA/Tv/Exi1f+CVxafUIjlKm3gc51HbWLW7yf7OvJKCvKSja+EB17sDtYsS5a2EB9BTr8I5fPuDJ8rFA==}
     cpu: [arm64]
     os: [linux]
     libc: [glibc]
+    deprecated: yuku-parser runs on yuku-core since 0.14
 
   '@yuku-parser/binding-linux-arm64-musl@0.9.4':
     resolution: {integrity: sha512-DP193Z3nUXQ92AwmmkIAhVLxv2qj8rWAAAODownCwUk0wKrmnyH9km9Gd4NSmntBYG/Kv0P5btN6qcO1JXgEdw==}
     cpu: [arm64]
     os: [linux]
     libc: [musl]
+    deprecated: yuku-parser runs on yuku-core since 0.14
 
   '@yuku-parser/binding-linux-x64-gnu@0.9.4':
     resolution: {integrity: sha512-tjoxmuNz+xmSt/Or+US5aaKpRZcptQsWYaPtDp1/0QUvhyg8VS6mOrizKkzVBJKYVNZ7eDTleOBquYVm+Haz6w==}
     cpu: [x64]
     os: [linux]
     libc: [glibc]
+    deprecated: yuku-parser runs on yuku-core since 0.14
 
   '@yuku-parser/binding-linux-x64-musl@0.9.4':
     resolution: {integrity: sha512-kHXf72EM6oHN58Swwruf9plXlCVY4mOlgqIjpXenEAY87cVcH3VxMZdCQG7rIKa+k0Hf3E/WS/8ufqZSCER7Gw==}
     cpu: [x64]
     os: [linux]
     libc: [musl]
+    deprecated: yuku-parser runs on yuku-core since 0.14
 
   '@yuku-parser/binding-win32-arm64@0.9.4':
     resolution: {integrity: sha512-Yj6+bbGDZrLbzp1Qr7hiaIjYagslUrRy6t3TIxfiXUeJWNH8ydx7birM0UJiIInqUld0mk9qBz1kei/T8gcKvw==}
     cpu: [arm64]
     os: [win32]
+    deprecated: yuku-parser runs on yuku-core since 0.14
 
   '@yuku-parser/binding-win32-x64@0.9.4':
     resolution: {integrity: sha512-B9D+Z1/jVfoEd1SgbuaYTPH6onVlSsSaK151mW8Rb6Yv+OrTOocNnv2w3peBicS6MB3VI+mJG8YqxRI4ONd1OQ==}
     cpu: [x64]
     os: [win32]
+    deprecated: yuku-parser runs on yuku-core since 0.14
 
   '@yuku-toolchain/types@0.9.4':
     resolution: {integrity: sha512-dqnMswJWE7YBbPEvGstgFlWFTRn20V/Hu82XTDjWxzaU18rGpxBqxhKlBlgyWrPARRvNLIqY2XA6S9edR+2AsA==}
@@ -8251,6 +8323,20 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
+  '@theholocron/components-doc@1.18.0(@astrojs/react@6.0.5(@types/node@26.2.0)(@types/react-dom@19.2.5(@types/react@19.2.18))(@types/react@19.2.18)(esbuild@0.28.2)(jiti@2.7.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(tsx@4.23.12)(yaml@2.9.0))(@astrojs/starlight@0.42.0(astro@7.3.2(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(@types/node@26.2.0)(jiti@2.7.0)(tsx@4.23.12)(yaml@2.9.0))(typescript@6.0.3))(astro@7.3.2(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(@types/node@26.2.0)(jiti@2.7.0)(tsx@4.23.12)(yaml@2.9.0))(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+    dependencies:
+      '@astrojs/starlight': 0.42.0(astro@7.3.2(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(@types/node@26.2.0)(jiti@2.7.0)(tsx@4.23.12)(yaml@2.9.0))(typescript@6.0.3)
+      '@codesandbox/sandpack-react': 2.20.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      astro: 7.3.2(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(@types/node@26.2.0)(jiti@2.7.0)(tsx@4.23.12)(yaml@2.9.0)
+      mdast-util-mdx-jsx: 3.2.0
+      unist-util-visit: 5.1.0
+    optionalDependencies:
+      '@astrojs/react': 6.0.5(@types/node@26.2.0)(@types/react-dom@19.2.5(@types/react@19.2.18))(@types/react@19.2.18)(esbuild@0.28.2)(jiti@2.7.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(tsx@4.23.12)(yaml@2.9.0)
+      react: 19.2.8
+      react-dom: 19.2.8(react@19.2.8)
+    transitivePeerDependencies:
+      - supports-color
+
   '@theholocron/datapad@5.0.0-alpha.114':
     dependencies:
       tsx: 4.23.12
@@ -8346,6 +8432,8 @@ snapshots:
       prettier: 3.9.6
 
   '@theholocron/registry-doc@1.16.0': {}
+
+  '@theholocron/registry-doc@1.18.0': {}
 
   '@theholocron/semantic-release-config@8.2.0(@semantic-release/changelog@6.0.3(semantic-release@25.0.9(typescript@6.0.3)))(@semantic-release/commit-analyzer@13.0.1(semantic-release@25.0.9(typescript@6.0.3)))(@semantic-release/exec@7.1.0(semantic-release@25.0.9(typescript@6.0.3)))(@semantic-release/git@10.0.1(semantic-release@25.0.9(typescript@6.0.3)))(@semantic-release/github@12.0.9(semantic-release@25.0.9(typescript@6.0.3)))(@semantic-release/release-notes-generator@14.1.1(semantic-release@25.0.9(typescript@6.0.3)))(conventional-changelog-conventionalcommits@9.3.1)(semantic-release@25.0.9(typescript@6.0.3))':
     dependencies:
