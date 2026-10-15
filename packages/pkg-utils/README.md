@@ -27,7 +27,7 @@ file read, for callers with an injected or in-memory filesystem.
 ### `parsePackageJson(text)`
 
 Parses `package.json` text, ignoring a leading byte-order mark. `undefined` for
-invalid JSON or JSON that isn't an object. The fields `PackageJson` types are
+broken JSON or JSON that isn't an object. The fields `PackageJson` types are
 checked: one of the wrong type is left out, and the string-map fields (`scripts`,
 and the dependency maps) keep only their string-valued entries.
 
