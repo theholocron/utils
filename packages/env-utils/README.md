@@ -58,6 +58,14 @@ const env = withEnvPrefix(createEnvLookup(), "MYAPP");
 env.get("SENTRY_DSN"); // MYAPP_SENTRY_DSN, else SENTRY_DSN
 ```
 
+### Importing without side effects
+
+The package entry also exports `DotenvLoader`, whose module runs `import "dotenv/config"` and so loads `.env` into `process.env` the moment the package is imported. Libraries that only read variables should import from the `/lookup` subpath, which has `createEnvLookup`, `firstEnv` and `withEnvPrefix` and never touches dotenv:
+
+```typescript
+import { createEnvLookup, firstEnv } from "@theholocron/env-utils/lookup";
+```
+
 ### Logging
 
 Debug output (key-loaded counts, missing-key warnings, deprecation notices) goes to `console.info`/`console.warn` by default. Pass an `EnvLogger` (any object shaped `{ info(message, meta?), warn(message, meta?) }`) to route it elsewhere:
