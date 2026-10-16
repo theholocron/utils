@@ -53,7 +53,7 @@ const dsn = firstEnv(env, ["MYAPP_SENTRY_DSN", "SENTRY_DSN"], DEFAULT_DSN);
 
 ### `withEnvPrefix(env, prefix)`
 
-Wraps an `EnvLookup` so `get("KEY")` tries `<prefix>_KEY` first and falls back to `KEY`. Pass the prefix without a trailing underscore. The result is itself an `EnvLookup`, so it works anywhere one is expected, including with `firstEnv`.
+Wraps an `EnvLookup` so `get("KEY")` tries `<prefix>_KEY` first and falls back to `KEY`. Pass the prefix without a trailing underscore, in upper case: it is matched with exact case, because an `EnvLookup` only answers exact-name `get` calls (unlike `filterByNamespace`, which scans a whole env record). The result is itself an `EnvLookup`, so it works anywhere one is expected, including with `firstEnv`.
 
 ```ts
 import { createEnvLookup, withEnvPrefix } from "@theholocron/env-utils";

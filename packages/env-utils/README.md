@@ -49,7 +49,7 @@ const env = createEnvLookup();
 const dsn = firstEnv(env, ["MYAPP_SENTRY_DSN", "SENTRY_DSN"], DEFAULT_DSN);
 ```
 
-`withEnvPrefix(env, prefix)` wraps an `EnvLookup` so `get("KEY")` tries `<prefix>_KEY` first, then `KEY`. Name the variable once and let the namespaced override win:
+`withEnvPrefix(env, prefix)` wraps an `EnvLookup` so `get("KEY")` tries `<prefix>_KEY` first, then `KEY`. The prefix is matched with exact case, so pass it in upper case. Name the variable once and let the namespaced override win:
 
 ```typescript
 import { createEnvLookup, withEnvPrefix } from "@theholocron/env-utils";

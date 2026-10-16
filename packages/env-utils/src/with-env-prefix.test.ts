@@ -33,4 +33,9 @@ describe("withEnvPrefix", () => {
 		const env = withEnvPrefix(createEnvLookup({ HOLOCRON_ORG: "acme" }), "HOLOCRON");
 		expect(env.get("ORG")).toBe("acme");
 	});
+
+	it("matches the prefix with exact case", () => {
+		const env = withEnvPrefix(createEnvLookup({ HOLOCRON_TOKEN: "prefixed", TOKEN: "bare" }), "holocron");
+		expect(env.get("TOKEN")).toBe("bare");
+	});
 });
