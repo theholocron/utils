@@ -49,6 +49,15 @@ const env = createEnvLookup();
 const dsn = firstEnv(env, ["MYAPP_SENTRY_DSN", "SENTRY_DSN"], DEFAULT_DSN);
 ```
 
+`withEnvPrefix(env, prefix)` wraps an `EnvLookup` so `get("KEY")` tries `<prefix>_KEY` first, then `KEY`. Name the variable once and let the namespaced override win:
+
+```typescript
+import { createEnvLookup, withEnvPrefix } from "@theholocron/env-utils";
+
+const env = withEnvPrefix(createEnvLookup(), "MYAPP");
+env.get("SENTRY_DSN"); // MYAPP_SENTRY_DSN, else SENTRY_DSN
+```
+
 ### Logging
 
 Debug output (key-loaded counts, missing-key warnings, deprecation notices) goes to `console.info`/`console.warn` by default. Pass an `EnvLogger` (any object shaped `{ info(message, meta?), warn(message, meta?) }`) to route it elsewhere:

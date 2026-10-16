@@ -51,6 +51,17 @@ const env = createEnvLookup();
 const dsn = firstEnv(env, ["MYAPP_SENTRY_DSN", "SENTRY_DSN"], DEFAULT_DSN);
 ```
 
+### `withEnvPrefix(env, prefix)`
+
+Wraps an `EnvLookup` so `get("KEY")` tries `<prefix>_KEY` first and falls back to `KEY`. Pass the prefix without a trailing underscore. The result is itself an `EnvLookup`, so it works anywhere one is expected, including with `firstEnv`.
+
+```ts
+import { createEnvLookup, withEnvPrefix } from "@theholocron/env-utils";
+
+const env = withEnvPrefix(createEnvLookup(), "MYAPP");
+env.get("SENTRY_DSN"); // MYAPP_SENTRY_DSN, else SENTRY_DSN
+```
+
 ## Typed env parsing
 
 ### `createEnvParser(options)`
