@@ -1,6 +1,6 @@
 import { mkdir, mkdtemp, rm, symlink, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
-import { join } from "node:path";
+import { isAbsolute, join } from "node:path";
 
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
 
@@ -68,6 +68,53 @@ describe("listWorkspacePackagesSync", () => {
 		await mkdir(join(repo, "packages"), { recursive: true });
 		await symlink(join(repo, "elsewhere", "linked"), join(repo, "packages", "linked"));
 		expect(listWorkspacePackagesSync(repo).map((e) => e.name)).toEqual(["linked"]);
+	});
+
+	it("returns absolute dirs even for a relative repoRoot", async () => {
+		await pkg("packages/a", { name: "a" });
+		const previous = process.cwd();
+		process.chdir(repo);
+		try {
+			const [entry] = listWorkspacePackagesSync(".");
+			expect(entry!.dir.endsWith(join("packages", "a"))).toBe(true);
+			expect(isAbsolute(entry!.dir)).toBe(true);
+			expect(entry!.relativeDir).toBe("packages/a");
+		} finally {
+			process.chdir(previous);
+		}
+	});
+
+	it("rejects a root that is absolute, empty or climbs out of the repo", () => {
+		for (const root of ["../other", "packages/../../other", "/etc", ".", ""]) {
+			expect(() => listWorkspacePackagesSync(repo, { roots: [root] }), root).toThrow(TypeError);
+		}
+	});
+
+	it("accepts a nested root inside the repo", async () => {
+		await pkg("tools/cli/a", { name: "a" });
+		expect(listWorkspacePackagesSync(repo, { roots: ["tools/cli"] }).map((e) => e.relativeDir)).toEqual([
+			"tools/cli/a",
+		]);
+	});
+
+	it("propagates a listing error that isn't 'not there'", async () => {
+		await mkdir(join(repo, "packages"), { recursive: true });
+		const denied = Object.assign(new Error("denied"), { code: "EACCES" });
+		expect(() =>
+			listWorkspacePackagesSync(repo, {
+				listDirs: () => {
+					throw denied;
+				},
+			})
+		).toThrow(denied);
+		const notDir = Object.assign(new Error("not a dir"), { code: "ENOTDIR" });
+		expect(
+			listWorkspacePackagesSync(repo, {
+				listDirs: () => {
+					throw notDir;
+				},
+			})
+		).toEqual([]);
 	});
 
 	it("ignores a dangling symlink in a root", async () => {
