@@ -84,11 +84,12 @@ describe("listWorkspacePackagesSync", () => {
 		}
 	});
 
-	it("rejects a root that is absolute, empty or climbs out of the repo", () => {
-		for (const root of ["../other", "packages/../../other", "/etc", ".", ""]) {
-			expect(() => listWorkspacePackagesSync(repo, { roots: [root] }), root).toThrow(TypeError);
+	it.each(["../other", "packages/../../other", "/etc", ".", ""])(
+		"rejects the root %j, which is absolute, empty or climbs out of the repo",
+		(root) => {
+			expect(() => listWorkspacePackagesSync(repo, { roots: [root] })).toThrow(TypeError);
 		}
-	});
+	);
 
 	it("accepts a nested root inside the repo", async () => {
 		await pkg("tools/cli/a", { name: "a" });
