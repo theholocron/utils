@@ -95,10 +95,12 @@ const tsc = findExecutableSync("tsc", { path: join(cwd, "node_modules", ".bin") 
 
 Every regular file under `dir`, as absolute paths in a stable (name-sorted,
 depth-first) order. `options.skip` names the directories not entered, at any
-depth (default `.git` and `node_modules`; it replaces the default). Symlinks are
-neither followed nor listed, so a link back up the tree can't loop. A
-subdirectory that can't be read is skipped; `dir` itself must be readable — its
-error propagates.
+depth (default `.git` and `node_modules`; it replaces the default); a _file_
+with that name is still listed. Symlinks found while walking are neither
+followed nor listed, so a link back up the tree can't loop; `dir` itself is
+followed if it is a symlink. A subdirectory that can't be read is skipped; `dir`
+itself must be readable — its error propagates. The tree is assumed not to
+change mid-walk.
 
 ```typescript
 const sources = walkFilesSync(repoRoot, { skip: [".git", "node_modules", "dist"] });

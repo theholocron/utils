@@ -26,13 +26,13 @@ Every package name declared in `dependencies` and `devDependencies` (or the `fie
 
 ### `listWorkspacePackagesSync(repoRoot, options?)`
 
-Every package directly under the workspace roots of `repoRoot` that has a readable `package.json` holding a JSON object, as `{ name, dir, relativeDir, manifest }` — roots in the order given, packages within a root sorted by directory name. A missing root, and a directory without a usable manifest, contribute nothing. Nothing is filtered by `name`, `version` or `private`: that is the caller's call.
+Every package directly under the workspace roots of `repoRoot` that has a readable `package.json` holding a JSON object, as `{ name, dir, relativeDir, manifest }` — roots in the order given, packages within a root sorted by directory name. A missing root, and a directory without a usable manifest, contribute nothing. Nothing is filtered by `name`, `version` or `private`: that is the caller's call. `dir` is always absolute, and a listing error other than "not there" throws.
 
-| Option     | Effect                                                                            |
-| ---------- | --------------------------------------------------------------------------------- |
-| `roots`    | Directories to scan. Defaults to `["packages", "plugins"]`.                       |
-| `readFile` | Replaces the `package.json` read.                                                 |
-| `listDirs` | Replaces the directory listing (subdirectory names; throws when `dir` is absent). |
+| Option     | Effect                                                                                                        |
+| ---------- | ------------------------------------------------------------------------------------------------------------- |
+| `roots`    | Directories to scan, each inside `repoRoot` (a `TypeError` otherwise). Defaults to `["packages", "plugins"]`. |
+| `readFile` | Replaces the `package.json` read.                                                                             |
+| `listDirs` | Replaces the directory listing (subdirectory names; throws when `dir` is absent).                             |
 
 ```ts
 import { listWorkspacePackagesSync } from "@theholocron/pkg-utils";
