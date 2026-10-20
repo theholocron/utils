@@ -1,8 +1,18 @@
-import { mkdir, mkdtemp, rm, writeFile } from "node:fs/promises";
+import { mkdir, mkdtemp, rm, stat, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 
-import { afterEach, beforeEach, describe, expect, it } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+
+// Vitest can't spy on a live ESM named export directly ("Module namespace is
+// not configurable") -- mock the module with a `stat` that delegates to the
+// real implementation by default, so `mockRejectedValueOnce` below can
+// override just one call without needing an explicit restore afterward (the
+// "once" queue drains after that single call).
+vi.mock("node:fs/promises", async (importOriginal) => {
+	const actual = await importOriginal<typeof import("node:fs/promises")>();
+	return { ...actual, stat: vi.fn(actual.stat) };
+});
 
 import { isWorkspaceRoot } from "./is-workspace-root.ts";
 
@@ -30,12 +40,29 @@ describe("isWorkspaceRoot", () => {
 	});
 
 	it("returns false when pnpm-workspace.yaml is a directory, not a file", async () => {
-		// access() only checks existence/permissions, not file type — a
-		// same-named directory still satisfies it. Documenting the actual
-		// behavior here rather than guarding against a scenario that
-		// shouldn't occur in practice (pnpm itself always writes this as a
-		// file).
 		await mkdir(join(dir, "pnpm-workspace.yaml"));
-		expect(await isWorkspaceRoot(dir)).toBe(true);
+		expect(await isWorkspaceRoot(dir)).toBe(false);
+	});
+
+	it("resolves a relative dir against the working directory, not a cwd that changed mid-call", async () => {
+		await writeFile(join(dir, "pnpm-workspace.yaml"), "packages:\n  - packages/*\n");
+		const originalCwd = process.cwd();
+		process.chdir(dir);
+		try {
+			const pending = isWorkspaceRoot(".");
+			// Simulates another task changing the process-wide cwd while this
+			// call's own lookup is still pending -- resolve() up front means
+			// this doesn't affect which directory gets checked.
+			process.chdir(originalCwd);
+			expect(await pending).toBe(true);
+		} finally {
+			process.chdir(originalCwd);
+		}
+	});
+
+	it("propagates a filesystem error other than ENOENT instead of reading it as false", async () => {
+		const err = Object.assign(new Error("permission denied"), { code: "EACCES" });
+		vi.mocked(stat).mockRejectedValueOnce(err);
+		await expect(isWorkspaceRoot(dir)).rejects.toMatchObject({ code: "EACCES" });
 	});
 });

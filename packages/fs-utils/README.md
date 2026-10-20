@@ -36,7 +36,7 @@ const configDir = await findUpward(
 await hasGitEntry("/path/to/dir"); // true if a .git entry (file or folder) exists there
 
 // decide whether a pnpm command needs -w at this directory
-await isWorkspaceRoot(repoRoot);
+await isWorkspaceRoot(repoRoot ?? process.cwd());
 ```
 
 ### `findUpward(startDir, check, stop?)`
